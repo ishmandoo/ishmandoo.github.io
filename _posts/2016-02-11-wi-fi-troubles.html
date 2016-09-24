@@ -1,0 +1,38 @@
+---
+layout: post
+title: Wi-Fi Troubles
+date: '2016-02-11 14:31:36 -0500'
+categories:
+- Troubleshooting
+tags: []
+comments: []
+---
+<p>I just finished building a new computer with parts given to me by my friends Jon and Max. The thing works great, but I've got Wi-Fi issues. </p>
+<p>I bought <a href="http://www.amazon.com/TP-LINK-TL-WN881ND-Wireless-Express-Low-profile/dp/B0079XWMEI/ref=sr_1_4?ie=UTF8&qid=1455199900&sr=8-4&keywords=wifi+card" target="_blank">this</a> wifi card. It worked fine, but for some reason the signal strength behind my computer was terrible (two bars or so). This was bad.</p>
+<p>Using my cell phone, I noticed that the signal strength was much higher a few feet above the back of the tower, so I bought <a href="http://www.amazon.com/TP-LINK-TL-WN822N-Wireless-External-10-7-10-10/dp/B00416Q5KI/ref=sr_1_21?s=pc&ie=UTF8&qid=1455200080&sr=1-21&keywords=wifi+adapter" target="_blank">this</a> USB wifi adapter, which I could place several feet away.</p>
+<p>This initially worked perfectly. The computer is a dual boot&mdash;Windows 8 and Ubuntu 14.04&mdash;and it worked in both. Then, a few days later, it stopped working in Ubuntu.  It would disconnect and reconnect every few minutes. This change coincided with my accidentally plugging a cable into my shitty USB hub backward, shorting out all the peripherals and causing the wifi adapter to shut off and reconnect. I can't be sure they're related, but I can't think of anything else that changed.</p>
+<p>I found <a href="http://askubuntu.com/questions/625987/does-tp-link-wn822n-work-on-ubuntu" target="_blank">this</a> thread on the subject. Apparently, I have the TL-W822N V3. Versions 2 and 1 worked fine with Ubuntu, but Version 3 doesn't. This doesn't completely fit, since it was working at one point, but I couldn't find anything else to try.</p>
+<p>I ran the code at the top of Pilot6's answer, and rebooted.</p>
+{% highlight bash %}
+sudo apt-get install git
+git clone https://github.com/lwfinger/rtlwifi_new.git
+cd rtlwifi_new
+make
+sudo make install
+{% endhighlight %}
+<p>Aaand found just a blank white screen that didn't respond to any input. I should mention that also coincided with installing Dropbox, so that may have caused the problem. Not sure. Anyway, I tried a few things, but this was a new install anyway, so I figured I'd just reinstall Ubuntu.</p>
+<p>My new install had the same problem. I tried the second suggestion in Pilot6's answer.</p>
+{% highlight bash %}
+sudo add-apt-repository ppa:hanipouspilot/rtlwifi
+sudo apt-get update
+sudo apt-get install rtl8192cu-dkms
+{% endhighlight %}
+<p>Didn't help.</p>
+<p>I tried the <a href="https://github.com/pvaret/rtl8192cu-fixes/blob/master/README.md" target="_blank">solution</a> suggested in Rajat Pandita's answer. Also didn't help.</p>
+<p>Finally I tried the solution in Pilot6's second answer.</p>
+{% highlight bash %}
+sudo add-apt-repository ppa:hanipouspilot/rtlwifi
+sudo apt-get update
+sudo apt-get install rtlwifi-new-dkms linux-firmware
+{% endhighlight %}
+<p>And it worked! So, there you have it. If you're having this issue, maybe this'll be useful.</p>

@@ -1,0 +1,115 @@
+---
+layout: post
+title: Landau-Squire Flow
+date: '2016-01-28 15:20:00 -0500'
+categories:
+- Physics
+tags: []
+comments: []
+---
+<p>I made a simulation of a Landau-Squire jet with javascript. Check it out! You can click on this gif to take you to the simulation page. It looks way better there.</p>
+<p><a href="http://www.benwiener.com/physics/landau-squire.html" rel="attachment wp-att-65"><img src="http://www.benwiener.com/wp-content/uploads/2016/01/landau-squire.gif" alt="landau-squire" width="1042" class="alignnone size-full wp-image-65" /></a></p>
+<p>This is the Navier-Stokes solution to a tiny submerged point jet. Imagine a thin needle injecting fluid into the middle of bath full of little tracer particles. Code below.</p>
+{% highlight javascript %}
+  var c = document.getElementById("myCanvas");
+  c.addEventListener(‘click’, onClick, false)
+  var ctx = c.getContext("2d");
+
+  var ball_list = [];
+
+  var is_paused = false;
+
+  window.onblur = function() {
+    if (!is_paused) {
+      pause();
+    }
+  };
+
+  function onClick() {
+    if (is_paused) {
+      unpause();
+    } else {
+      pause();
+    }
+  }
+
+  function pause() {
+    is_paused = true;
+    ctx.globalAlpha=0.2;
+    ctx.fillRect(360,140,100,300)
+    ctx.fillRect(540,140,100,300)
+
+    ctx.font = "30px Arial";
+    ctx.fillText("Click to unpause",390,500);
+    ctx.globalAlpha=1;
+  }
+
+  function unpause() {
+    is_paused = false;
+  }
+
+  function Ball(x, y) {
+    return {
+      x: x,
+      y: y,
+      draw: function() {
+        ctx.fillRect(this.x,this.y,2,2)
+      },
+      update: function() {
+        var xp = (this.x – c.width/2 )/c.width;
+        var yp = (this.y – c.height/2)/c.height;
+        this.x += (1 * xp * xp – yp * yp) / (Math.pow(xp * xp + yp * yp, 1.5))
+        this.y += (1.5 * xp * yp) / (Math.pow(xp * xp + yp * yp, 1.5))
+      }
+    }
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    ball_list.forEach(function(ball, i) {
+      if ((ball.x < 0) || (ball.x > c.width) || (ball.y < 0) || (ball.y > c.height)) {
+        ball_list.splice(i, 1);
+      }
+      ball.draw();
+    })
+  }
+
+  function update() {
+    ball_list.forEach(function(ball) {
+      ball.update();
+    })
+  }
+
+  function draw() {
+    clearCanvas();
+    ball_list.forEach(function(ball) {
+      ball.draw();
+    })
+  }
+
+  function loop() {
+    if (!is_paused) {
+      update();
+      draw();
+    }
+  }
+
+  function addTracers() {
+    if (!is_paused) {
+      var n_tracer = 10;
+      var step = c.height / n_tracer;
+
+      var rand = 9;
+
+      for (var x = step/2; x < c.width; x += step) {
+        for (var y = step/2; y < c.height; y+= step) {
+          ball_list.push(Ball(x + rand * (Math.random() – 0.5), y + rand * (Math.random() – 0.5)));
+        }
+      }
+      console.log(ball_list.length)
+    }
+  }
+
+  setInterval(loop, 1000/60);
+  setInterval(addTracers, 1000/1);
+{% endhighlight %}

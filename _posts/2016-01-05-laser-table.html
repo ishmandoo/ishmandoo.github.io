@@ -1,0 +1,169 @@
+---
+layout: post
+title: Laser Table
+date: '2016-01-05 16:26:05 -0500'
+categories:
+- Electronics
+- Projects
+- Programming
+tags: []
+comments: []
+---
+<p>Phil, Will, and I built an aimable laser made with a mirror and two servos driven by an Arduino. The laser draws persistent patterns on the surface of a small table treated with glow-in-the-dark spray paint. It can be controlled using a cool multi-user Node.js/Socket.io web interface. Give 'er a look.</p>
+<p><center><br />
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ltbLshOODaE" frameborder="0" allowfullscreen></iframe><br />
+</center></p>
+<p><strong>Laser System</strong></p>
+<p>The laser is controlled by an Arduino nano that drives two HS-311 servos. Coordinates are sent to the Ardiuno from a computer over serial. One servo controls the azimuthal angle of the mirror and the other controls the polar angle. The purpose of the laser system is to aim the laser at the glow-in-the-dark table surface. The laser system sits under the surface and draws on it from below. The laser itself is a violet laser from eBay. Be careful with this laser. It would just love to destroy your eyes. The whole thing is hot-glued to a 2x4. This was originally a temporary solution that we thought was really funny, but it ended up staying that way. You know how that goes...</p>
+<p><strong>Laser Controller</strong></p>
+<p>Commands are sent to the laser system by a laptop which polls a web server. We used Node.js to run some local Javascript code that handles the polling and the serial output. We chose Javascript because it seemed to handle the asynchronous HTTP better than Python and those are the only two languages that exist. We know this could have been a Raspberry Pi, but it isn't. Sorry.</p>
+<p><strong>Web Server</strong></p>
+<p>The web server is a Node.js server that uses Socket.io for real-time client interaction. The server responds to laser controller GET requests with the most up-to-date position for the laser. It also serves a page that allow clients to control the laser on their phones. The server randomly chooses a connected user every five seconds and allows them to control the laser using their touch screen. Other users who are waiting for their turns see the path plotted on their screens in real time.</p>
+<p><strong>Table</strong></p>
+<p>The table is simply constructed from a few 2x2s and scrap wood. It is really a piece of junk, just there to hold up the drawing surface. The surface of the table is a piece of plexiglass treated with glow-in-the-dark spray paint. We started by thoroughly sanding both sides of the plexiglass to diffuse the eye-boiling laser. We used 100 grit sandpaper and a random orbit sander. Try not to break the plexiglass like Phil did or touch the wet paint like I did. Those are both bad things to do.</p>
+<p>Below is the code on the Arduino and the Github repositories that contain the server and laser controller code.<br />
+{% highlight c %}
+#include <Servo.h>
+//#include <SoftwareSerial.h>
+#define ARATIO 425/(PI/4)
+#define AZERO 1606
+//#define AZERO 2020
+#define BZERO 1545
+#define D 200.
+
+Servo servoA, servoB; // create servo object to control a servo
+String v = "";
+int sign = 1;
+float x = 0.;
+float y = 0.;
+float x_temp;
+float y_temp;
+
+//SoftwareSerial ser(2,3);
+
+void setup()
+{
+  servoA.attach(9);
+  servoB.attach(10); // attaches the servo on pin 9 to the servo object
+  move(‘a’,0);
+  move(‘b’,0);
+  Serial.begin(19200);
+  //ser.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  if (Serial.available()) {
+    char ch = Serial.read();
+    //Serial.write(ch);
+
+    switch(ch) {
+      case ‘;’:
+      x = getX(v);
+      y = getY(v);
+      moveXY(x,y);
+      Serial.println(x);
+      Serial.println(y);
+      resetV();
+      break;
+      default:
+      v += ch;
+      break;
+    }
+  }
+}
+
+void resetV() {
+  v = "";
+}
+
+float getX(String input) {
+  int comma = 0;
+  for (int i = 0; i < input.length(); i++) {
+    if (input.substring(i, i+1) == ",") {
+      comma = i;
+    }
+  }
+  return input.substring(0, comma).toFloat());
+}
+
+int getY(String input) {
+  floatint comma = 0;
+  for (int i = 0; i < input.length(); i++) {
+    if (input.substring(i, i+1) == ",") {
+      comma = i;
+    }
+  }
+  return input.substring(comma+1, input.length()).toFloat();
+}
+
+void move(char ch, float angle) {
+  switch(ch) {
+    case ‘a’:
+    servoA.writeMicroseconds(floor(angle*ARATIO) + AZERO);
+    break;
+    case ‘b’:
+    servoB.writeMicroseconds(floor(angle*ARATIO) + BZERO);
+    break;
+
+  }
+}
+
+void moveLineXY(float end_x, float end_y, int n_steps) {
+  float start_x = x;
+  float start_y = y;
+
+  float delta_x = (end_x – start_x)/n_steps;
+  float delta_y = (end_y – start_y)/n_steps;
+
+  for (int i = 0; i < n_steps; i++) {
+    moveXY(start_x + (delta_x * i), start_y + (delta_y * i));
+    delay(5);
+  }
+}
+
+void moveXY(float x, float y) {
+  Serial.println(x);
+  Serial.println(y);
+  float r = getNorm(x,y,D);
+  float vx = x/r;
+  float vy = y/r;
+  float vz = D/r;
+
+  float nx = vx;
+  float ny = vy – 1;
+  float nz = vz;
+
+  float nnorm = getNorm(nx,ny,nz);
+  nx = nx/nnorm;
+  ny = ny/nnorm;
+  nz = nz/nnorm;
+
+  float alpha = asin(nz);
+  //float phi = atan2(y,x);
+  float beta = atan2(nx,-ny);
+
+  /*
+  if (phi > PI/2) {
+  phi = phi – PI;
+  theta = theta * -1;
+} else if (phi < -PI/2) {
+phi = phi + PI;
+theta = theta * -1;
+}
+*/
+
+//Serial.println(alpha);
+//Serial.println(beta);
+
+move(‘a’,alpha);
+move(‘b’,-beta);
+}
+
+float getNorm(float x, float y, float z) {
+  return sqrt(sq(x) + sq(y) + sq(z));
+}
+{% endhighlight %}</p>
+<p><a href="https://github.com/ishmandoo/laser">https://github.com/ishmandoo/laser</a><br />
+<a href="https://github.com/philzook58/node_laser_control">https://github.com/philzook58/node_laser_control</a></p>
