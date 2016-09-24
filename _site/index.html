@@ -17,8 +17,8 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://wildflame.me/">
-  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="http://wildflame.me/feed.xml">
+  <link rel="canonical" href="/">
+  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
   <body>
@@ -62,6 +62,60 @@
             <div class="home">
   <div class="post-list">
 
+    
+
+    <article class="post_card post">
+      <header class="post_header">
+        <h2 class="post_title"><a href="/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html">Migrating from Wordpress on NearlyFreeSpeech to Jeckyl</a></h2>
+        <time class="post_date">23 September 2016, Friday</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          
+          <p>
+  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on <a href="www.nearylfreespeech.net">nearlyfreespeech.net </a>, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. Eiter way, I don't have access to the wp-cli. So, I decided to try something else
+</p>
+
+<p>
+  I read good things about Jekyll, so I decided to try it. There's a lot there, but one sticking point was migrating the database into Jekyll. I don't think you can access NFS's mysql server from outside, so I downloaded the data using phpMyAdmin, created a database, imported the data with <code>source data.sql</code>, and ran the Jekyll import function.
+</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ruby -rubygems -e <span class="s1">'require "jekyll-import";
+    JekyllImport::Importers::WordPress.run({
+      "dbname"   =&gt; "benwiener",
+      "user"     =&gt; "username",
+      "password" =&gt; "password",
+      "host"     =&gt; "localhost",
+      "table_prefix"   =&gt; "wp_"
+    })'</span></code></pre></figure>
+
+
+           
+          <a class="read-more" href="/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html"> »  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        
+        <!--
+        
+        <a href="/category/Programming">
+          <data data-icon="ei-archive"></data>
+          Programming</a>
+        
+        -->
+
+        <!--
+        
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
     
 
     <article class="post_card post">
@@ -212,7 +266,7 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware</code></pre></figure>
         <p>
           
           <p>I made a simulation of a Landau-Squire jet with javascript. Check it out! You can click on this gif to take you to the simulation page. It looks way better there.</p>
-<p><a href="http://www.benwiener.com/physics/landau-squire.html" rel="attachment wp-att-65"><img src="http://www.benwiener.com/wp-content/uploads/2016/01/landau-squire.gif" alt="landau-squire" width="1042" class="alignnone size-full wp-image-65" /></a></p>
+<p><a href="http://www.benwiener.com/physics/landau-squire.html" rel="attachment wp-att-65"><img src="/assets/img/2016/01/landau-squire.gif" alt="landau-squire" width="1042" class="alignnone size-full wp-image-65" /></a></p>
 <p>This is the Navier-Stokes solution to a tiny submerged point jet. Imagine a thin needle injecting fluid into the middle of bath full of little tracer particles. Code below.</p>
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myCanvas"</span><span class="p">);</span>
   <span class="nx">c</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="err">‘</span><span class="nx">click</span><span class="err">’</span><span class="p">,</span> <span class="nx">onClick</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
@@ -354,12 +408,12 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware</code></pre></figure>
           
           <p>Since my last post about RF, Phil and I have taken some steps forward. I've built two simple RF circuits: a <a href="https://www.youtube.com/watch?v=A5gGeV7CiQ0" target="_blank">20dB attenuator</a> and a <a href="http://www.qsl.net/kl7jef/Build%20a%20Return%20Loss%20Bridge.pdf" target="_blank">return loss bridge</a>. Do they work? I'm not sure, exactly. The attentuator's purpose is to decrease the amplitude of a signal. It definitely does that, at least to some extent. Whether it does so by 20dB is in question. </p>
 <p><center><br />
-<a href="http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240936311-1.jpg" rel="attachment wp-att-58"><img src="http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240936311-1-300x140.jpg" alt="Attenuator" width="300" height="140" class="size-medium wp-image-58" /></a><br />
+<a href="/assets/img/2016/01/IMG_20160106_240936311-1.jpg" rel="attachment wp-att-58"><img src="/assets/img/2016/01/IMG_20160106_240936311-1-300x140.jpg" alt="Attenuator" width="300" height="140" class="size-medium wp-image-58" /></a><br />
 Attenuator<br />
 </center></p>
 <p>The return loss bridge is a bit mysterious. It has three coaxial inputs. One for an RF signal, one for a test load, and a third for a detector. The output measured by the detector should be related to the part of the signal that's reflected by the load. It seems like it might be working too.  </p>
 <p><center><br />
-<a href="http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240943681-1.jpg" rel="attachment wp-att-57"><img src="http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240943681-1-300x233.jpg" alt="Return Loss Bridge" width="300" height="233" class="size-medium wp-image-57" /></a><br />
+<a href="/assets/img/2016/01/IMG_20160106_240943681-1.jpg" rel="attachment wp-att-57"><img src="/assets/img/2016/01/IMG_20160106_240943681-1-300x233.jpg" alt="Return Loss Bridge" width="300" height="233" class="size-medium wp-image-57" /></a><br />
 Return Loss Bridge<br />
 </center></p>
 <p>The purpose of this post is to record the RF circuit building techniques we've been using. </p>
@@ -379,207 +433,6 @@ Ideally, there's no wire and the components themselves bridge all the gaps, as w
         <a href="/category/Radio">
           <data data-icon="ei-archive"></data>
           Radio</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/electronics/projects/programming/2016/01/05/laser-table.html">Laser Table</a></h2>
-        <time class="post_date">05 January 2016, Tuesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>Phil, Will, and I built an aimable laser made with a mirror and two servos driven by an Arduino. The laser draws persistent patterns on the surface of a small table treated with glow-in-the-dark spray paint. It can be controlled using a cool multi-user Node.js/Socket.io web interface. Give 'er a look.</p>
-<p><center><br />
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ltbLshOODaE" frameborder="0" allowfullscreen></iframe><br />
-</center></p>
-<p><strong>Laser System</strong></p>
-<p>The laser is controlled by an Arduino nano that drives two HS-311 servos. Coordinates are sent to the Ardiuno from a computer over serial. One servo controls the azimuthal angle of the mirror and the other controls the polar angle. The purpose of the laser system is to aim the laser at the glow-in-the-dark table surface. The laser system sits under the surface and draws on it from below. The laser itself is a violet laser from eBay. Be careful with this laser. It would just love to destroy your eyes. The whole thing is hot-glued to a 2x4. This was originally a temporary solution that we thought was really funny, but it ended up staying that way. You know how that goes...</p>
-<p><strong>Laser Controller</strong></p>
-<p>Commands are sent to the laser system by a laptop which polls a web server. We used Node.js to run some local Javascript code that handles the polling and the serial output. We chose Javascript because it seemed to handle the asynchronous HTTP better than Python and those are the only two languages that exist. We know this could have been a Raspberry Pi, but it isn't. Sorry.</p>
-<p><strong>Web Server</strong></p>
-<p>The web server is a Node.js server that uses Socket.io for real-time client interaction. The server responds to laser controller GET requests with the most up-to-date position for the laser. It also serves a page that allow clients to control the laser on their phones. The server randomly chooses a connected user every five seconds and allows them to control the laser using their touch screen. Other users who are waiting for their turns see the path plotted on their screens in real time.</p>
-<p><strong>Table</strong></p>
-<p>The table is simply constructed from a few 2x2s and scrap wood. It is really a piece of junk, just there to hold up the drawing surface. The surface of the table is a piece of plexiglass treated with glow-in-the-dark spray paint. We started by thoroughly sanding both sides of the plexiglass to diffuse the eye-boiling laser. We used 100 grit sandpaper and a random orbit sander. Try not to break the plexiglass like Phil did or touch the wet paint like I did. Those are both bad things to do.</p>
-<p>Below is the code on the Arduino and the Github repositories that contain the server and laser controller code.<br />
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
-</span><span class="c1">//#include &lt;SoftwareSerial.h&gt;
-</span><span class="cp">#define ARATIO 425/(PI/4)
-#define AZERO 1606
-</span><span class="c1">//#define AZERO 2020
-</span><span class="cp">#define BZERO 1545
-#define D 200.
-</span>
-<span class="n">Servo</span> <span class="n">servoA</span><span class="p">,</span> <span class="n">servoB</span><span class="p">;</span> <span class="c1">// create servo object to control a servo
-</span><span class="n">String</span> <span class="n">v</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.;</span>
-<span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.;</span>
-<span class="kt">float</span> <span class="n">x_temp</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">y_temp</span><span class="p">;</span>
-
-<span class="c1">//SoftwareSerial ser(2,3);
-</span>
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">servoA</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
-  <span class="n">servoB</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// attaches the servo on pin 9 to the servo object
-</span>  <span class="n">move</span><span class="p">(</span><span class="err">‘</span><span class="n">a</span><span class="err">’</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-  <span class="n">move</span><span class="p">(</span><span class="err">‘</span><span class="n">b</span><span class="err">’</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">19200</span><span class="p">);</span>
-  <span class="c1">//ser.begin(9600);
-</span><span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// put your main code here, to run repeatedly:
-</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-    <span class="c1">//Serial.write(ch);
-</span>
-    <span class="k">switch</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="err">‘;’</span><span class="p">:</span>
-      <span class="n">x</span> <span class="o">=</span> <span class="n">getX</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-      <span class="n">y</span> <span class="o">=</span> <span class="n">getY</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-      <span class="n">moveXY</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-      <span class="n">resetV</span><span class="p">();</span>
-      <span class="k">break</span><span class="p">;</span>
-      <span class="nl">default:</span>
-      <span class="n">v</span> <span class="o">+=</span> <span class="n">ch</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">resetV</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">float</span> <span class="nf">getX</span><span class="p">(</span><span class="n">String</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">comma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s">","</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">comma</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">input</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">comma</span><span class="p">).</span><span class="n">toFloat</span><span class="p">());</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">getY</span><span class="p">(</span><span class="n">String</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">floatint</span> <span class="n">comma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s">","</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">comma</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">input</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">comma</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">()).</span><span class="n">toFloat</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="kt">char</span> <span class="n">ch</span><span class="p">,</span> <span class="kt">float</span> <span class="n">angle</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">switch</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="err">‘</span><span class="n">a</span><span class="err">’</span><span class="p">:</span>
-    <span class="n">servoA</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">angle</span><span class="o">*</span><span class="n">ARATIO</span><span class="p">)</span> <span class="o">+</span> <span class="n">AZERO</span><span class="p">);</span>
-    <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">‘</span><span class="n">b</span><span class="err">’</span><span class="p">:</span>
-    <span class="n">servoB</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">angle</span><span class="o">*</span><span class="n">ARATIO</span><span class="p">)</span> <span class="o">+</span> <span class="n">BZERO</span><span class="p">);</span>
-    <span class="k">break</span><span class="p">;</span>
-
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">moveLineXY</span><span class="p">(</span><span class="kt">float</span> <span class="n">end_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">end_y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n_steps</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">start_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">start_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-
-  <span class="kt">float</span> <span class="n">delta_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">end_x</span> <span class="err">–</span> <span class="n">start_x</span><span class="p">)</span><span class="o">/</span><span class="n">n_steps</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">end_y</span> <span class="err">–</span> <span class="n">start_y</span><span class="p">)</span><span class="o">/</span><span class="n">n_steps</span><span class="p">;</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_steps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">moveXY</span><span class="p">(</span><span class="n">start_x</span> <span class="o">+</span> <span class="p">(</span><span class="n">delta_x</span> <span class="o">*</span> <span class="n">i</span><span class="p">),</span> <span class="n">start_y</span> <span class="o">+</span> <span class="p">(</span><span class="n">delta_y</span> <span class="o">*</span> <span class="n">i</span><span class="p">));</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">moveXY</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="kt">float</span> <span class="n">r</span> <span class="o">=</span> <span class="n">getNorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
-  <span class="kt">float</span> <span class="n">vx</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">r</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">r</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">vz</span> <span class="o">=</span> <span class="n">D</span><span class="o">/</span><span class="n">r</span><span class="p">;</span>
-
-  <span class="kt">float</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">vx</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">vy</span> <span class="err">–</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">vz</span><span class="p">;</span>
-
-  <span class="kt">float</span> <span class="n">nnorm</span> <span class="o">=</span> <span class="n">getNorm</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nz</span><span class="p">);</span>
-  <span class="n">nx</span> <span class="o">=</span> <span class="n">nx</span><span class="o">/</span><span class="n">nnorm</span><span class="p">;</span>
-  <span class="n">ny</span> <span class="o">=</span> <span class="n">ny</span><span class="o">/</span><span class="n">nnorm</span><span class="p">;</span>
-  <span class="n">nz</span> <span class="o">=</span> <span class="n">nz</span><span class="o">/</span><span class="n">nnorm</span><span class="p">;</span>
-
-  <span class="kt">float</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">asin</span><span class="p">(</span><span class="n">nz</span><span class="p">);</span>
-  <span class="c1">//float phi = atan2(y,x);
-</span>  <span class="kt">float</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="o">-</span><span class="n">ny</span><span class="p">);</span>
-
-  <span class="cm">/*
-  if (phi &gt; PI/2) {
-  phi = phi – PI;
-  theta = theta * -1;
-} else if (phi &lt; -PI/2) {
-phi = phi + PI;
-theta = theta * -1;
-}
-*/</span>
-
-<span class="c1">//Serial.println(alpha);
-//Serial.println(beta);
-</span>
-<span class="n">move</span><span class="p">(</span><span class="err">‘</span><span class="n">a</span><span class="err">’</span><span class="p">,</span><span class="n">alpha</span><span class="p">);</span>
-<span class="n">move</span><span class="p">(</span><span class="err">‘</span><span class="n">b</span><span class="err">’</span><span class="p">,</span><span class="o">-</span><span class="n">beta</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">float</span> <span class="nf">getNorm</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sq</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sq</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">sq</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure></p>
-<p><a href="https://github.com/ishmandoo/laser">https://github.com/ishmandoo/laser</a><br />
-<a href="https://github.com/philzook58/node_laser_control">https://github.com/philzook58/node_laser_control</a></p>
-
-           
-          <a class="read-more" href="/electronics/projects/programming/2016/01/05/laser-table.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Electronics">
-          <data data-icon="ei-archive"></data>
-          Electronics</a>
-        
-        <a href="/category/Projects">
-          <data data-icon="ei-archive"></data>
-          Projects</a>
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
         
         -->
 

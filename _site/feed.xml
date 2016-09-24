@@ -4,11 +4,40 @@
     <title>Ben's Doins</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-    <link>http://wildflame.me/</link>
-    <atom:link href="http://wildflame.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Sep 2016 16:25:23 -0400</pubDate>
-    <lastBuildDate>Sat, 24 Sep 2016 16:25:23 -0400</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 24 Sep 2016 18:18:21 -0400</pubDate>
+    <lastBuildDate>Sat, 24 Sep 2016 18:18:21 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Migrating from Wordpress on NearlyFreeSpeech to Jeckyl</title>
+        <description>&lt;p&gt;
+  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on &lt;a href=&quot;www.nearylfreespeech.net&quot;&gt;nearlyfreespeech.net &lt;/a&gt;, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. Eiter way, I don't have access to the wp-cli. So, I decided to try something else
+&lt;/p&gt;
+
+&lt;p&gt;
+  I read good things about Jekyll, so I decided to try it. There's a lot there, but one sticking point was migrating the database into Jekyll. I don't think you can access NFS's mysql server from outside, so I downloaded the data using phpMyAdmin, created a database, imported the data with &lt;code&gt;source data.sql&lt;/code&gt;, and ran the Jekyll import function.
+&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ruby -rubygems -e &lt;span class=&quot;s1&quot;&gt;'require &quot;jekyll-import&quot;;
+    JekyllImport::Importers::WordPress.run({
+      &quot;dbname&quot;   =&amp;gt; &quot;benwiener&quot;,
+      &quot;user&quot;     =&amp;gt; &quot;username&quot;,
+      &quot;password&quot; =&amp;gt; &quot;password&quot;,
+      &quot;host&quot;     =&amp;gt; &quot;localhost&quot;,
+      &quot;table_prefix&quot;   =&amp;gt; &quot;wp_&quot;
+    })'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Fri, 23 Sep 2016 18:55:26 -0400</pubDate>
+        <link>/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html</link>
+        <guid isPermaLink="true">/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html</guid>
+        
+        
+        <category>Programming</category>
+        
+      </item>
     
       <item>
         <title>Haskell Ball Bounce</title>
@@ -56,8 +85,8 @@
     &lt;span class=&quot;n&quot;&gt;animate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Fri, 23 Sep 2016 18:55:26 -0400</pubDate>
-        <link>http://wildflame.me/programming/2016/09/23/haskell-ball-bounce.html</link>
-        <guid isPermaLink="true">http://wildflame.me/programming/2016/09/23/haskell-ball-bounce.html</guid>
+        <link>/programming/2016/09/23/haskell-ball-bounce.html</link>
+        <guid isPermaLink="true">/programming/2016/09/23/haskell-ball-bounce.html</guid>
         
         
         <category>Programming</category>
@@ -91,8 +120,8 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;p&gt;And it worked! So, there you have it. If you're having this issue, maybe this'll be useful.&lt;/p&gt;
 </description>
         <pubDate>Thu, 11 Feb 2016 14:31:36 -0500</pubDate>
-        <link>http://wildflame.me/troubleshooting/2016/02/11/wi-fi-troubles.html</link>
-        <guid isPermaLink="true">http://wildflame.me/troubleshooting/2016/02/11/wi-fi-troubles.html</guid>
+        <link>/troubleshooting/2016/02/11/wi-fi-troubles.html</link>
+        <guid isPermaLink="true">/troubleshooting/2016/02/11/wi-fi-troubles.html</guid>
         
         
         <category>Troubleshooting</category>
@@ -102,7 +131,7 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt
       <item>
         <title>Landau-Squire Flow</title>
         <description>&lt;p&gt;I made a simulation of a Landau-Squire jet with javascript. Check it out! You can click on this gif to take you to the simulation page. It looks way better there.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.benwiener.com/physics/landau-squire.html&quot; rel=&quot;attachment wp-att-65&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2016/01/landau-squire.gif&quot; alt=&quot;landau-squire&quot; width=&quot;1042&quot; class=&quot;alignnone size-full wp-image-65&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.benwiener.com/physics/landau-squire.html&quot; rel=&quot;attachment wp-att-65&quot;&gt;&lt;img src=&quot;/assets/img/2016/01/landau-squire.gif&quot; alt=&quot;landau-squire&quot; width=&quot;1042&quot; class=&quot;alignnone size-full wp-image-65&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the Navier-Stokes solution to a tiny submerged point jet. Imagine a thin needle injecting fluid into the middle of bath full of little tracer particles. Code below.&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;myCanvas&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -207,8 +236,8 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt
   &lt;span class=&quot;nx&quot;&gt;setInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTracers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Thu, 28 Jan 2016 15:20:00 -0500</pubDate>
-        <link>http://wildflame.me/physics/2016/01/28/landau-squire-flow.html</link>
-        <guid isPermaLink="true">http://wildflame.me/physics/2016/01/28/landau-squire-flow.html</guid>
+        <link>/physics/2016/01/28/landau-squire-flow.html</link>
+        <guid isPermaLink="true">/physics/2016/01/28/landau-squire-flow.html</guid>
         
         
         <category>Physics</category>
@@ -219,12 +248,12 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt
         <title>Building RF Circuits</title>
         <description>&lt;p&gt;Since my last post about RF, Phil and I have taken some steps forward. I've built two simple RF circuits: a &lt;a href=&quot;https://www.youtube.com/watch?v=A5gGeV7CiQ0&quot; target=&quot;_blank&quot;&gt;20dB attenuator&lt;/a&gt; and a &lt;a href=&quot;http://www.qsl.net/kl7jef/Build%20a%20Return%20Loss%20Bridge.pdf&quot; target=&quot;_blank&quot;&gt;return loss bridge&lt;/a&gt;. Do they work? I'm not sure, exactly. The attentuator's purpose is to decrease the amplitude of a signal. It definitely does that, at least to some extent. Whether it does so by 20dB is in question. &lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240936311-1.jpg&quot; rel=&quot;attachment wp-att-58&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240936311-1-300x140.jpg&quot; alt=&quot;Attenuator&quot; width=&quot;300&quot; height=&quot;140&quot; class=&quot;size-medium wp-image-58&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;/assets/img/2016/01/IMG_20160106_240936311-1.jpg&quot; rel=&quot;attachment wp-att-58&quot;&gt;&lt;img src=&quot;/assets/img/2016/01/IMG_20160106_240936311-1-300x140.jpg&quot; alt=&quot;Attenuator&quot; width=&quot;300&quot; height=&quot;140&quot; class=&quot;size-medium wp-image-58&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 Attenuator&lt;br /&gt;
 &lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;The return loss bridge is a bit mysterious. It has three coaxial inputs. One for an RF signal, one for a test load, and a third for a detector. The output measured by the detector should be related to the part of the signal that's reflected by the load. It seems like it might be working too.  &lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240943681-1.jpg&quot; rel=&quot;attachment wp-att-57&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2016/01/IMG_20160106_240943681-1-300x233.jpg&quot; alt=&quot;Return Loss Bridge&quot; width=&quot;300&quot; height=&quot;233&quot; class=&quot;size-medium wp-image-57&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;/assets/img/2016/01/IMG_20160106_240943681-1.jpg&quot; rel=&quot;attachment wp-att-57&quot;&gt;&lt;img src=&quot;/assets/img/2016/01/IMG_20160106_240943681-1-300x233.jpg&quot; alt=&quot;Return Loss Bridge&quot; width=&quot;300&quot; height=&quot;233&quot; class=&quot;size-medium wp-image-57&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 Return Loss Bridge&lt;br /&gt;
 &lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;The purpose of this post is to record the RF circuit building techniques we've been using. &lt;/p&gt;
@@ -232,8 +261,8 @@ Return Loss Bridge&lt;br /&gt;
 Ideally, there's no wire and the components themselves bridge all the gaps, as with the attenuator. Once you've chosen a layout, you can estimate the area of it and use tin snips to cut that size piece out of a copper clad board. Then just solder it together and try not to mangle it too much.&lt;/p&gt;
 </description>
         <pubDate>Wed, 06 Jan 2016 05:40:02 -0500</pubDate>
-        <link>http://wildflame.me/radio/2016/01/06/building-rf-circuits.html</link>
-        <guid isPermaLink="true">http://wildflame.me/radio/2016/01/06/building-rf-circuits.html</guid>
+        <link>/radio/2016/01/06/building-rf-circuits.html</link>
+        <guid isPermaLink="true">/radio/2016/01/06/building-rf-circuits.html</guid>
         
         
         <category>Radio</category>
@@ -400,8 +429,8 @@ theta = theta * -1;
 &lt;a href=&quot;https://github.com/philzook58/node_laser_control&quot;&gt;https://github.com/philzook58/node_laser_control&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 05 Jan 2016 16:26:05 -0500</pubDate>
-        <link>http://wildflame.me/electronics/projects/programming/2016/01/05/laser-table.html</link>
-        <guid isPermaLink="true">http://wildflame.me/electronics/projects/programming/2016/01/05/laser-table.html</guid>
+        <link>/electronics/projects/programming/2016/01/05/laser-table.html</link>
+        <guid isPermaLink="true">/electronics/projects/programming/2016/01/05/laser-table.html</guid>
         
         
         <category>Electronics</category>
@@ -420,8 +449,8 @@ theta = theta * -1;
 &lt;/center&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 05 Jan 2016 15:53:28 -0500</pubDate>
-        <link>http://wildflame.me/movies/2016/01/05/soap-video.html</link>
-        <guid isPermaLink="true">http://wildflame.me/movies/2016/01/05/soap-video.html</guid>
+        <link>/movies/2016/01/05/soap-video.html</link>
+        <guid isPermaLink="true">/movies/2016/01/05/soap-video.html</guid>
         
         
         <category>Movies</category>
@@ -498,13 +527,13 @@ python flatten.py out.csv &amp;gt; out_flat.csv&amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;python plot_with_background.py out_flat.csv outbg_flat.csv&amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;Here's an example output:&lt;br /&gt;
 &lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter.png&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter-300x226.png&quot; alt=&quot;Green - No Filter Blue - Low-Pass Filter&quot; width=&quot;300&quot; height=&quot;226&quot; class=&quot;size-medium wp-image-31&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/assets/img/2015/12/100pF_lowpass_filter.png&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/100pF_lowpass_filter-300x226.png&quot; alt=&quot;Green - No Filter Blue - Low-Pass Filter&quot; width=&quot;300&quot; height=&quot;226&quot; class=&quot;size-medium wp-image-31&quot; /&gt;&lt;/a&gt;
 &lt;br/&gt;Green - No Filter&lt;br /&gt;Blue - Low-Pass Filter[/caption]&lt;br /&gt;
 &lt;/center&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Dec 2015 14:21:52 -0500</pubDate>
-        <link>http://wildflame.me/electronics/radio/2015/12/16/rf-spectrum-comparison-tool.html</link>
-        <guid isPermaLink="true">http://wildflame.me/electronics/radio/2015/12/16/rf-spectrum-comparison-tool.html</guid>
+        <link>/electronics/radio/2015/12/16/rf-spectrum-comparison-tool.html</link>
+        <guid isPermaLink="true">/electronics/radio/2015/12/16/rf-spectrum-comparison-tool.html</guid>
         
         
         <category>Electronics</category>
@@ -520,19 +549,19 @@ python flatten.py out.csv &amp;gt; out_flat.csv&amp;lt;/p&amp;gt;
 &lt;p&gt;First of all, you can't use breadboards, I guess. I think there were several problems with what we were doing at first, but it seems likely that this was one of them. As everyone seems to say, breadboards are problematic above a few MHz. Too much capacitance, or something. We've abolished them. Sad, I know. They're so nice.&lt;/p&gt;
 &lt;p&gt;Second, parasitic inductances and capacitances are everywhere. We tried to make a low-pass filter using a resistor and capacitor.&lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png&quot; alt=&quot;2000px-1st_Order_Lowpass_Filter_RC.svg&quot; width=&quot;300&quot; height=&quot;168&quot; class=&quot;alignnone size-medium wp-image-37&quot; /&gt;&lt;br /&gt;
+&lt;a href=&quot;/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png&quot; alt=&quot;2000px-1st_Order_Lowpass_Filter_RC.svg&quot; width=&quot;300&quot; height=&quot;168&quot; class=&quot;alignnone size-medium wp-image-37&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 &lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;What could be simpler than that? Well, we got some confusing results:&lt;/p&gt;
 &lt;center&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter.png&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter.png&quot; alt=&quot;Green - No Filter Blue - Low-Pass Filter&quot; width=&quot;812&quot; height=&quot;612&quot; class=&quot;size-full wp-image-31&quot; /&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/img/2015/12/100pF_lowpass_filter.png&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/100pF_lowpass_filter.png&quot; alt=&quot;Green - No Filter Blue - Low-Pass Filter&quot; width=&quot;812&quot; height=&quot;612&quot; class=&quot;size-full wp-image-31&quot; /&gt;
 &lt;br/&gt;&lt;/a&gt; Green - No Filter&lt;br /&gt;Blue - Low-Pass Filter
 &lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Phil has a white noise generator. The idea was that we'd run the white noise through the filter and see the noise power die off above the filter's cutoff frequency. The green curve shows the white noise with no filter, and the blue shows it with our low pass filter. This is not the signature of a low pass filter. We've concluded that the parasitic inductance of the capacitor effectively adds a small inductor in series with the capacitor and makes the vertical part of our filter into a resonator that shorts to ground at its resonant frequency.   &lt;/p&gt;
 &lt;p&gt;Inspired by this, we found a way to measure the inductance of a 10 turn coil we made for our NMR experiment. We estimated its inductance at about 10&amp;mu;H and put it in series with a 0.47&amp;mu;F capacitor, aiming for a resonant frequency of about 100 kHz. We used the AD 9850BRS to apply a voltage at that frequency and measured the amplitude and the voltage across the coil. We varied the frequency until we saw the amplitude of the applied voltage fall to a minimum. This was at about 70 kHz. &lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Dec 2015 05:35:07 -0500</pubDate>
-        <link>http://wildflame.me/electronics/2015/12/16/some-rf-learnin.html</link>
-        <guid isPermaLink="true">http://wildflame.me/electronics/2015/12/16/some-rf-learnin.html</guid>
+        <link>/electronics/2015/12/16/some-rf-learnin.html</link>
+        <guid isPermaLink="true">/electronics/2015/12/16/some-rf-learnin.html</guid>
         
         
         <category>Electronics</category>
@@ -544,8 +573,10 @@ python flatten.py out.csv &amp;gt; out_flat.csv&amp;lt;/p&amp;gt;
         <description>&lt;p&gt;I saw a talk about internet of things today. Got me thinking about the ESP8266. I've messed with them a little bit before, but I never really got one working, I don't think.&lt;/p&gt;
 &lt;p&gt;I gave it another try tonight and I've got a simple web server running on one. Here's how I did it:&lt;/p&gt;
 &lt;p&gt;First, I bought &lt;a href=&quot;http://www.amazon.com/gp/product/B00HSX3CXE?psc=1&amp;redirect=true&amp;ref_=oh_aui_detailpage_o04_s00&quot; target=&quot;_blank&quot;&gt;one of these usb to serial adapters&lt;/a&gt;. Previously I had been trying to use and Arduino as the usb to serial adapter. I think this could probably work, but it added that unnecessary level of complexity and doubt that can get in the way. Also, I only had an Uno on hand, so I was using 5V. The ESP is a 3.3V device and I wasn't doing any level shifting or anything. Again, maybe it would have just worked.&lt;/p&gt;
-&lt;p&gt;Next, I wired the ESP up to the serial adapter like this:&lt;br /&gt;
-&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/esp8266-reflash-firmware.jpg&quot;&gt;&lt;img src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/esp8266-reflash-firmware-300x123.jpg&quot; alt=&quot;esp8266-reflash-firmware&quot; width=&quot;300&quot; height=&quot;123&quot; class=&quot;alignnone size-medium wp-image-25&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next, I wired the ESP up to the serial adapter like this:
+  &lt;center&gt;
+&lt;a href=&quot;/assets/img/2015/12/esp8266-reflash-firmware.jpg&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/esp8266-reflash-firmware-300x123.jpg&quot; alt=&quot;esp8266-reflash-firmware&quot; width=&quot;300&quot; height=&quot;123&quot; class=&quot;alignnone size-medium wp-image-25&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/center&gt;
 &lt;p&gt;That GPIO0 pin functions both as an I/O pin, and as the pin that tells the microcontroller to get ready to have its firmware flashed. To write new firmware, you have to hold that pin down, I'm told.&lt;/p&gt;
 &lt;p&gt;Next, I installed a new copy of the Arduino IDE. I had been using the one in the Ubuntu repository (which is an older version) and I was having trouble. Now I'm using 1.6.6. To install the ESP8266 package, I basically followed the &quot;Using Git Version&quot; section of &lt;a href=&quot;https://github.com/esp8266/Arduino#using-git-version-&quot; target=&quot;_blank&quot;&gt;this Github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I cd'd into the&amp;nbsp;new Arduino directory and then followed these instructions:&lt;/p&gt;
@@ -634,68 +665,13 @@ python flatten.py out.csv &amp;gt; out_flat.csv&amp;lt;/p&amp;gt;
 &lt;p&gt;I pointed my browser at the ESP's IP and it worked!&lt;/p&gt;
 </description>
         <pubDate>Thu, 10 Dec 2015 05:38:15 -0500</pubDate>
-        <link>http://wildflame.me/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html</link>
-        <guid isPermaLink="true">http://wildflame.me/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html</guid>
+        <link>/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html</link>
+        <guid isPermaLink="true">/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html</guid>
         
         
         <category>Electronics</category>
         
         <category>Programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Getting an AD 9850BRS Working</title>
-        <description>&lt;p&gt;An AD 9850BRS is an IC that lets you create radio frequency waveforms. The output frequency is controlled by a serial connection. Phil bought a board that includes one and some control circuitry. It's labeled HC-SR08. We were eventually able to get it working.&lt;/p&gt;
-&lt;p&gt;Here's&amp;nbsp;what it looks like:&lt;/p&gt;
-&lt;center&gt;
-&lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_143556862.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-10&quot; src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_143556862-210x300.jpg&quot; alt=&quot;The daughter board.&quot; width=&quot;210&quot; height=&quot;300&quot; &gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;p&gt;We used an Arduino Due, which runs at 3.3V, but from looking at the data sheet for the chip, I think it should work on 5V Arduinos as well. We ended up using &lt;a href=&quot;https://github.com/F4GOJ/AD9850&quot; target=&quot;_blank&quot;&gt;this Arduino library&lt;/a&gt;. We connected the following pins on the daughter board to the Arduino: &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;W_CLK &amp;nbsp; -&gt; &amp;nbsp; 7 &lt;/li&gt;
-&lt;li&gt;FQ_UD &amp;nbsp; -&gt; &amp;nbsp; 8 &lt;/li&gt;
-&lt;li&gt;DATA &amp;nbsp; -&gt; &amp;nbsp; 9 &lt;/li&gt;
-&lt;li&gt;RESET &amp;nbsp; -&gt; &amp;nbsp; 10&lt;/li&gt;
-&lt;li&gt;VCC &amp;nbsp; -&gt; &amp;nbsp; 3.3V&lt;/li&gt;
-&lt;li&gt;GND &amp;nbsp; -&gt; &amp;nbsp; GND&lt;/li&gt;&lt;br /&gt;
-&lt;/ul&gt;&lt;/p&gt;
-
-&lt;p&gt;We found the example code in that Github to be silly. This worked for us:&lt;/p&gt;
-&lt;p&gt;
-  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;  &lt;span class=&quot;cp&quot;&gt;#include &amp;lt;AD9850.h&amp;gt;
-&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;W_CLK_PIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FQ_UD_PIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DATA_PIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RESET_PIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trimFreq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;124999500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;DDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;W_CLK_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FQ_UD_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DATA_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RESET_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;DDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;calibrate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trimFreq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;DDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;DDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setfreq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Check it out:&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;br /&gt;
-  &lt;a href=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_144639048_HDR.jpg&quot;&gt;&lt;img class=&quot;size-medium wp-image-11&quot; src=&quot;http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_144639048_HDR-254x300.jpg&quot; alt=&quot;The waveform.&quot; width=&quot;254&quot; height=&quot;300&quot; &gt;&lt;/a&gt;
-&lt;/center&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 06 Dec 2015 19:23:04 -0500</pubDate>
-        <link>http://wildflame.me/electronics/2015/12/06/getting-an-ad-9850brs-working.html</link>
-        <guid isPermaLink="true">http://wildflame.me/electronics/2015/12/06/getting-an-ad-9850brs-working.html</guid>
-        
-        
-        <category>Electronics</category>
         
       </item>
     

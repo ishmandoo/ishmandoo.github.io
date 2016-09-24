@@ -16,8 +16,8 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://wildflame.me/electronics/2015/12/06/getting-an-ad-9850brs-working.html">
-  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="http://wildflame.me/feed.xml">
+  <link rel="canonical" href="/electronics/2015/12/06/getting-an-ad-9850brs-working.html">
+  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
   <body>
@@ -69,7 +69,7 @@
     <p>An AD 9850BRS is an IC that lets you create radio frequency waveforms. The output frequency is controlled by a serial connection. Phil bought a board that includes one and some control circuitry. It's labeled HC-SR08. We were eventually able to get it working.</p>
 <p>Here's&nbsp;what it looks like:</p>
 <center>
-<a href="http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_143556862.jpg"><img class="size-medium wp-image-10" src="http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_143556862-210x300.jpg" alt="The daughter board." width="210" height="300" ></a>
+<a href="/assets/img/2015/12/IMG_20151206_143556862.jpg"><img class="size-medium wp-image-10" src="/assets/img/2015/12/IMG_20151206_143556862-210x300.jpg" alt="The daughter board." width="210" height="300" ></a>
 </center>
 
 <p>We used an Arduino Due, which runs at 3.3V, but from looking at the data sheet for the chip, I think it should work on 5V Arduinos as well. We ended up using <a href="https://github.com/F4GOJ/AD9850" target="_blank">this Arduino library</a>. We connected the following pins on the daughter board to the Arduino: </p>
@@ -107,7 +107,7 @@
   <span class="p">}</span></code></pre></figure></p>
 <p>Check it out:</p>
 <p><center><br />
-  <a href="http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_144639048_HDR.jpg"><img class="size-medium wp-image-11" src="http://www.benwiener.com/wp-content/uploads/2015/12/IMG_20151206_144639048_HDR-254x300.jpg" alt="The waveform." width="254" height="300" ></a>
+  <a href="/assets/img/2015/12/IMG_20151206_144639048_HDR.jpg"><img class="size-medium wp-image-11" src="/assets/img/2015/12/IMG_20151206_144639048_HDR-254x300.jpg" alt="The waveform." width="254" height="300" ></a>
 </center></p>
 
   </div>

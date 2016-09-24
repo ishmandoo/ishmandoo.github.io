@@ -16,8 +16,8 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://wildflame.me/electronics/2015/12/16/some-rf-learnin.html">
-  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="http://wildflame.me/feed.xml">
+  <link rel="canonical" href="/electronics/2015/12/16/some-rf-learnin.html">
+  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
   <body>
@@ -71,11 +71,11 @@
 <p>First of all, you can't use breadboards, I guess. I think there were several problems with what we were doing at first, but it seems likely that this was one of them. As everyone seems to say, breadboards are problematic above a few MHz. Too much capacitance, or something. We've abolished them. Sad, I know. They're so nice.</p>
 <p>Second, parasitic inductances and capacitances are everywhere. We tried to make a low-pass filter using a resistor and capacitor.</p>
 <p><center><br />
-<img src="http://www.benwiener.com/wp-content/uploads/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png" alt="2000px-1st_Order_Lowpass_Filter_RC.svg" width="300" height="168" class="alignnone size-medium wp-image-37" /><br />
+<a href="/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png"><img src="/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png" alt="2000px-1st_Order_Lowpass_Filter_RC.svg" width="300" height="168" class="alignnone size-medium wp-image-37" /></a><br />
 </center></p>
 <p>What could be simpler than that? Well, we got some confusing results:</p>
 <center>
-<p><a href="http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter.png"><img src="http://www.benwiener.com/wp-content/uploads/2015/12/100pF_lowpass_filter.png" alt="Green - No Filter Blue - Low-Pass Filter" width="812" height="612" class="size-full wp-image-31" />
+<p><a href="/assets/img/2015/12/100pF_lowpass_filter.png"><img src="/assets/img/2015/12/100pF_lowpass_filter.png" alt="Green - No Filter Blue - Low-Pass Filter" width="812" height="612" class="size-full wp-image-31" />
 <br/></a> Green - No Filter<br />Blue - Low-Pass Filter
 </center></p>
 <p>Phil has a white noise generator. The idea was that we'd run the white noise through the filter and see the noise power die off above the filter's cutoff frequency. The green curve shows the white noise with no filter, and the blue shows it with our low pass filter. This is not the signature of a low pass filter. We've concluded that the parasitic inductance of the capacitor effectively adds a small inductor in series with the capacitor and makes the vertical part of our filter into a resonator that shorts to ground at its resonant frequency.   </p>

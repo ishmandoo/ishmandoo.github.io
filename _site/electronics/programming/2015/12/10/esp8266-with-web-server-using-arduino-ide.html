@@ -16,8 +16,8 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://wildflame.me/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html">
-  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="http://wildflame.me/feed.xml">
+  <link rel="canonical" href="/electronics/programming/2015/12/10/esp8266-with-web-server-using-arduino-ide.html">
+  <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
   <body>
@@ -69,8 +69,10 @@
     <p>I saw a talk about internet of things today. Got me thinking about the ESP8266. I've messed with them a little bit before, but I never really got one working, I don't think.</p>
 <p>I gave it another try tonight and I've got a simple web server running on one. Here's how I did it:</p>
 <p>First, I bought <a href="http://www.amazon.com/gp/product/B00HSX3CXE?psc=1&redirect=true&ref_=oh_aui_detailpage_o04_s00" target="_blank">one of these usb to serial adapters</a>. Previously I had been trying to use and Arduino as the usb to serial adapter. I think this could probably work, but it added that unnecessary level of complexity and doubt that can get in the way. Also, I only had an Uno on hand, so I was using 5V. The ESP is a 3.3V device and I wasn't doing any level shifting or anything. Again, maybe it would have just worked.</p>
-<p>Next, I wired the ESP up to the serial adapter like this:<br />
-<a href="http://www.benwiener.com/wp-content/uploads/2015/12/esp8266-reflash-firmware.jpg"><img src="http://www.benwiener.com/wp-content/uploads/2015/12/esp8266-reflash-firmware-300x123.jpg" alt="esp8266-reflash-firmware" width="300" height="123" class="alignnone size-medium wp-image-25" /></a></p>
+<p>Next, I wired the ESP up to the serial adapter like this:
+  <center>
+<a href="/assets/img/2015/12/esp8266-reflash-firmware.jpg"><img src="/assets/img/2015/12/esp8266-reflash-firmware-300x123.jpg" alt="esp8266-reflash-firmware" width="300" height="123" class="alignnone size-medium wp-image-25" /></a></p>
+</center>
 <p>That GPIO0 pin functions both as an I/O pin, and as the pin that tells the microcontroller to get ready to have its firmware flashed. To write new firmware, you have to hold that pin down, I'm told.</p>
 <p>Next, I installed a new copy of the Arduino IDE. I had been using the one in the Ubuntu repository (which is an older version) and I was having trouble. Now I'm using 1.6.6. To install the ESP8266 package, I basically followed the "Using Git Version" section of <a href="https://github.com/esp8266/Arduino#using-git-version-" target="_blank">this Github</a>.</p>
 <p>I cd'd into the&nbsp;new Arduino directory and then followed these instructions:</p>

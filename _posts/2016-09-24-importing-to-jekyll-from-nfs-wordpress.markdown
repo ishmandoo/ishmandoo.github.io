@@ -12,7 +12,7 @@ comments: []
 </p>
 
 <p>
-  I read good things about Jekyll, so I decided to try it. There's a lot there, but one sticking point was migrating the database into Jekyll. I don't think you can access NFS's mysql server from outside, so I downloaded the data using phpMyAdmin, created a database, imported the data with <code>source data.sql</code>, and ran the Jekyll import function. 
+  I read good things about Jekyll, so I decided to try it. There's a lot there, but one sticking point was migrating the database into Jekyll. I don't think you can access NFS's mysql server from outside, so I downloaded the data using phpMyAdmin, created a database, imported the data with <code>source data.sql</code>, and ran the Jekyll import function.
 </p>
 
 {% highlight bash %}
