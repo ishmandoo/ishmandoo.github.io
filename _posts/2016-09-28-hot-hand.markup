@@ -6,7 +6,7 @@ categories:
 tags: []
 comments: []
 ---
-<p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Falacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
+<p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Fallacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
 </p>
 
 <p>
