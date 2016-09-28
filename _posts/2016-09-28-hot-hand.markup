@@ -1,0 +1,84 @@
+---
+layout: post
+title: The Hot Hand Fallacy
+categories:
+- Programming
+tags: []
+comments: []
+---
+<p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Falacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
+</p>
+
+<p>
+I chose baseball to look at. I downloaded the 2015 event database from <a href="http://www.retrosheet.org/game.htm">Retrosheet</a>, and wrote some code to calculate autocorrelation functions. I generated a long list of every plate appearance outcome for the whole season. The list is grouped by player and in order for each player. I labeled all hits as 1 and all outs as 0. I then computed the autocorrelation of this sequence.
+</p>
+
+<center>
+<img src="/assets/img/2016/09/autocorrelation.png"></img>
+</center>
+
+<p>
+I inserted the black line to guide the eye. As you can see, there is some correlation between successful plate appearances. I think this suggests that the time-scale for hotness or coldness is about ten plate appearances. Two games, or so.
+
+Also, it isn't a huge effect. It looks like 5% or something.
+</p>
+
+{% highlight python %}
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+from compiler.ast import flatten
+
+# gets only the event lines from a file
+def getEvents(filename):
+    fp = open(filename)
+
+    # splits line into parts
+    lines = map(lambda line: line.split(","),fp)
+
+    # filters for only play events
+    events = filter(lambda line: line[0] == "play", lines)
+    return events
+
+# gets a list of players involved in a list of events
+def getPlayers(events):
+    names = map(lambda event: event[3], events)
+    players = list(set(names))
+    return players
+
+# filters for only plays involving a certain hitter
+def getEventsBy(events, name):
+    return filter(lambda event: (event[3] == name), events)
+
+# maps hits to 1 and outs to 0
+def maskHits(events):
+    return map(lambda event: 1 if ((event[6][0] == "S") or (event[6][0] == "D") or (event[6][0] == "T") or (event[6][0] == "H")) else 0, events)
+
+# replaces all lines containing a hit with a 1 and all containing and out with a 0
+def getPlayerSeries(events, name):
+    return maskHits(getEventsBy(events, name))
+
+# concatenates all the player series for a team
+def getPlayerSeriesForTeam(filename):
+    events = getEvents(filename)
+    players = getPlayers(events)
+    series = map(lambda player: getPlayerSeries(events, player), players)
+    return flatten(series)
+
+# concatenates the team series for the whole league
+files = os.listdir('./teams')
+total_series = map(lambda file: getPlayerSeriesForTeam('./teams/' + file), files)
+total_series_flat = flatten(total_series)
+print len(total_series_flat)
+
+corr = np.correlate(np.concatenate((total_series_flat,total_series_flat[:100])), total_series_flat, mode='valid')
+
+print corr
+plt.plot(corr)
+plt.plot([0, 100], [9900, 9900], 'k-')
+plt.title("Correlation Between Sequential Plate Appearances, MLB 2015 ")
+plt.xlabel(r'$\Delta$ PA')
+plt.ylabel('autocorrelation')
+plt.show()
+
+{% endhighlight %}

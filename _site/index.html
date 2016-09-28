@@ -66,6 +66,116 @@
 
     <article class="post_card post">
       <header class="post_header">
+        <h2 class="post_title"><a href="/programming/2016/09/28/hot-hand.markup">The Hot Hand Fallacy</a></h2>
+        <time class="post_date">28 September 2016, Wednesday</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          
+          <p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Falacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
+</p>
+
+<p>
+I chose baseball to look at. I downloaded the 2015 event database from <a href="http://www.retrosheet.org/game.htm">Retrosheet</a>, and wrote some code to calculate autocorrelation functions. I generated a long list of every plate appearance outcome for the whole season. The list is grouped by player and in order for each player. I labeled all hits as 1 and all outs as 0. I then computed the autocorrelation of this sequence.
+</p>
+
+<center>
+<img src="/assets/img/2016/09/autocorrelation.png"></img>
+</center>
+
+<p>
+I inserted the black line to guide the eye. As you can see, there is some correlation between successful plate appearances. I think this suggests that the time-scale for hotness or coldness is about ten plate appearances. Two games, or so.
+
+Also, it isn't a huge effect. It looks like 5% or something.
+</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">compiler.ast</span> <span class="kn">import</span> <span class="n">flatten</span>
+
+<span class="c"># gets only the event lines from a file</span>
+<span class="k">def</span> <span class="nf">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="c"># splits line into parts</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">),</span><span class="n">fp</span><span class="p">)</span>
+
+    <span class="c"># filters for only play events</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"play"</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">events</span>
+
+<span class="c"># gets a list of players involved in a list of events</span>
+<span class="k">def</span> <span class="nf">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">events</span><span class="p">)</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">players</span>
+
+<span class="c"># filters for only plays involving a certain hitter</span>
+<span class="k">def</span> <span class="nf">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">),</span> <span class="n">events</span><span class="p">)</span>
+
+<span class="c"># maps hits to 1 and outs to 0</span>
+<span class="k">def</span> <span class="nf">maskHits</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">((</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"S"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"D"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"T"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"H"</span><span class="p">))</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+
+<span class="c"># replaces all lines containing a hit with a 1 and all containing and out with a 0</span>
+<span class="k">def</span> <span class="nf">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">maskHits</span><span class="p">(</span><span class="n">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+<span class="c"># concatenates all the player series for a team</span>
+<span class="k">def</span> <span class="nf">getPlayerSeriesForTeam</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="n">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="n">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">player</span><span class="p">:</span> <span class="n">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="n">players</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flatten</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+<span class="c"># concatenates the team series for the whole league</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'./teams'</span><span class="p">)</span>
+<span class="n">total_series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="nb">file</span><span class="p">:</span> <span class="n">getPlayerSeriesForTeam</span><span class="p">(</span><span class="s">'./teams/'</span> <span class="o">+</span> <span class="nb">file</span><span class="p">),</span> <span class="n">files</span><span class="p">)</span>
+<span class="n">total_series_flat</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">total_series</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">total_series_flat</span><span class="p">)</span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">total_series_flat</span><span class="p">,</span><span class="n">total_series_flat</span><span class="p">[:</span><span class="mi">100</span><span class="p">])),</span> <span class="n">total_series_flat</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'valid'</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">corr</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">9900</span><span class="p">,</span> <span class="mi">9900</span><span class="p">],</span> <span class="s">'k-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Correlation Between Sequential Plate Appearances, MLB 2015 "</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$</span><span class="err">\</span><span class="s">Delta$ PA'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'autocorrelation'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
+
+           
+          <a class="read-more" href="/programming/2016/09/28/hot-hand.markup"> »  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        
+        <!--
+        
+        <a href="/category/Programming">
+          <data data-icon="ei-archive"></data>
+          Programming</a>
+        
+        -->
+
+        <!--
+        
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
+    
+
+    <article class="post_card post">
+      <header class="post_header">
         <h2 class="post_title"><a href="/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html">Migrating from Wordpress on NearlyFreeSpeech to Jeckyl</a></h2>
         <time class="post_date">23 September 2016, Friday</time>
       </header>
@@ -383,56 +493,6 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware</code></pre></figure>
         <a href="/category/Physics">
           <data data-icon="ei-archive"></data>
           Physics</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/radio/2016/01/06/building-rf-circuits.html">Building RF Circuits</a></h2>
-        <time class="post_date">06 January 2016, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>Since my last post about RF, Phil and I have taken some steps forward. I've built two simple RF circuits: a <a href="https://www.youtube.com/watch?v=A5gGeV7CiQ0" target="_blank">20dB attenuator</a> and a <a href="http://www.qsl.net/kl7jef/Build%20a%20Return%20Loss%20Bridge.pdf" target="_blank">return loss bridge</a>. Do they work? I'm not sure, exactly. The attentuator's purpose is to decrease the amplitude of a signal. It definitely does that, at least to some extent. Whether it does so by 20dB is in question. </p>
-<p><center><br />
-<a href="/assets/img/2016/01/IMG_20160106_240936311-1.jpg" rel="attachment wp-att-58"><img src="/assets/img/2016/01/IMG_20160106_240936311-1-300x140.jpg" alt="Attenuator" width="300" height="140" class="size-medium wp-image-58" /></a><br />
-Attenuator<br />
-</center></p>
-<p>The return loss bridge is a bit mysterious. It has three coaxial inputs. One for an RF signal, one for a test load, and a third for a detector. The output measured by the detector should be related to the part of the signal that's reflected by the load. It seems like it might be working too.  </p>
-<p><center><br />
-<a href="/assets/img/2016/01/IMG_20160106_240943681-1.jpg" rel="attachment wp-att-57"><img src="/assets/img/2016/01/IMG_20160106_240943681-1-300x233.jpg" alt="Return Loss Bridge" width="300" height="233" class="size-medium wp-image-57" /></a><br />
-Return Loss Bridge<br />
-</center></p>
-<p>The purpose of this post is to record the RF circuit building techniques we've been using. </p>
-<p>You want to build on copper clad board, with the copper surface itself acting as a ground plane. You can solder SMA connectors directly to the ground plane. To reduce non-ideal behavior at high frequency, you want to use components with short leads, ideally surface mount parts. Having short leads means keeping the whole thing compact. You can fiddle around with layouts until you find one that keeps leads short.<br />
-Ideally, there's no wire and the components themselves bridge all the gaps, as with the attenuator. Once you've chosen a layout, you can estimate the area of it and use tin snips to cut that size piece out of a copper clad board. Then just solder it together and try not to mangle it too much.</p>
-
-           
-          <a class="read-more" href="/radio/2016/01/06/building-rf-circuits.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Radio">
-          <data data-icon="ei-archive"></data>
-          Radio</a>
         
         -->
 
