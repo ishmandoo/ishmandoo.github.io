@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Migrating from Wordpress on NearlyFreeSpeech to Jeckyl
+title: Migrating from Wordpress on NearlyFreeSpeech to Jekyll
 date: '2016-09-23 18:55:26 -0400'
 categories:
 - Programming
@@ -8,7 +8,7 @@ tags: []
 comments: []
 ---
 <p>
-  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on <a href="www.nearylfreespeech.net">nearlyfreespeech.net </a>, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. Eiter way, I don't have access to the wp-cli. So, I decided to try something else
+  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on <a href="www.nearylfreespeech.net">nearlyfreespeech.net </a>, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. either way, I don't have access to the wp-cli. So, I decided to try something else
 </p>
 
 <p>
