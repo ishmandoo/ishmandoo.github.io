@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Migrating from Wordpress on NearlyFreeSpeech to Jekyll</title>
-  <meta name="description" content="  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on nearlyfreespeech.net , but their version of the wordpress command li...">
+  <title>Router Based Planer</title>
+  <meta name="description" content="Matt and I have a tradition of doing woodworking projects when we're together at our parents' house. We don't have a thickness planer, so we decided to make ...">
 
   <!-- evil icon -->
 
@@ -16,7 +16,7 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html">
+  <link rel="canonical" href="/woodworking/2016/11/29/router-based-planer.html">
   <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
@@ -61,28 +61,34 @@
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="artilce_header">
-    <h1 class="artilce_title" itemprop="name headline">Migrating from Wordpress on NearlyFreeSpeech to Jekyll</h1>
-    <p class="artilce_meta"><time datetime="2016-09-23T18:55:26-04:00" itemprop="datePublished">Sep 23, 2016</time></p>
+    <h1 class="artilce_title" itemprop="name headline">Router Based Planer</h1>
+    <p class="artilce_meta"><time datetime="2016-11-29T00:00:00-05:00" itemprop="datePublished">Nov 29, 2016</time></p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    <p>
-  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on <a href="www.nearylfreespeech.net">nearlyfreespeech.net </a>, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. either way, I don't have access to the wp-cli. So, I decided to try something else
-</p>
-
-<p>
-  I read good things about Jekyll, so I decided to try it. There's a lot there, but one sticking point was migrating the database into Jekyll. I don't think you can access NFS's mysql server from outside, so I downloaded the data using phpMyAdmin, created a database, imported the data with <code>source data.sql</code>, and ran the Jekyll import function.
-</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ruby -rubygems -e <span class="s1">'require "jekyll-import";
-    JekyllImport::Importers::WordPress.run({
-      "dbname"   =&gt; "benwiener",
-      "user"     =&gt; "username",
-      "password" =&gt; "password",
-      "host"     =&gt; "localhost",
-      "table_prefix"   =&gt; "wp_"
-    })'</span></code></pre></figure>
-
+    <p>Matt and I have a tradition of doing woodworking projects when we're together at our parents' house. We don't have a thickness planer, so we decided to make one based on <a href="https://www.youtube.com/watch?v=WSXP1xesMx0">this YouTube video</a>.</p>
+<br/>
+<center>
+<img src="/assets/img/2016/11/overhead.jpg"></img>
+</center>
+<br/>
+<p>It's a jig for a router that allows it to slide in either direction, but constrains it to a consistent height. The base is made of a melamine shelf and two pieces 1" aluminum angle. The sled is a piece of plywood with a slot cut in it, some guides to keep it centered on the base, two sides on top to guide the router, and stops on either end to prevent the router from cutting too far. </p>
+<br/>
+<center>
+<img src="/assets/img/2016/11/action.jpg"></img>
+</center>
+<br/>
+<p>This thing is easy but tedious to use. You clamp a board to the base, set the height of the router, and run it back and forth over the wood. We limited our cuts to about 1/8" per pass. If you stick with that rule, you'll probably have to do several passes. </p>
+<br/>
+<center>
+<img src="/assets/img/2016/11/rail.jpg"></img>
+</center>
+<br/>
+<p>We successfully planed oak and walnut boards from 1" nominal thickness to 3/8" with no problem. The router bit leaves some lines in the wood, but these can easily be sanded away. Other than those lines, the results seemed perfect. The process does take a long time and it isn't pleasant time either, since you're holding screaming router in your hand the whole time.
+<br/>
+<center>
+<img src="/assets/img/2016/11/rail.jpg"></img>
+</center>
 
   </div>
 

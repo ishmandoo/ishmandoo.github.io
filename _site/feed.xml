@@ -6,13 +6,48 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Sep 2016 00:56:00 -0400</pubDate>
-    <lastBuildDate>Wed, 28 Sep 2016 00:56:00 -0400</lastBuildDate>
+    <pubDate>Tue, 29 Nov 2016 01:14:55 -0500</pubDate>
+    <lastBuildDate>Tue, 29 Nov 2016 01:14:55 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>The Hot Hand Fallacy</title>
-        <description>&lt;p&gt;I was reading the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hot-hand_fallacy&quot;&gt;Wikipedia article about the &lt;i&gt;Hot Hand Falacy&lt;/i&gt;&lt;/a&gt;, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being &lt;i&gt;hot&lt;/i&gt; or &lt;i&gt;cold&lt;/i&gt; a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
+        <title>Router Based Planer</title>
+        <description>&lt;p&gt;Matt and I have a tradition of doing woodworking projects when we're together at our parents' house. We don't have a thickness planer, so we decided to make one based on &lt;a href=&quot;https://www.youtube.com/watch?v=WSXP1xesMx0&quot;&gt;this YouTube video&lt;/a&gt;.&lt;/p&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2016/11/overhead.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+&lt;p&gt;It's a jig for a router that allows it to slide in either direction, but constrains it to a consistent height. The base is made of a melamine shelf and two pieces 1&quot; aluminum angle. The sled is a piece of plywood with a slot cut in it, some guides to keep it centered on the base, two sides on top to guide the router, and stops on either end to prevent the router from cutting too far. &lt;/p&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2016/11/action.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+&lt;p&gt;This thing is easy but tedious to use. You clamp a board to the base, set the height of the router, and run it back and forth over the wood. We limited our cuts to about 1/8&quot; per pass. If you stick with that rule, you'll probably have to do several passes. &lt;/p&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2016/11/rail.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+&lt;p&gt;We successfully planed oak and walnut boards from 1&quot; nominal thickness to 3/8&quot; with no problem. The router bit leaves some lines in the wood, but these can easily be sanded away. Other than those lines, the results seemed perfect. The process does take a long time and it isn't pleasant time either, since you're holding screaming router in your hand the whole time.
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2016/11/rail.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+</description>
+        <pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate>
+        <link>/woodworking/2016/11/29/router-based-planer.html</link>
+        <guid isPermaLink="true">/woodworking/2016/11/29/router-based-planer.html</guid>
+        
+        
+        <category>Woodworking</category>
+        
+      </item>
+    
+      <item>
+        <title>The Hot Hand Fallacy?</title>
+        <description>&lt;p&gt;I was reading the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hot-hand_fallacy&quot;&gt;Wikipedia article about the &lt;i&gt;Hot Hand Fallacy&lt;/i&gt;&lt;/a&gt;, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being &lt;i&gt;hot&lt;/i&gt; or &lt;i&gt;cold&lt;/i&gt; a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -96,9 +131,9 @@ Also, it isn't a huge effect. It looks like 5% or something.
       </item>
     
       <item>
-        <title>Migrating from Wordpress on NearlyFreeSpeech to Jeckyl</title>
+        <title>Migrating from Wordpress on NearlyFreeSpeech to Jekyll</title>
         <description>&lt;p&gt;
-  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on &lt;a href=&quot;www.nearylfreespeech.net&quot;&gt;nearlyfreespeech.net &lt;/a&gt;, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. Eiter way, I don't have access to the wp-cli. So, I decided to try something else
+  I messed up my Wordpress installation and I don't know how to fix it. It was hosted on &lt;a href=&quot;www.nearylfreespeech.net&quot;&gt;nearlyfreespeech.net &lt;/a&gt;, but their version of the wordpress command line client seems to be either broken or too old to work with an up-to-date Wordpress install. either way, I don't have access to the wp-cli. So, I decided to try something else
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -624,32 +659,6 @@ python flatten.py out.csv &amp;gt; out_flat.csv&amp;lt;/p&amp;gt;
         <category>Electronics</category>
         
         <category>Radio</category>
-        
-      </item>
-    
-      <item>
-        <title>Some RF Learnin'</title>
-        <description>&lt;p&gt;Phil, Jon, and I got our ham radio licenses last weekend. Just 'cause. I donno. &lt;/p&gt;
-&lt;p&gt;This, and a grand plan to make an NMR spectrometer led us to do some experimenting with radio frequency electronics. We've learned a few things already.&lt;/p&gt;
-&lt;p&gt;First of all, you can't use breadboards, I guess. I think there were several problems with what we were doing at first, but it seems likely that this was one of them. As everyone seems to say, breadboards are problematic above a few MHz. Too much capacitance, or something. We've abolished them. Sad, I know. They're so nice.&lt;/p&gt;
-&lt;p&gt;Second, parasitic inductances and capacitances are everywhere. We tried to make a low-pass filter using a resistor and capacitor.&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/2000px-1st_Order_Lowpass_Filter_RC.svg_-300x168.png&quot; alt=&quot;2000px-1st_Order_Lowpass_Filter_RC.svg&quot; width=&quot;300&quot; height=&quot;168&quot; class=&quot;alignnone size-medium wp-image-37&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-&lt;/center&gt;&lt;/p&gt;
-&lt;p&gt;What could be simpler than that? Well, we got some confusing results:&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;a href=&quot;/assets/img/2015/12/100pF_lowpass_filter.png&quot;&gt;&lt;img src=&quot;/assets/img/2015/12/100pF_lowpass_filter.png&quot; alt=&quot;Green - No Filter Blue - Low-Pass Filter&quot; width=&quot;812&quot; height=&quot;612&quot; class=&quot;size-full wp-image-31&quot; /&gt;
-&lt;br/&gt;&lt;/a&gt; Green - No Filter&lt;br /&gt;Blue - Low-Pass Filter
-&lt;/center&gt;&lt;/p&gt;
-&lt;p&gt;Phil has a white noise generator. The idea was that we'd run the white noise through the filter and see the noise power die off above the filter's cutoff frequency. The green curve shows the white noise with no filter, and the blue shows it with our low pass filter. This is not the signature of a low pass filter. We've concluded that the parasitic inductance of the capacitor effectively adds a small inductor in series with the capacitor and makes the vertical part of our filter into a resonator that shorts to ground at its resonant frequency.   &lt;/p&gt;
-&lt;p&gt;Inspired by this, we found a way to measure the inductance of a 10 turn coil we made for our NMR experiment. We estimated its inductance at about 10&amp;mu;H and put it in series with a 0.47&amp;mu;F capacitor, aiming for a resonant frequency of about 100 kHz. We used the AD 9850BRS to apply a voltage at that frequency and measured the amplitude and the voltage across the coil. We varied the frequency until we saw the amplitude of the applied voltage fall to a minimum. This was at about 70 kHz. &lt;/p&gt;
-</description>
-        <pubDate>Wed, 16 Dec 2015 05:35:07 -0500</pubDate>
-        <link>/electronics/2015/12/16/some-rf-learnin.html</link>
-        <guid isPermaLink="true">/electronics/2015/12/16/some-rf-learnin.html</guid>
-        
-        
-        <category>Electronics</category>
         
       </item>
     

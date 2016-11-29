@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The Hot Hand Fallacy</title>
-  <meta name="description" content="I was reading the Wikipedia article about the Hot Hand Falacy, and I decided to try a little bit of statistical analysis myself. I've always found the idea o...">
+  <title>The Hot Hand Fallacy?</title>
+  <meta name="description" content="I was reading the Wikipedia article about the Hot Hand Fallacy, and I decided to try a little bit of statistical analysis myself. I've always found the idea ...">
 
   <!-- evil icon -->
 
@@ -61,12 +61,12 @@
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="artilce_header">
-    <h1 class="artilce_title" itemprop="name headline">The Hot Hand Fallacy</h1>
+    <h1 class="artilce_title" itemprop="name headline">The Hot Hand Fallacy?</h1>
     <p class="artilce_meta"><time datetime="2016-09-28T00:00:00-04:00" itemprop="datePublished">Sep 28, 2016</time></p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    <p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Falacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
+    <p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Fallacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
 </p>
 
 <p>
