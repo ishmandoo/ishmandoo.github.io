@@ -66,6 +66,81 @@
 
     <article class="post_card post">
       <header class="post_header">
+        <h2 class="post_title"><a href="/programming/2017/01/25/chrome-extension.html">Making a Chrome Extension</a></h2>
+        <time class="post_date">25 January 2017, Wednesday</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          
+          <p> It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. </p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="s2">"manifest_version"</span><span class="err">:</span> <span class="mi">2</span><span class="p">,</span>
+
+  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"test"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"a test extension"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0"</span><span class="p">,</span>
+
+  <span class="s2">"browser_action"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"default_popup"</span><span class="err">:</span> <span class="s2">"popup.html"</span>
+  <span class="p">},</span>
+  <span class="s2">"permissions"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="s2">"activeTab"</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre></figure>
+
+<p> As far as I can tell, this is basically the minimum that will work. The manifest version, name, description, and version are all required. Next, you need either a browser action or a page action. A browser action is one that is always available. When you click on the extension's icon, a popup appears, displaying popup.html. Finally, the permissions array lists what the extension is allowed to do. In this case, I gave it permission to ask the browser for information about the active tab.</p>
+
+Here's popup.html:
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab"</span><span class="nt">&gt;</span>test<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"popup.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+All it does is define a div and load a script. Here is popup.js:
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">query</span><span class="p">({</span><span class="na">active</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">){</span>
+    <span class="nx">url</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">url</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'tab'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+<span class="p">});</span></code></pre></figure>
+
+All this does is asynchronously ask query the browser, filtering for active tab(s). The callback function takes a list of tabs. In this case, the list has only one element. It then finds the tag created in popup.html and sets the content to the active tab url.
+
+When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking "inspect popup".
+
+           
+          <a class="read-more" href="/programming/2017/01/25/chrome-extension.html"> »  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        
+        <!--
+        
+        <a href="/category/Programming">
+          <data data-icon="ei-archive"></data>
+          Programming</a>
+        
+        -->
+
+        <!--
+        
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
+    
+
+    <article class="post_card post">
+      <header class="post_header">
         <h2 class="post_title"><a href="/woodworking/2016/12/03/jewelry-box.html">Jewelry Box</a></h2>
         <time class="post_date">03 December 2016, Saturday</time>
       </header>
@@ -77,44 +152,43 @@
 <center>
 <img src="/assets/img/2016/12/finished.jpg"></img>
 </center>
-
+<br/>
 <p>Below are the basic plans.</p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/plans.png"></img>
 </center>
-
+<br/>
 <p>We started by using our <a href="/woodworking/2016/11/29/router-based-planer.html">new planer</a> to thin some 1" nominal oak and walnut boards down to 3/8".  </p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/planed.jpg"></img>
 </center>
-
+<br/>
 <p>Using the table saw, we ripped them to their final widths of 3-3/8" for the front and sides or 3" for the back. </p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/pieces.jpg"></img>
 </center>
-
+<br/>
 <p>We cut them to their final lengths and then got to work on the finger joints. We used a clever jig to make accurate finger joints. You can see how it works in <a href="https://www.youtube.com/watch?v=bTd81dlRQiE">this video</a> It requires a dado stack and an accurately cut square peg. It took us some time to lock in the precise width of the dado stack by adding and removing shims.</p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/jig.jpg"></img>
 </center>
-
+<br/>
 <p>We cut the lid to size using the table saw for the basic shape. We used a jig saw to create the tab. We then cut a notch into the front piece to make way for the tab. For the bottom, we cut a 1/8" thick piece of oak to 10" by 5-3/4" and cut slots in the front and back panels for the bottom. Then we made sure everything fit.</p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/before_glue.jpg"></img>
 </center>
-
+<br/>
 <p>We sanded all the panels with 80 and 200 grit sand paper, then glued it up and clamped it in place.</p>
 <br/>
 <center>
 <img src="/assets/img/2016/12/glue.jpg"></img>
 </center>
-
-
+<br/>
 <p>We gave it a final sanding and then rubbed some finishing wax into the wood to protect it. </p>
 <br/>
 <center>
@@ -347,85 +421,6 @@ Also, it isn't a huge effect. It looks like 5% or something.
 
            
           <a class="read-more" href="/programming/2016/09/23/importing-to-jekyll-from-nfs-wordpress.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/programming/2016/09/23/haskell-ball-bounce.html">Haskell Ball Bounce</a></h2>
-        <time class="post_date">23 September 2016, Friday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>I've been learning a bit about Haskell. Here's something silly I wrote. It animates a ball bouncing in a box in a terminal window. </p>
-<p>
-  <figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">Control.Concurrent</span>
-<span class="kr">import</span> <span class="nn">System.Console.ANSI</span>
-<span class="n">main</span> <span class="o">=</span> <span class="n">animate</span> <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="n">printArena</span><span class="p">)</span> <span class="p">(</span><span class="n">iterate</span> <span class="n">stepArena</span> <span class="n">arena</span><span class="p">)</span>
-  <span class="kr">where</span>
-    <span class="n">ball</span> <span class="o">=</span> <span class="kt">Ball</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span> <span class="mi">2</span>
-    <span class="n">arena</span> <span class="o">=</span> <span class="kt">Arena</span> <span class="mi">99</span> <span class="mi">51</span> <span class="n">ball</span>
-<span class="n">repeatn</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">String</span>
-<span class="n">repeatn</span> <span class="n">a</span> <span class="n">n</span> <span class="o">=</span> <span class="n">take</span> <span class="n">n</span> <span class="p">(</span><span class="n">repeat</span> <span class="n">a</span><span class="p">)</span>
-<span class="kr">data</span> <span class="kt">Ball</span> <span class="o">=</span> <span class="kt">Ball</span> <span class="kt">Int</span> <span class="kt">Int</span> <span class="kt">Int</span> <span class="kt">Int</span>
-<span class="kr">data</span> <span class="kt">Arena</span> <span class="o">=</span> <span class="kt">Arena</span> <span class="kt">Int</span> <span class="kt">Int</span> <span class="kt">Ball</span>
-<span class="n">printArena</span> <span class="o">::</span> <span class="kt">Arena</span> <span class="o">-&gt;</span> <span class="kt">String</span>
-<span class="n">printArena</span> <span class="p">(</span><span class="kt">Arena</span> <span class="n">w</span> <span class="n">h</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x</span> <span class="n">y</span> <span class="n">dx</span> <span class="n">dy</span><span class="p">))</span> <span class="o">=</span>
-  <span class="n">repeatn</span> <span class="sc">'-'</span> <span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">++</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">++</span> <span class="p">(</span><span class="n">printArenaRow</span> <span class="n">w</span> <span class="n">h</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x</span> <span class="n">y</span> <span class="n">dx</span> <span class="n">dy</span><span class="p">))</span>
-<span class="n">printArenaRow</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Ball</span><span class="o">-&gt;</span> <span class="kt">String</span>
-<span class="n">printArenaRow</span> <span class="n">w</span> <span class="mi">0</span>  <span class="kr">_</span><span class="o">=</span>
-  <span class="n">repeatn</span> <span class="sc">'-'</span> <span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">++</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
-<span class="n">printArenaRow</span> <span class="n">w</span> <span class="n">h</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x</span> <span class="n">y</span> <span class="n">dx</span> <span class="n">dy</span><span class="p">)</span><span class="o">=</span>
-  <span class="s">"|"</span> <span class="o">++</span> <span class="p">(</span><span class="n">repeatn</span> <span class="sc">' '</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">++</span> <span class="n">b</span> <span class="o">++</span> <span class="p">(</span><span class="n">repeatn</span> <span class="sc">' '</span> <span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">++</span> <span class="s">"|</span><span class="se">\n</span><span class="s">"</span> <span class="o">++</span> <span class="p">(</span><span class="n">printArenaRow</span> <span class="n">w</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x</span> <span class="n">y</span> <span class="n">dx</span> <span class="n">dy</span><span class="p">))</span>
-    <span class="kr">where</span>
-      <span class="n">b</span> <span class="o">=</span> <span class="kr">if</span> <span class="p">((</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="kr">then</span> <span class="s">"o"</span> <span class="kr">else</span> <span class="s">" "</span>
-<span class="n">stepArena</span> <span class="o">::</span> <span class="kt">Arena</span> <span class="o">-&gt;</span> <span class="kt">Arena</span>
-<span class="n">stepArena</span> <span class="p">(</span><span class="kt">Arena</span> <span class="n">w</span> <span class="n">h</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x</span> <span class="n">y</span> <span class="n">dx</span> <span class="n">dy</span><span class="p">))</span> <span class="o">=</span>
-  <span class="p">(</span><span class="kt">Arena</span> <span class="n">w</span> <span class="n">h</span> <span class="p">(</span><span class="kt">Ball</span> <span class="n">x'</span> <span class="n">y'</span> <span class="n">dx'</span> <span class="n">dy'</span><span class="p">))</span>
-    <span class="kr">where</span>
-      <span class="n">x'</span> <span class="o">=</span> <span class="n">max</span> <span class="p">(</span><span class="n">min</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span> <span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="mi">0</span>
-      <span class="n">y'</span> <span class="o">=</span> <span class="n">max</span> <span class="p">(</span><span class="n">min</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="mi">0</span>
-      <span class="n">dx'</span> <span class="o">=</span> <span class="kr">if</span> <span class="p">((</span><span class="n">x'</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">x'</span> <span class="o">==</span> <span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="kr">then</span> <span class="o">-</span><span class="n">dx</span> <span class="kr">else</span> <span class="n">dx</span>
-      <span class="n">dy'</span> <span class="o">=</span> <span class="kr">if</span> <span class="p">((</span><span class="n">y'</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">y'</span> <span class="o">==</span> <span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="kr">then</span> <span class="o">-</span><span class="n">dy</span> <span class="kr">else</span> <span class="n">dy</span>
-<span class="n">multiply</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span>
-<span class="n">multiply</span> <span class="n">f</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">f</span>
-<span class="n">multiply</span> <span class="n">f</span> <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="n">multiply</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">animate</span> <span class="o">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span>
-<span class="n">animate</span> <span class="kt">[]</span> <span class="o">=</span>
-  <span class="n">putStr</span> <span class="s">"done"</span>
-<span class="n">animate</span> <span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="n">as</span><span class="p">)</span> <span class="o">=</span>
-  <span class="kr">do</span>
-    <span class="n">putStr</span> <span class="n">a</span>
-    <span class="n">threadDelay</span> <span class="mi">100000</span>
-    <span class="n">clearScreen</span>
-    <span class="n">animate</span> <span class="n">as</span></code></pre></figure>
-
-           
-          <a class="read-more" href="/programming/2016/09/23/haskell-ball-bounce.html"> »  </a>
         </p> 
       </div>
       <footer class="post_meta">

@@ -1,0 +1,53 @@
+---
+layout: post
+title: Making a Chrome Extension
+categories:
+- Programming
+tags: []
+comments: []
+---
+
+<p> It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. </p>
+
+{% highlight javascript %}
+{
+  "manifest_version": 2,
+
+  "name": "test",
+  "description": "a test extension",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
+{% endhighlight %}
+
+<p> As far as I can tell, this is basically the minimum that will work. The manifest version, name, description, and version are all required. Next, you need either a browser action or a page action. A browser action is one that is always available. When you click on the extension's icon, a popup appears, displaying popup.html. Finally, the permissions array lists what the extension is allowed to do. In this case, I gave it permission to ask the browser for information about the active tab.</p>
+
+Here's popup.html:
+
+{% highlight html %}
+<html>
+<div id="tab">test</div>
+
+<script src="popup.js"></script>
+</html>
+{% endhighlight %}
+
+All it does is define a div and load a script. Here is popup.js:
+
+{% highlight javascript %}
+chrome.tabs.query({active:true},function(tab){
+    url = tab[0].url;
+    console.log(url);
+    document.getElementById('tab').textContent = url;
+});
+{% endhighlight %}
+
+All this does is asynchronously ask query the browser, filtering for active tab(s). The callback function takes a list of tabs. In this case, the list has only one element. It then finds the tag created in popup.html and sets the content to the active tab url.
+
+When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking "inspect popup".

@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Jewelry Box</title>
-  <meta name="description" content="Over Thanksgiving, Matt and I made a jewelry box. It's 5-3/8" by 10-3/4", made of walnut and oak with a hinged lid and finger joint corners. Here's how we di...">
+  <title>Making a Chrome Extension</title>
+  <meta name="description" content=" It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. {  "manifest_version": 2,  ...">
 
   <!-- evil icon -->
 
@@ -16,7 +16,7 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/woodworking/2016/12/03/jewelry-box.html">
+  <link rel="canonical" href="/programming/2017/01/25/chrome-extension.html">
   <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="/feed.xml">
 </head>
 
@@ -61,58 +61,49 @@
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="artilce_header">
-    <h1 class="artilce_title" itemprop="name headline">Jewelry Box</h1>
-    <p class="artilce_meta"><time datetime="2016-12-03T00:00:00-05:00" itemprop="datePublished">Dec 3, 2016</time></p>
+    <h1 class="artilce_title" itemprop="name headline">Making a Chrome Extension</h1>
+    <p class="artilce_meta"><time datetime="2017-01-25T00:00:00-05:00" itemprop="datePublished">Jan 25, 2017</time></p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    <p>Over Thanksgiving, Matt and I made a jewelry box. It's 5-3/8" by 10-3/4", made of walnut and oak with a hinged lid and finger joint corners. Here's how we did it.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/finished.jpg"></img>
-</center>
-<br/>
-<p>Below are the basic plans.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/plans.png"></img>
-</center>
-<br/>
-<p>We started by using our <a href="/woodworking/2016/11/29/router-based-planer.html">new planer</a> to thin some 1" nominal oak and walnut boards down to 3/8".  </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/planed.jpg"></img>
-</center>
-<br/>
-<p>Using the table saw, we ripped them to their final widths of 3-3/8" for the front and sides or 3" for the back. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/pieces.jpg"></img>
-</center>
-<br/>
-<p>We cut them to their final lengths and then got to work on the finger joints. We used a clever jig to make accurate finger joints. You can see how it works in <a href="https://www.youtube.com/watch?v=bTd81dlRQiE">this video</a> It requires a dado stack and an accurately cut square peg. It took us some time to lock in the precise width of the dado stack by adding and removing shims.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/jig.jpg"></img>
-</center>
-<br/>
-<p>We cut the lid to size using the table saw for the basic shape. We used a jig saw to create the tab. We then cut a notch into the front piece to make way for the tab. For the bottom, we cut a 1/8" thick piece of oak to 10" by 5-3/4" and cut slots in the front and back panels for the bottom. Then we made sure everything fit.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/before_glue.jpg"></img>
-</center>
-<br/>
-<p>We sanded all the panels with 80 and 200 grit sand paper, then glued it up and clamped it in place.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/glue.jpg"></img>
-</center>
-<br/>
-<p>We gave it a final sanding and then rubbed some finishing wax into the wood to protect it. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/finished_open.jpg"></img>
-</center>
+    <p> It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. </p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="s2">"manifest_version"</span><span class="err">:</span> <span class="mi">2</span><span class="p">,</span>
+
+  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"test"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"a test extension"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0"</span><span class="p">,</span>
+
+  <span class="s2">"browser_action"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"default_popup"</span><span class="err">:</span> <span class="s2">"popup.html"</span>
+  <span class="p">},</span>
+  <span class="s2">"permissions"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="s2">"activeTab"</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre></figure>
+
+<p> As far as I can tell, this is basically the minimum that will work. The manifest version, name, description, and version are all required. Next, you need either a browser action or a page action. A browser action is one that is always available. When you click on the extension's icon, a popup appears, displaying popup.html. Finally, the permissions array lists what the extension is allowed to do. In this case, I gave it permission to ask the browser for information about the active tab.</p>
+
+Here's popup.html:
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab"</span><span class="nt">&gt;</span>test<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"popup.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+All it does is define a div and load a script. Here is popup.js:
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">query</span><span class="p">({</span><span class="na">active</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">){</span>
+    <span class="nx">url</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">url</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'tab'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+<span class="p">});</span></code></pre></figure>
+
+All this does is asynchronously ask query the browser, filtering for active tab(s). The callback function takes a list of tabs. In this case, the list has only one element. It then finds the tag created in popup.html and sets the content to the active tab url.
+
+When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking "inspect popup".
 
   </div>
 

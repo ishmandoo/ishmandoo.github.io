@@ -6,9 +6,59 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Dec 2016 15:41:40 -0500</pubDate>
-    <lastBuildDate>Sat, 10 Dec 2016 15:41:40 -0500</lastBuildDate>
+    <pubDate>Thu, 26 Jan 2017 00:25:07 -0500</pubDate>
+    <lastBuildDate>Thu, 26 Jan 2017 00:25:07 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Making a Chrome Extension</title>
+        <description>&lt;p&gt; It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;manifest_version&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a test extension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;s2&quot;&gt;&quot;browser_action&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;default_popup&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;popup.html&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;permissions&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;activeTab&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt; As far as I can tell, this is basically the minimum that will work. The manifest version, name, description, and version are all required. Next, you need either a browser action or a page action. A browser action is one that is always available. When you click on the extension's icon, a popup appears, displaying popup.html. Finally, the permissions array lists what the extension is allowed to do. In this case, I gave it permission to ask the browser for information about the active tab.&lt;/p&gt;
+
+Here's popup.html:
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tab&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;popup.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+All it does is define a div and load a script. Here is popup.js:
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tabs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tab&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tab&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'tab'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+All this does is asynchronously ask query the browser, filtering for active tab(s). The callback function takes a list of tabs. In this case, the list has only one element. It then finds the tag created in popup.html and sets the content to the active tab url.
+
+When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking &quot;inspect popup&quot;.
+</description>
+        <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
+        <link>/programming/2017/01/25/chrome-extension.html</link>
+        <guid isPermaLink="true">/programming/2017/01/25/chrome-extension.html</guid>
+        
+        
+        <category>Programming</category>
+        
+      </item>
     
       <item>
         <title>Jewelry Box</title>
@@ -17,44 +67,43 @@
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/finished.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;Below are the basic plans.&lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/plans.png&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;We started by using our &lt;a href=&quot;/woodworking/2016/11/29/router-based-planer.html&quot;&gt;new planer&lt;/a&gt; to thin some 1&quot; nominal oak and walnut boards down to 3/8&quot;.  &lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/planed.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;Using the table saw, we ripped them to their final widths of 3-3/8&quot; for the front and sides or 3&quot; for the back. &lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/pieces.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;We cut them to their final lengths and then got to work on the finger joints. We used a clever jig to make accurate finger joints. You can see how it works in &lt;a href=&quot;https://www.youtube.com/watch?v=bTd81dlRQiE&quot;&gt;this video&lt;/a&gt; It requires a dado stack and an accurately cut square peg. It took us some time to lock in the precise width of the dado stack by adding and removing shims.&lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/jig.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;We cut the lid to size using the table saw for the basic shape. We used a jig saw to create the tab. We then cut a notch into the front piece to make way for the tab. For the bottom, we cut a 1/8&quot; thick piece of oak to 10&quot; by 5-3/4&quot; and cut slots in the front and back panels for the bottom. Then we made sure everything fit.&lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/before_glue.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
+&lt;br/&gt;
 &lt;p&gt;We sanded all the panels with 80 and 200 grit sand paper, then glued it up and clamped it in place.&lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2016/12/glue.jpg&quot;&gt;&lt;/img&gt;
 &lt;/center&gt;
-
-
+&lt;br/&gt;
 &lt;p&gt;We gave it a final sanding and then rubbed some finishing wax into the wood to protect it. &lt;/p&gt;
 &lt;br/&gt;
 &lt;center&gt;
@@ -618,22 +667,6 @@ theta = theta * -1;
         <category>Projects</category>
         
         <category>Programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Soap Video</title>
-        <description>&lt;p&gt;I made a video explaining how soap works. Here she is:&lt;br /&gt;
-&lt;center&gt;&lt;br /&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/89eBe4AQQCc&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;br /&gt;
-&lt;/center&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 Jan 2016 15:53:28 -0500</pubDate>
-        <link>/movies/2016/01/05/soap-video.html</link>
-        <guid isPermaLink="true">/movies/2016/01/05/soap-video.html</guid>
-        
-        
-        <category>Movies</category>
         
       </item>
     
