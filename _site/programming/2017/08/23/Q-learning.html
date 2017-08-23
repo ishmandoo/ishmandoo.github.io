@@ -5,9 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Home</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>Q Learning Maze Game</title>
+  <meta name="description" content="I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, whi...">
 
   <!-- evil icon -->
 
@@ -17,7 +16,7 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/programming/2017/08/23/Q-learning.html">
   <link rel="alternate" type="application/rss+xml" title="Ben's Doins" href="http://localhost:4000/feed.xml">
 </head>
 
@@ -59,20 +58,15 @@
 
         <div class="nine columns" style="z-index:100;">
           <div class="wrapper">
-            <div class="home">
-  <div class="post-list">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-    
+  <header class="artilce_header">
+    <h1 class="artilce_title" itemprop="name headline">Q Learning Maze Game</h1>
+    <p class="artilce_meta"><time datetime="2017-08-23T00:00:00-04:00" itemprop="datePublished">Aug 23, 2017</time></p>
+  </header>
 
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/programming/2017/08/23/Q-learning.html">Q Learning Maze Game</a></h2>
-        <time class="post_date">23 August 2017, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. That way, a player can simply look up their state and take the actuion with the highest value.</p>
+  <div class="article-content" itemprop="articleBody">
+    <p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. That way, a player can simply look up their state and take the actuion with the highest value.</p>
 
 <p>The goal is obviously to train this Q matrix to accurately reflect the game. This can be done by taking moves and updating Q each time in the following way:</p>
 
@@ -188,366 +182,42 @@
     <span class="n">maze</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">getBestMove</span><span class="p">(</span><span class="n">maze</span><span class="o">.</span><span class="n">playerPos</span><span class="p">))</span>
     <span class="k">print</span> <span class="n">maze</span></code></pre></figure>
 
-           
-          <a class="read-more" href="/programming/2017/08/23/Q-learning.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/programming/2017/01/25/chrome-extension.html">Making a Chrome Extension</a></h2>
-        <time class="post_date">25 January 2017, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p> It's easy to make a chrome extension. The first thing you need is a manifest, describing the extension and defining permissions. </p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-  <span class="s2">"manifest_version"</span><span class="err">:</span> <span class="mi">2</span><span class="p">,</span>
-
-  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"test"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"a test extension"</span><span class="p">,</span>
-  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0"</span><span class="p">,</span>
-
-  <span class="s2">"browser_action"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"default_popup"</span><span class="err">:</span> <span class="s2">"popup.html"</span>
-  <span class="p">},</span>
-  <span class="s2">"permissions"</span><span class="err">:</span> <span class="p">[</span>
-    <span class="s2">"activeTab"</span>
-  <span class="p">]</span>
-<span class="p">}</span></code></pre></figure>
-
-<p> As far as I can tell, this is basically the minimum that will work. The manifest version, name, description, and version are all required. Next, you need either a browser action or a page action. A browser action is one that is always available. When you click on the extension's icon, a popup appears, displaying popup.html. Finally, the permissions array lists what the extension is allowed to do. In this case, I gave it permission to ask the browser for information about the active tab.</p>
-
-Here's popup.html:
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab"</span><span class="nt">&gt;</span>test<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"popup.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
-
-All it does is define a div and load a script. Here is popup.js:
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">query</span><span class="p">({</span><span class="na">active</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">){</span>
-    <span class="nx">url</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">url</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'tab'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
-<span class="p">});</span></code></pre></figure>
-
-All this does is asynchronously ask query the browser, filtering for active tab(s). The callback function takes a list of tabs. In this case, the list has only one element. It then finds the tag created in popup.html and sets the content to the active tab url.
-
-When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking "inspect popup".
-
-           
-          <a class="read-more" href="/programming/2017/01/25/chrome-extension.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/woodworking/2016/12/03/jewelry-box.html">Jewelry Box</a></h2>
-        <time class="post_date">03 December 2016, Saturday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>Over Thanksgiving, Matt and I made a jewelry box. It's 5-3/8" by 10-3/4", made of walnut and oak with a hinged lid and finger joint corners. Here's how we did it.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/finished.jpg"></img>
-</center>
-<br/>
-<p>Below are the basic plans.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/plans.png"></img>
-</center>
-<br/>
-<p>We started by using our <a href="/woodworking/2016/11/29/router-based-planer.html">new planer</a> to thin some 1" nominal oak and walnut boards down to 3/8".  </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/planed.jpg"></img>
-</center>
-<br/>
-<p>Using the table saw, we ripped them to their final widths of 3-3/8" for the front and sides or 3" for the back. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/pieces.jpg"></img>
-</center>
-<br/>
-<p>We cut them to their final lengths and then got to work on the finger joints. We used a clever jig to make accurate finger joints. You can see how it works in <a href="https://www.youtube.com/watch?v=bTd81dlRQiE">this video</a> It requires a dado stack and an accurately cut square peg. It took us some time to lock in the precise width of the dado stack by adding and removing shims.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/jig.jpg"></img>
-</center>
-<br/>
-<p>We cut the lid to size using the table saw for the basic shape. We used a jig saw to create the tab. We then cut a notch into the front piece to make way for the tab. For the bottom, we cut a 1/8" thick piece of oak to 10" by 5-3/4" and cut slots in the front and back panels for the bottom. Then we made sure everything fit.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/before_glue.jpg"></img>
-</center>
-<br/>
-<p>We sanded all the panels with 80 and 200 grit sand paper, then glued it up and clamped it in place.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/glue.jpg"></img>
-</center>
-<br/>
-<p>We gave it a final sanding and then rubbed some finishing wax into the wood to protect it. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/12/finished_open.jpg"></img>
-</center>
-
-           
-          <a class="read-more" href="/woodworking/2016/12/03/jewelry-box.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Woodworking">
-          <data data-icon="ei-archive"></data>
-          Woodworking</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/woodworking/2016/11/29/router-based-planer.html">Router Based Planer</a></h2>
-        <time class="post_date">29 November 2016, Tuesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>Matt and I have a tradition of doing woodworking projects when we're together at our parents' house. We don't have a thickness planer, so we decided to make one based on <a href="https://www.youtube.com/watch?v=WSXP1xesMx0">this YouTube video</a>.</p>
-<br/>
-<center>
-<img src="/assets/img/2016/11/overhead.jpg"></img>
-</center>
-<br/>
-<p>It's a jig for a router that allows it to slide in either direction, but constrains it to a consistent height. The base is made of a melamine shelf and two pieces of 1" aluminum angle. The sled is a piece of plywood with a slot cut in it, some guides to keep it centered on the base, two sides on top to guide the router, and stops on either end to prevent the router from cutting too far. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/11/action.jpg"></img>
-</center>
-<br/>
-<p>This thing is easy but tedious to use. You clamp a board to the base, set the height of the router, and run it back and forth over the wood. We limited our cuts to about 1/8" per pass. If you stick with that rule, you'll probably have to do several passes. </p>
-<br/>
-<center>
-<img src="/assets/img/2016/11/rail.jpg"></img>
-</center>
-<br/>
-<p>We successfully planed pine, oak, and walnut boards from 1" nominal thickness to 3/8" with no problem. The router bit leaves some lines in the wood, but these can easily be sanded away. Other than those lines, the results seemed perfect. The process does take a long time and it isn't pleasant time either, since you're holding a screaming router in your hands the whole time.
-<br/>
-<center>
-<img src="/assets/img/2016/11/results.jpg"></img>
-</center>
-
-           
-          <a class="read-more" href="/woodworking/2016/11/29/router-based-planer.html"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Woodworking">
-          <data data-icon="ei-archive"></data>
-          Woodworking</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/programming/2016/09/28/hot-hand.markup">The Hot Hand Fallacy?</a></h2>
-        <time class="post_date">28 September 2016, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Fallacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
-</p>
-
-<p>
-I chose baseball to look at. I downloaded the 2015 event database from <a href="http://www.retrosheet.org/game.htm">Retrosheet</a>, and wrote some code to calculate autocorrelation functions. I generated a long list of every plate appearance outcome for the whole season. The list is grouped by player and in order for each player. I labeled all hits as 1 and all outs as 0. I then computed the autocorrelation of this sequence.
-</p>
-
-<center>
-<img src="/assets/img/2016/09/autocorrelation.png"></img>
-</center>
-
-<p>
-I inserted the black line to guide the eye. As you can see, there is some correlation between successful plate appearances. I think this suggests that the time-scale for hotness or coldness is about ten plate appearances. Two games, or so.
-
-Also, it isn't a huge effect. It looks like 5% or something.
-</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">compiler.ast</span> <span class="kn">import</span> <span class="n">flatten</span>
-
-<span class="c"># gets only the event lines from a file</span>
-<span class="k">def</span> <span class="nf">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-
-    <span class="c"># splits line into parts</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">),</span><span class="n">fp</span><span class="p">)</span>
-
-    <span class="c"># filters for only play events</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"play"</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">events</span>
-
-<span class="c"># gets a list of players involved in a list of events</span>
-<span class="k">def</span> <span class="nf">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">events</span><span class="p">)</span>
-    <span class="n">players</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">players</span>
-
-<span class="c"># filters for only plays involving a certain hitter</span>
-<span class="k">def</span> <span class="nf">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">),</span> <span class="n">events</span><span class="p">)</span>
-
-<span class="c"># maps hits to 1 and outs to 0</span>
-<span class="k">def</span> <span class="nf">maskHits</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">((</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"S"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"D"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"T"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"H"</span><span class="p">))</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
-
-<span class="c"># replaces all lines containing a hit with a 1 and all containing and out with a 0</span>
-<span class="k">def</span> <span class="nf">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">maskHits</span><span class="p">(</span><span class="n">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-
-<span class="c"># concatenates all the player series for a team</span>
-<span class="k">def</span> <span class="nf">getPlayerSeriesForTeam</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="n">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="n">players</span> <span class="o">=</span> <span class="n">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
-    <span class="n">series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">player</span><span class="p">:</span> <span class="n">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="n">players</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">flatten</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
-
-<span class="c"># concatenates the team series for the whole league</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'./teams'</span><span class="p">)</span>
-<span class="n">total_series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="nb">file</span><span class="p">:</span> <span class="n">getPlayerSeriesForTeam</span><span class="p">(</span><span class="s">'./teams/'</span> <span class="o">+</span> <span class="nb">file</span><span class="p">),</span> <span class="n">files</span><span class="p">)</span>
-<span class="n">total_series_flat</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">total_series</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">total_series_flat</span><span class="p">)</span>
-
-<span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">total_series_flat</span><span class="p">,</span><span class="n">total_series_flat</span><span class="p">[:</span><span class="mi">100</span><span class="p">])),</span> <span class="n">total_series_flat</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'valid'</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">corr</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">9900</span><span class="p">,</span> <span class="mi">9900</span><span class="p">],</span> <span class="s">'k-'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Correlation Between Sequential Plate Appearances, MLB 2015 "</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$</span><span class="err">\</span><span class="s">Delta$ PA'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'autocorrelation'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
-
-           
-          <a class="read-more" href="/programming/2016/09/28/hot-hand.markup"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
   </div>
-</div>
+
+  <footer class="article-footer">
+<!--
+  <section class="share">
+  <a class="share-link" href="" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+    Twitter
+  </a>
+  <a class="share-link" href="" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+    Facebook
+  </a>
+  <a class="share-link" href="" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530'); return false;">
+    Google+
+  </a> 
+</section>
+
+
+  <hr/>-->
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/ben.jpg)"></div>
+  <div class="authorinfo box">
+    <p>Author | Ben Wiener</p>
+    <p class="bio">
+      Currently a Ph.D. student in Physics at Brown University.
+    </p>
+  </div>
+</section>
+
+
+  </footer>
+
+  
+
+
+</article>
 
           </div>
         </div>
