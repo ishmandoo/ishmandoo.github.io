@@ -7,7 +7,7 @@ tags: []
 comments: []
 ---
 
-<p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. That way, a player can simply look up their state and take the actuion with the highest value.</p>
+<p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. Once trained, a player can simply look up their state and take the action with the highest value.</p>
 
 <p>The goal is obviously to train this Q matrix to accurately reflect the game. This can be done by taking moves and updating Q each time in the following way:</p>
 
@@ -15,7 +15,7 @@ comments: []
 <img src="/assets/img/2017/08/Q_update.svg" width=90%></img>
 </center>
 
-<p>As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that <i>seem</i> better.</p>
+<p>As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that <i>seem</i> better. It doesn't matter in this case, though. The maze problem is so easy that anything would work.</p>
 
 <p>In this case, the reward is simply zero unless the player reaches the goal. At first I set the discount factor, gamma, to be 1. This did not work. Since the random player will always eventually finish the maze, this resulted in every square eventually getting a value of 1. The discount factor means that faster routes to the goal are favored.</p>
 
