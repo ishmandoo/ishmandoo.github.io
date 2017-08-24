@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ben's Doins</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>What is Ben doing?</title>
+    <description>A blog.
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Aug 2017 11:31:37 -0400</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 11:31:37 -0400</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 11:34:18 -0400</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 11:34:18 -0400</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
@@ -29,7 +29,7 @@
 &lt;/center&gt;
 
 
-&lt;p&gt;Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, &lt;code&gt;requiredY&lt;/code&gt;. The points that make up the lines are confined to descrete positiosn in &lt;code&gt;x&lt;/code&gt;. With two arguments, it finds the new &lt;code&gt;y&lt;/code&gt; value required to put a new point at in the column at index &lt;code&gt;i&lt;/code&gt; based on being a distance &lt;code&gt;r&lt;/code&gt; from the last point in the row at index &lt;code&gt;j&lt;/code&gt;. With one index, it fins the minimum &lt;code&gt;y&lt;/code&gt; required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.&lt;/p&gt;
+&lt;p&gt;Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, &lt;code&gt;requiredY&lt;/code&gt;. The points that make up the lines are confined to descrete positiosn in &lt;code&gt;x&lt;/code&gt;. With two arguments, it finds the new &lt;code&gt;y&lt;/code&gt; value required to put a new point at in the column at index &lt;code&gt;i&lt;/code&gt; based on being a distance &lt;code&gt;r&lt;/code&gt; from the last point in the row at index &lt;code&gt;j&lt;/code&gt;. With one argument, it finds the minimum &lt;code&gt;y&lt;/code&gt; required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mathematica&quot; data-lang=&quot;mathematica&quot;&gt;xs = Range[200];
 ys = 10 + 5 (Sin[xs/10.] + Sin[xs/6.] + Sin[xs/16.]) +

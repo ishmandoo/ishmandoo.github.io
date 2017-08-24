@@ -25,7 +25,7 @@ comments: []
 </center>
 
 
-<p>Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, <code>requiredY</code>. The points that make up the lines are confined to descrete positiosn in <code>x</code>. With two arguments, it finds the new <code>y</code> value required to put a new point at in the column at index <code>i</code> based on being a distance <code>r</code> from the last point in the row at index <code>j</code>. With one index, it fins the minimum <code>y</code> required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.</p>
+<p>Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, <code>requiredY</code>. The points that make up the lines are confined to descrete positiosn in <code>x</code>. With two arguments, it finds the new <code>y</code> value required to put a new point at in the column at index <code>i</code> based on being a distance <code>r</code> from the last point in the row at index <code>j</code>. With one argument, it finds the minimum <code>y</code> required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.</p>
 
 {% highlight mathematica %}
 xs = Range[200];
