@@ -66,13 +66,96 @@
 
     <article class="post_card post">
       <header class="post_header">
+        <h2 class="post_title"><a href="/programming/art/2017/08/24/lewitt.html">Programmatic Sol LeWitt Wall Drawing</a></h2>
+        <time class="post_date">24 August 2017, Thursday</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          
+          <p>I visited MASS MoCA with some friends recently. There was a whole building there filled with the work of Sol LeWitt, a contemporary artist famous for minimalist geometric art. We spent a while looking at <i>Wall Drawing #797</i>.</p>
+
+<center>
+<img src="/assets/img/2017/08/lewitt_797.jpg" width=90%></img>
+<br/>
+<caption>Helen Harrison</caption>
+</center>
+
+<p>This drawing was made in an interesting way. One person drew a starting wavy line at the top. Then artists took turns following the bottom of the line with another line. This was repeated for the whole wall. The result has some complicated behavior. Concave parts produced ridges propagating downward and combining into larger ridges. It reminded us of caustic shapes produced by the complex surface of disturbed water. Phil pointed out that the connection with waves isn't an accident, since this procedure effectively follows Huygen's Principle. <a href="http://www.philipzucker.com/elm-eikonal-sol-lewitt/">He blogged about this too</a>, but my post is better.</p>
+
+<p>We all thought it would be cool to reproduce this idea in a computer. I found a way to do it with a few lines of Mathematica. </p>
+
+<center>
+<img src="/assets/img/2017/08/lewitt.png" width=90%></img>
+</center>
+
+
+<p>Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, <code>requiredY</code>. The points that make up the lines are confined to descrete positiosn in <code>x</code>. With two arguments, it finds the new <code>y</code> value required to put a new point at in the column at index <code>i</code> based on being a distance <code>r</code> from the last point in the row at index <code>j</code>. With one index, it fins the minimum <code>y</code> required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.</p>
+
+<figure class="highlight"><pre><code class="language-mathematica" data-lang="mathematica">xs = Range[200];
+ys = 10 + 5 (Sin[xs/10.] + Sin[xs/6.] + Sin[xs/16.]) +
+   Last /@ Normal[
+      RandomFunction[WienerProcess[0, .75], {0, 199, 1}]][[1]];
+next[xs_, ys_, r_] := Module[{requiredY, newYs},
+  requiredY[i_, j_] := ys[[j]] - Sqrt[r^2 - Abs[i - j]^2];
+  requiredY[i_] :=
+   Min[requiredY[i, #] &amp; /@ Range[Max[i - r, 1], Min[i + r, 200]]];
+  newYs = requiredY /@ xs;
+  newYs
+  ]
+ListPlot[NestList[next[xs, #, 2] &amp;, ys, 50], Joined -&gt; True,
+ Axes -&gt; False, PlotStyle -&gt; {Thickness[0.005]}]</code></pre></figure>
+
+I stumbled on some other neat looking results by accident too.
+
+<center>
+<img src="/assets/img/2017/08/lewitt_mistake_1.png" width=90%></img>
+</center>
+
+<center>
+<img src="/assets/img/2017/08/lewitt_mistake_2.png" width=90%></img>
+</center>
+
+           
+          <a class="read-more" href="/programming/art/2017/08/24/lewitt.html"> »  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        
+        <!--
+        
+        <a href="/category/Programming">
+          <data data-icon="ei-archive"></data>
+          Programming</a>
+        
+        <a href="/category/Art">
+          <data data-icon="ei-archive"></data>
+          Art</a>
+        
+        -->
+
+        <!--
+        
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
+    
+
+    <article class="post_card post">
+      <header class="post_header">
         <h2 class="post_title"><a href="/programming/2017/08/23/Q-learning.html">Q Learning Maze Game</a></h2>
         <time class="post_date">23 August 2017, Wednesday</time>
       </header>
       <div class="post_excerpt">
         <p>
           
-          <p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. That way, a player can simply look up their state and take the actuion with the highest value.</p>
+          <p>I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. Once trained, a player can simply look up their state and take the action with the highest value.</p>
 
 <p>The goal is obviously to train this Q matrix to accurately reflect the game. This can be done by taking moves and updating Q each time in the following way:</p>
 
@@ -80,7 +163,7 @@
 <img src="/assets/img/2017/08/Q_update.svg" width=90%></img>
 </center>
 
-<p>As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that <i>seem</i> better.</p>
+<p>As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that <i>seem</i> better. It doesn't matter in this case, though. The maze problem is so easy that anything would work.</p>
 
 <p>In this case, the reward is simply zero unless the player reaches the goal. At first I set the discount factor, gamma, to be 1. This did not work. Since the random player will always eventually finish the maze, this resulted in every square eventually getting a value of 1. The discount factor means that faster routes to the goal are favored.</p>
 
@@ -420,116 +503,6 @@ When you're debugging extensions, you can get access to the regular chrome devel
         <a href="/category/Woodworking">
           <data data-icon="ei-archive"></data>
           Woodworking</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/programming/2016/09/28/hot-hand.markup">The Hot Hand Fallacy?</a></h2>
-        <time class="post_date">28 September 2016, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p>I was reading the <a href="https://en.wikipedia.org/wiki/Hot-hand_fallacy">Wikipedia article about the <i>Hot Hand Fallacy</i></a>, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being <i>hot</i> or <i>cold</i> a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
-</p>
-
-<p>
-I chose baseball to look at. I downloaded the 2015 event database from <a href="http://www.retrosheet.org/game.htm">Retrosheet</a>, and wrote some code to calculate autocorrelation functions. I generated a long list of every plate appearance outcome for the whole season. The list is grouped by player and in order for each player. I labeled all hits as 1 and all outs as 0. I then computed the autocorrelation of this sequence.
-</p>
-
-<center>
-<img src="/assets/img/2016/09/autocorrelation.png"></img>
-</center>
-
-<p>
-I inserted the black line to guide the eye. As you can see, there is some correlation between successful plate appearances. I think this suggests that the time-scale for hotness or coldness is about ten plate appearances. Two games, or so.
-
-Also, it isn't a huge effect. It looks like 5% or something.
-</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">compiler.ast</span> <span class="kn">import</span> <span class="n">flatten</span>
-
-<span class="c"># gets only the event lines from a file</span>
-<span class="k">def</span> <span class="nf">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-
-    <span class="c"># splits line into parts</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">),</span><span class="n">fp</span><span class="p">)</span>
-
-    <span class="c"># filters for only play events</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"play"</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">events</span>
-
-<span class="c"># gets a list of players involved in a list of events</span>
-<span class="k">def</span> <span class="nf">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">events</span><span class="p">)</span>
-    <span class="n">players</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">players</span>
-
-<span class="c"># filters for only plays involving a certain hitter</span>
-<span class="k">def</span> <span class="nf">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">),</span> <span class="n">events</span><span class="p">)</span>
-
-<span class="c"># maps hits to 1 and outs to 0</span>
-<span class="k">def</span> <span class="nf">maskHits</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">((</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"S"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"D"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"T"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"H"</span><span class="p">))</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
-
-<span class="c"># replaces all lines containing a hit with a 1 and all containing and out with a 0</span>
-<span class="k">def</span> <span class="nf">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">maskHits</span><span class="p">(</span><span class="n">getEventsBy</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-
-<span class="c"># concatenates all the player series for a team</span>
-<span class="k">def</span> <span class="nf">getPlayerSeriesForTeam</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="n">getEvents</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="n">players</span> <span class="o">=</span> <span class="n">getPlayers</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
-    <span class="n">series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">player</span><span class="p">:</span> <span class="n">getPlayerSeries</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="n">players</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">flatten</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
-
-<span class="c"># concatenates the team series for the whole league</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'./teams'</span><span class="p">)</span>
-<span class="n">total_series</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="nb">file</span><span class="p">:</span> <span class="n">getPlayerSeriesForTeam</span><span class="p">(</span><span class="s">'./teams/'</span> <span class="o">+</span> <span class="nb">file</span><span class="p">),</span> <span class="n">files</span><span class="p">)</span>
-<span class="n">total_series_flat</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">total_series</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">total_series_flat</span><span class="p">)</span>
-
-<span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">total_series_flat</span><span class="p">,</span><span class="n">total_series_flat</span><span class="p">[:</span><span class="mi">100</span><span class="p">])),</span> <span class="n">total_series_flat</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'valid'</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">corr</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">9900</span><span class="p">,</span> <span class="mi">9900</span><span class="p">],</span> <span class="s">'k-'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Correlation Between Sequential Plate Appearances, MLB 2015 "</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$</span><span class="err">\</span><span class="s">Delta$ PA'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'autocorrelation'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
-
-           
-          <a class="read-more" href="/programming/2016/09/28/hot-hand.markup"> »  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/Programming">
-          <data data-icon="ei-archive"></data>
-          Programming</a>
         
         -->
 

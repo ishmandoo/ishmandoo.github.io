@@ -6,13 +6,69 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Aug 2017 13:37:42 -0400</pubDate>
-    <lastBuildDate>Wed, 23 Aug 2017 13:37:42 -0400</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 11:31:37 -0400</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 11:31:37 -0400</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
+        <title>Programmatic Sol LeWitt Wall Drawing</title>
+        <description>&lt;p&gt;I visited MASS MoCA with some friends recently. There was a whole building there filled with the work of Sol LeWitt, a contemporary artist famous for minimalist geometric art. We spent a while looking at &lt;i&gt;Wall Drawing #797&lt;/i&gt;.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/08/lewitt_797.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;br/&gt;
+&lt;caption&gt;Helen Harrison&lt;/caption&gt;
+&lt;/center&gt;
+
+&lt;p&gt;This drawing was made in an interesting way. One person drew a starting wavy line at the top. Then artists took turns following the bottom of the line with another line. This was repeated for the whole wall. The result has some complicated behavior. Concave parts produced ridges propagating downward and combining into larger ridges. It reminded us of caustic shapes produced by the complex surface of disturbed water. Phil pointed out that the connection with waves isn't an accident, since this procedure effectively follows Huygen's Principle. &lt;a href=&quot;http://www.philipzucker.com/elm-eikonal-sol-lewitt/&quot;&gt;He blogged about this too&lt;/a&gt;, but my post is better.&lt;/p&gt;
+
+&lt;p&gt;We all thought it would be cool to reproduce this idea in a computer. I found a way to do it with a few lines of Mathematica. &lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/08/lewitt.png&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+
+
+&lt;p&gt;Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, &lt;code&gt;requiredY&lt;/code&gt;. The points that make up the lines are confined to descrete positiosn in &lt;code&gt;x&lt;/code&gt;. With two arguments, it finds the new &lt;code&gt;y&lt;/code&gt; value required to put a new point at in the column at index &lt;code&gt;i&lt;/code&gt; based on being a distance &lt;code&gt;r&lt;/code&gt; from the last point in the row at index &lt;code&gt;j&lt;/code&gt;. With one index, it fins the minimum &lt;code&gt;y&lt;/code&gt; required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mathematica&quot; data-lang=&quot;mathematica&quot;&gt;xs = Range[200];
+ys = 10 + 5 (Sin[xs/10.] + Sin[xs/6.] + Sin[xs/16.]) +
+   Last /@ Normal[
+      RandomFunction[WienerProcess[0, .75], {0, 199, 1}]][[1]];
+next[xs_, ys_, r_] := Module[{requiredY, newYs},
+  requiredY[i_, j_] := ys[[j]] - Sqrt[r^2 - Abs[i - j]^2];
+  requiredY[i_] :=
+   Min[requiredY[i, #] &amp;amp; /@ Range[Max[i - r, 1], Min[i + r, 200]]];
+  newYs = requiredY /@ xs;
+  newYs
+  ]
+ListPlot[NestList[next[xs, #, 2] &amp;amp;, ys, 50], Joined -&amp;gt; True,
+ Axes -&amp;gt; False, PlotStyle -&amp;gt; {Thickness[0.005]}]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+I stumbled on some other neat looking results by accident too.
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/08/lewitt_mistake_1.png&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/08/lewitt_mistake_2.png&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+</description>
+        <pubDate>Thu, 24 Aug 2017 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/programming/art/2017/08/24/lewitt.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/art/2017/08/24/lewitt.html</guid>
+        
+        
+        <category>Programming</category>
+        
+        <category>Art</category>
+        
+      </item>
+    
+      <item>
         <title>Q Learning Maze Game</title>
-        <description>&lt;p&gt;I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. That way, a player can simply look up their state and take the actuion with the highest value.&lt;/p&gt;
+        <description>&lt;p&gt;I've been learning about reinforcement learning. The simplest version I've heard of is called Q learning. The key to this method is maintaing a Q matrix, which stores information about the quality each state-action pair. Once trained, a player can simply look up their state and take the action with the highest value.&lt;/p&gt;
 
 &lt;p&gt;The goal is obviously to train this Q matrix to accurately reflect the game. This can be done by taking moves and updating Q each time in the following way:&lt;/p&gt;
 
@@ -20,7 +76,7 @@
 &lt;img src=&quot;/assets/img/2017/08/Q_update.svg&quot; width=90%&gt;&lt;/img&gt;
 &lt;/center&gt;
 
-&lt;p&gt;As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that &lt;i&gt;seem&lt;/i&gt; better.&lt;/p&gt;
+&lt;p&gt;As you can see below, when my QLearner is training, it takes random moves every time. I think the more common way to do it is to sometimes take random moves and sometimes take moves according to the current version of Q. That kind of weights the learner toward moves that &lt;i&gt;seem&lt;/i&gt; better. It doesn't matter in this case, though. The maze problem is so easy that anything would work.&lt;/p&gt;
 
 &lt;p&gt;In this case, the reward is simply zero unless the player reaches the goal. At first I set the discount factor, gamma, to be 1. This did not work. Since the random player will always eventually finish the maze, this resulted in every square eventually getting a value of 1. The discount factor means that faster routes to the goal are favored.&lt;/p&gt;
 
@@ -597,31 +653,6 @@ sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt
         
         
         <category>Physics</category>
-        
-      </item>
-    
-      <item>
-        <title>Building RF Circuits</title>
-        <description>&lt;p&gt;Since my last post about RF, Phil and I have taken some steps forward. I've built two simple RF circuits: a &lt;a href=&quot;https://www.youtube.com/watch?v=A5gGeV7CiQ0&quot; target=&quot;_blank&quot;&gt;20dB attenuator&lt;/a&gt; and a &lt;a href=&quot;http://www.qsl.net/kl7jef/Build%20a%20Return%20Loss%20Bridge.pdf&quot; target=&quot;_blank&quot;&gt;return loss bridge&lt;/a&gt;. Do they work? I'm not sure, exactly. The attentuator's purpose is to decrease the amplitude of a signal. It definitely does that, at least to some extent. Whether it does so by 20dB is in question. &lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;/assets/img/2016/01/IMG_20160106_240936311-1.jpg&quot; rel=&quot;attachment wp-att-58&quot;&gt;&lt;img src=&quot;/assets/img/2016/01/IMG_20160106_240936311-1-300x140.jpg&quot; alt=&quot;Attenuator&quot; width=&quot;300&quot; height=&quot;140&quot; class=&quot;size-medium wp-image-58&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-Attenuator&lt;br /&gt;
-&lt;/center&gt;&lt;/p&gt;
-&lt;p&gt;The return loss bridge is a bit mysterious. It has three coaxial inputs. One for an RF signal, one for a test load, and a third for a detector. The output measured by the detector should be related to the part of the signal that's reflected by the load. It seems like it might be working too.  &lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;br /&gt;
-&lt;a href=&quot;/assets/img/2016/01/IMG_20160106_240943681-1.jpg&quot; rel=&quot;attachment wp-att-57&quot;&gt;&lt;img src=&quot;/assets/img/2016/01/IMG_20160106_240943681-1-300x233.jpg&quot; alt=&quot;Return Loss Bridge&quot; width=&quot;300&quot; height=&quot;233&quot; class=&quot;size-medium wp-image-57&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-Return Loss Bridge&lt;br /&gt;
-&lt;/center&gt;&lt;/p&gt;
-&lt;p&gt;The purpose of this post is to record the RF circuit building techniques we've been using. &lt;/p&gt;
-&lt;p&gt;You want to build on copper clad board, with the copper surface itself acting as a ground plane. You can solder SMA connectors directly to the ground plane. To reduce non-ideal behavior at high frequency, you want to use components with short leads, ideally surface mount parts. Having short leads means keeping the whole thing compact. You can fiddle around with layouts until you find one that keeps leads short.&lt;br /&gt;
-Ideally, there's no wire and the components themselves bridge all the gaps, as with the attenuator. Once you've chosen a layout, you can estimate the area of it and use tin snips to cut that size piece out of a copper clad board. Then just solder it together and try not to mangle it too much.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 06 Jan 2016 05:40:02 -0500</pubDate>
-        <link>http://localhost:4000/radio/2016/01/06/building-rf-circuits.html</link>
-        <guid isPermaLink="true">http://localhost:4000/radio/2016/01/06/building-rf-circuits.html</guid>
-        
-        
-        <category>Radio</category>
         
       </item>
     
