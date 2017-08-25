@@ -76,11 +76,13 @@
           
           <p>I visited MASS MoCA with some friends recently. There was a whole building there filled with the work of Sol LeWitt, a contemporary artist famous for minimalist geometric art. We spent a while looking at <i>Wall Drawing #797</i>.</p>
 
+<br/>
 <center>
 <img src="/assets/img/2017/08/lewitt_797.jpg" width=90%></img>
 <br/>
 <caption>Helen Harrison</caption>
 </center>
+<br/>
 
 <p>This drawing was made in an interesting way. One person drew a starting wavy line at the top. Then artists took turns following the bottom of the line with another line. This was repeated for the whole wall. The result has some complicated behavior. Concave parts produced ridges propagating downward and combining into larger ridges. It reminded us of caustic shapes produced by the complex surface of disturbed water. Phil pointed out that the connection with waves isn't an accident, since this procedure effectively applies Huygens' Principle. <a href="http://www.philipzucker.com/elm-eikonal-sol-lewitt/">He blogged about this too</a>, but my post is better.</p>
 
@@ -89,9 +91,10 @@
 <center>
 <img src="/assets/img/2017/08/lewitt.png" width=90%></img>
 </center>
+<br/>
 
 
-<p>Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, <code>requiredY</code>. The points that make up the lines are confined to descrete positiosn in <code>x</code>. With two arguments, it finds the new <code>y</code> value required to put a new point at in the column at index <code>i</code> based on being a distance <code>r</code> from the last point in the row at index <code>j</code>. With one argument, it finds the minimum <code>y</code> required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.</p>
+<p>Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, <code>requiredY</code>. The points that make up the lines are confined to discrete positiosn in <code>x</code>. With two arguments, it finds the new <code>y</code> value required to put a new point at in the column at index <code>i</code> based on being a distance <code>r</code> from the last point in the row at index <code>j</code>. With one argument, it finds the minimum <code>y</code> required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.</p>
 
 <figure class="highlight"><pre><code class="language-mathematica" data-lang="mathematica">xs = Range[200];
 ys = 10 + 5 (Sin[xs/10.] + Sin[xs/6.] + Sin[xs/16.]) +

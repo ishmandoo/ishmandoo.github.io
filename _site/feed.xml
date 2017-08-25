@@ -6,19 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Aug 2017 01:25:54 -0400</pubDate>
-    <lastBuildDate>Fri, 25 Aug 2017 01:25:54 -0400</lastBuildDate>
+    <pubDate>Fri, 25 Aug 2017 12:08:58 -0400</pubDate>
+    <lastBuildDate>Fri, 25 Aug 2017 12:08:58 -0400</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
         <title>Programmatic Sol LeWitt Wall Drawing</title>
         <description>&lt;p&gt;I visited MASS MoCA with some friends recently. There was a whole building there filled with the work of Sol LeWitt, a contemporary artist famous for minimalist geometric art. We spent a while looking at &lt;i&gt;Wall Drawing #797&lt;/i&gt;.&lt;/p&gt;
 
+&lt;br/&gt;
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2017/08/lewitt_797.jpg&quot; width=90%&gt;&lt;/img&gt;
 &lt;br/&gt;
 &lt;caption&gt;Helen Harrison&lt;/caption&gt;
 &lt;/center&gt;
+&lt;br/&gt;
 
 &lt;p&gt;This drawing was made in an interesting way. One person drew a starting wavy line at the top. Then artists took turns following the bottom of the line with another line. This was repeated for the whole wall. The result has some complicated behavior. Concave parts produced ridges propagating downward and combining into larger ridges. It reminded us of caustic shapes produced by the complex surface of disturbed water. Phil pointed out that the connection with waves isn't an accident, since this procedure effectively applies Huygens' Principle. &lt;a href=&quot;http://www.philipzucker.com/elm-eikonal-sol-lewitt/&quot;&gt;He blogged about this too&lt;/a&gt;, but my post is better.&lt;/p&gt;
 
@@ -27,9 +29,10 @@
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2017/08/lewitt.png&quot; width=90%&gt;&lt;/img&gt;
 &lt;/center&gt;
+&lt;br/&gt;
 
 
-&lt;p&gt;Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, &lt;code&gt;requiredY&lt;/code&gt;. The points that make up the lines are confined to descrete positiosn in &lt;code&gt;x&lt;/code&gt;. With two arguments, it finds the new &lt;code&gt;y&lt;/code&gt; value required to put a new point at in the column at index &lt;code&gt;i&lt;/code&gt; based on being a distance &lt;code&gt;r&lt;/code&gt; from the last point in the row at index &lt;code&gt;j&lt;/code&gt;. With one argument, it finds the minimum &lt;code&gt;y&lt;/code&gt; required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.&lt;/p&gt;
+&lt;p&gt;Not a perfect match, but it has most of the features we noticed. The heart of it is the overloaded function, &lt;code&gt;requiredY&lt;/code&gt;. The points that make up the lines are confined to discrete positiosn in &lt;code&gt;x&lt;/code&gt;. With two arguments, it finds the new &lt;code&gt;y&lt;/code&gt; value required to put a new point at in the column at index &lt;code&gt;i&lt;/code&gt; based on being a distance &lt;code&gt;r&lt;/code&gt; from the last point in the row at index &lt;code&gt;j&lt;/code&gt;. With one argument, it finds the minimum &lt;code&gt;y&lt;/code&gt; required by all other rows. Maybe that makes sense. The rest of the code is just defining the starting curve, repeatedly applying the function that generates a new line, and displaying the results.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mathematica&quot; data-lang=&quot;mathematica&quot;&gt;xs = Range[200];
 ys = 10 + 5 (Sin[xs/10.] + Sin[xs/6.] + Sin[xs/16.]) +
@@ -561,37 +564,117 @@ Also, it isn't a huge effect. It looks like 5% or something.
       </item>
     
       <item>
-        <title>Wi-Fi Troubles</title>
-        <description>&lt;p&gt;I just finished building a new computer with parts given to me by my friends Jon and Max. The thing works great, but I've got Wi-Fi issues. &lt;/p&gt;
-&lt;p&gt;I bought &lt;a href=&quot;http://www.amazon.com/TP-LINK-TL-WN881ND-Wireless-Express-Low-profile/dp/B0079XWMEI/ref=sr_1_4?ie=UTF8&amp;qid=1455199900&amp;sr=8-4&amp;keywords=wifi+card&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; wifi card. It worked fine, but for some reason the signal strength behind my computer was terrible (two bars or so). This was bad.&lt;/p&gt;
-&lt;p&gt;Using my cell phone, I noticed that the signal strength was much higher a few feet above the back of the tower, so I bought &lt;a href=&quot;http://www.amazon.com/TP-LINK-TL-WN822N-Wireless-External-10-7-10-10/dp/B00416Q5KI/ref=sr_1_21?s=pc&amp;ie=UTF8&amp;qid=1455200080&amp;sr=1-21&amp;keywords=wifi+adapter&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; USB wifi adapter, which I could place several feet away.&lt;/p&gt;
-&lt;p&gt;This initially worked perfectly. The computer is a dual boot&amp;mdash;Windows 8 and Ubuntu 14.04&amp;mdash;and it worked in both. Then, a few days later, it stopped working in Ubuntu.  It would disconnect and reconnect every few minutes. This change coincided with my accidentally plugging a cable into my shitty USB hub backward, shorting out all the peripherals and causing the wifi adapter to shut off and reconnect. I can't be sure they're related, but I can't think of anything else that changed.&lt;/p&gt;
-&lt;p&gt;I found &lt;a href=&quot;http://askubuntu.com/questions/625987/does-tp-link-wn822n-work-on-ubuntu&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; thread on the subject. Apparently, I have the TL-W822N V3. Versions 2 and 1 worked fine with Ubuntu, but Version 3 doesn't. This doesn't completely fit, since it was working at one point, but I couldn't find anything else to try.&lt;/p&gt;
-&lt;p&gt;I ran the code at the top of Pilot6's answer, and rebooted.&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install git
-git clone https://github.com/lwfinger/rtlwifi_new.git
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;rtlwifi_new
-make
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;Aaand found just a blank white screen that didn't respond to any input. I should mention that also coincided with installing Dropbox, so that may have caused the problem. Not sure. Anyway, I tried a few things, but this was a new install anyway, so I figured I'd just reinstall Ubuntu.&lt;/p&gt;
-&lt;p&gt;My new install had the same problem. I tried the second suggestion in Pilot6's answer.&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo add-apt-repository ppa:hanipouspilot/rtlwifi
-sudo apt-get update
-sudo apt-get install rtl8192cu-dkms&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;Didn't help.&lt;/p&gt;
-&lt;p&gt;I tried the &lt;a href=&quot;https://github.com/pvaret/rtl8192cu-fixes/blob/master/README.md&quot; target=&quot;_blank&quot;&gt;solution&lt;/a&gt; suggested in Rajat Pandita's answer. Also didn't help.&lt;/p&gt;
-&lt;p&gt;Finally I tried the solution in Pilot6's second answer.&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo add-apt-repository ppa:hanipouspilot/rtlwifi
-sudo apt-get update
-sudo apt-get install rtlwifi-new-dkms linux-firmware&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;And it worked! So, there you have it. If you're having this issue, maybe this'll be useful.&lt;/p&gt;
+        <title>Pemi Loop</title>
+        <description>&lt;p&gt;In the beginning of June, I hiked the Pemi Loop with my brother and some friends. We took our time, spending three nights on the trail. I mostly planned the trip decided to take us counter-clockwise to save the Franconia Ridge for the end of the trip. I think most people hike the other way, but I liked having Mt. Lafayette waiting for us across the valley.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/map.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;We started by crossing the Pemigewasset River onto the easy Lincoln Woods Trail. It's a few miles of perfectly flat former railway. We reached the border of the Pemigewasset wilderness and continued on the Wilderness trail and Bondcliff trail.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/pemi_loop_start.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;It was raining a bit, and the water was high. Truth be told, I was a bit nervous about the weather on the ridge. The Pemi Loop is all ridge. The park ranger had just told us a fun hypothermia story from earlier in the week. A different park ranger told me on the phone that we'd need microspikes but we would &lt;i&gt;probably&lt;/i&gt; be okay without snowshoes. We didn't bring either, and that turned out to be the right move. I think we saw snow once.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/river.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;As we walked, the weather cleared up, and by the time we reached the Bondcliff, the weather was perfect. The rain never returned, but the wind picked up during climb to the peak of Mt. Bond and almost carried Bobby away.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/bondcliff.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Eventually, we reached Guyot Shelter. It felt like a forest village from a video game. The shelter is perched on a rock.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/guyot_shelter.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;The next morning, we left camp and quickly summitted Mt. Guyot, where we joined the Appalachian Trail. After that, there was some nice flat highland, followed by a steep climb to the top of South Twin Mountain.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/highland.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;After lunch, we descended steeply to Galehead hut for some brownies. We ended the day by climbing to Garfield Ridge Shelter, most of the way up Mt. Garfield.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/garfield_ridge.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;There was a nice spot to sit. I wonder what they're laughing at.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/sit.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;In the morning, we immedaitely reached the summit of Garfield. There was no water available between the two campsites, so we brought as much as we could. It would have been nice to have more than two liters. Lafayette looked pissed.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/looking_lafayette.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Eventually, we crossed the ridge and decended to the Liberty Springs tentsite.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/franconia.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;The final day, we got up early and parted with the AT, climbing Mt. Liberty and Mt. Flume on the Osseo Trail.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/liberty.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;The final descent was steep at first, but flattened out over several miles, eventually reuninting with the Lincoln Woods trail.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/descending.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Then, we washed off.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2017/07/wash.jpg&quot; width=90%&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
 </description>
-        <pubDate>Thu, 11 Feb 2016 14:31:36 -0500</pubDate>
-        <link>http://localhost:4000/troubleshooting/2016/02/11/wi-fi-troubles.html</link>
-        <guid isPermaLink="true">http://localhost:4000/troubleshooting/2016/02/11/wi-fi-troubles.html</guid>
+        <pubDate>Fri, 01 Jul 2016 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/hiking/2016/07/01/pemi-loop.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hiking/2016/07/01/pemi-loop.html</guid>
         
         
-        <category>Troubleshooting</category>
+        <category>Hiking</category>
         
       </item>
     
