@@ -398,6 +398,10 @@ p.readmore { text-align: right; }
 
 .article-content a:hover { color: red; border-bottom: 1px dotted red; }
 
+.post_excerpt a { border-bottom: 1px dotted red; text-decoration: none; }
+
+.post_excerpt a:hover { color: red; border-bottom: 1px dotted red; }
+
 .article-footer { padding: 2rem 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
 .article-footer .share { text-align: center; }
 .article-footer .share-link { text-decoration: underline; margin-left: 8px; }

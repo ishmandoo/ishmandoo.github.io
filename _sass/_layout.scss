@@ -22,7 +22,7 @@ body {
   padding-bottom: 0rem;
   width:100%;
 
-  /* footer style */    
+  /* footer style */
   color: #99999a;
   background-color: #FAFAFB;
 
@@ -119,7 +119,7 @@ body {
       border-bottom:1px solid #ddd;
     }
   }
-  
+
   #menu-toggle:checked+.site-nav {
     opacity: 1;
     height: auto;
@@ -181,7 +181,7 @@ input#menu-toggle {
 }
 
 .post-list {
-  
+
 }
 
 .post_header {
@@ -223,6 +223,15 @@ p.readmore {
   text-decoration:none;
 }
 .article-content a:hover {
+  color:red;
+  border-bottom:1px dotted red;
+}
+
+.post_excerpt a {
+  border-bottom:1px dotted red;
+  text-decoration:none;
+}
+.post_excerpt a:hover {
   color:red;
   border-bottom:1px dotted red;
 }
@@ -329,7 +338,7 @@ body.custom-background {
 
 /* Archive page */
 
-.archive_list { 
+.archive_list {
   margin-left:5%;
   width:90%;
   margin-bottom:3rem;
@@ -355,7 +364,7 @@ div.post_title span.date {
 
 .pagination {
   width:50%;
-}  
+}
 
 .pagination.older-post{
   float: right;
