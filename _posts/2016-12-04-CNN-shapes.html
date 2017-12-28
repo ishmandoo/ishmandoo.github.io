@@ -1,0 +1,30 @@
+---
+layout: post
+title: Recognizing Shapes with a Convolutional Neural Network
+categories:
+- Woodworking
+tags: []
+comments: []
+---
+
+<p>Phil and I want to make some kind of smart robot car. We want to train some kind of neural network to recognize a line on the ground. Eventually we want it to follow the line.</p>
+
+<p>As a first step, we decided to train a network to recognize a shape in a simple image. We wrote some code to generate numpy arrays of 100x100x3 images with either a circle, square, or triangle in it. </p>
+
+<center>
+<img src="/assets/img/2016/12/circle.png"></img>
+<img src="/assets/img/2016/12/square.png"></img>
+<img src="/assets/img/2016/12/triangle.png"></img>
+</center>
+
+<p>We allowed the position and size of the shapes to vary, image to image. We generated sets of these images using skimage, stored them in numpy arrays, and then fed them into the fitting function. The network itself was two convolutional layers, a pooling layer, a dense layer, and an output layer.</p>
+
+<p>We started trying to do this with Caffe, but got bogged down in the complexity of it. We switched to Keras using a TensorFlow backend. At first, when training the network, the loss immediately increased quickly to over 10 and stayed there. </p>
+<br/>
+
+{% highlight python %}
+{% endhighlight %}
+
+<center>
+<img src="/assets/img/2016/11/overhead.jpg"></img>
+</center>
