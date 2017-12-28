@@ -4,10 +4,10 @@
     <title>What is Ben doing?</title>
     <description>A blog.
 </description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Dec 2017 19:27:37 -0500</pubDate>
-    <lastBuildDate>Wed, 27 Dec 2017 19:27:37 -0500</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 27 Dec 2017 23:54:49 -0500</pubDate>
+    <lastBuildDate>Wed, 27 Dec 2017 23:54:49 -0500</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
@@ -106,8 +106,8 @@
 &lt;br/&gt;
 </description>
         <pubDate>Wed, 27 Dec 2017 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/woodworking/2017/12/27/bench.html</link>
-        <guid isPermaLink="true">http://localhost:4000/woodworking/2017/12/27/bench.html</guid>
+        <link>/woodworking/2017/12/27/bench.html</link>
+        <guid isPermaLink="true">/woodworking/2017/12/27/bench.html</guid>
         
         
         <category>Woodworking</category>
@@ -163,8 +163,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;/center&gt;
 </description>
         <pubDate>Thu, 24 Aug 2017 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/programming/art/2017/08/24/lewitt.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/art/2017/08/24/lewitt.html</guid>
+        <link>/programming/art/2017/08/24/lewitt.html</link>
+        <guid isPermaLink="true">/programming/art/2017/08/24/lewitt.html</guid>
         
         
         <category>Programming</category>
@@ -292,8 +292,8 @@ I stumbled on some other neat looking results by accident too.
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maze&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Wed, 23 Aug 2017 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/programming/2017/08/23/Q-learning.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2017/08/23/Q-learning.html</guid>
+        <link>/programming/2017/08/23/Q-learning.html</link>
+        <guid isPermaLink="true">/programming/2017/08/23/Q-learning.html</guid>
         
         
         <category>Programming</category>
@@ -347,8 +347,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;br/&gt;
 </description>
         <pubDate>Thu, 10 Aug 2017 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/art/2017/08/10/logos.html</link>
-        <guid isPermaLink="true">http://localhost:4000/art/2017/08/10/logos.html</guid>
+        <link>/art/2017/08/10/logos.html</link>
+        <guid isPermaLink="true">/art/2017/08/10/logos.html</guid>
         
         
         <category>Art</category>
@@ -471,8 +471,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;br/&gt;
 </description>
         <pubDate>Sat, 01 Jul 2017 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/hiking/2017/07/01/pemi-loop.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hiking/2017/07/01/pemi-loop.html</guid>
+        <link>/hiking/2017/07/01/pemi-loop.html</link>
+        <guid isPermaLink="true">/hiking/2017/07/01/pemi-loop.html</guid>
         
         
         <category>Hiking</category>
@@ -521,8 +521,8 @@ All this does is asynchronously ask query the browser, filtering for active tab(
 When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking &quot;inspect popup&quot;.
 </description>
         <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/programming/2017/01/25/chrome-extension.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2017/01/25/chrome-extension.html</guid>
+        <link>/programming/2017/01/25/chrome-extension.html</link>
+        <guid isPermaLink="true">/programming/2017/01/25/chrome-extension.html</guid>
         
         
         <category>Programming</category>
@@ -553,8 +553,8 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Sun, 04 Dec 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/woodworking/2016/12/04/CNN-shapes.html</link>
-        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/12/04/CNN-shapes.html</guid>
+        <link>/woodworking/2016/12/04/CNN-shapes.html</link>
+        <guid isPermaLink="true">/woodworking/2016/12/04/CNN-shapes.html</guid>
         
         
         <category>Woodworking</category>
@@ -612,8 +612,8 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Sat, 03 Dec 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/woodworking/2016/12/03/jewelry-box.html</link>
-        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/12/03/jewelry-box.html</guid>
+        <link>/woodworking/2016/12/03/jewelry-box.html</link>
+        <guid isPermaLink="true">/woodworking/2016/12/03/jewelry-box.html</guid>
         
         
         <category>Woodworking</category>
@@ -647,8 +647,8 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/woodworking/2016/11/29/router-based-planer.html</link>
-        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/11/29/router-based-planer.html</guid>
+        <link>/woodworking/2016/11/29/router-based-planer.html</link>
+        <guid isPermaLink="true">/woodworking/2016/11/29/router-based-planer.html</guid>
         
         
         <category>Woodworking</category>
@@ -732,8 +732,8 @@ Also, it isn't a huge effect. It looks like 5% or something.
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Wed, 28 Sep 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/programming/2016/09/28/hot-hand.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2016/09/28/hot-hand.html</guid>
+        <link>/programming/2016/09/28/hot-hand.html</link>
+        <guid isPermaLink="true">/programming/2016/09/28/hot-hand.html</guid>
         
         
         <category>Programming</category>
