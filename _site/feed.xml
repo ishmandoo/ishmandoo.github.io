@@ -4,11 +4,147 @@
     <title>What is Ben doing?</title>
     <description>A blog.
 </description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Dec 2017 23:57:30 -0500</pubDate>
-    <lastBuildDate>Wed, 27 Dec 2017 23:57:30 -0500</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 06 Mar 2018 22:51:12 -0500</pubDate>
+    <lastBuildDate>Tue, 06 Mar 2018 22:51:12 -0500</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>The Ha Giang Loop</title>
+        <description>&lt;p&gt;I just got back from an amazing trip to Vietnam. &lt;a href=&quot;http://www.declanoller.com&quot;&gt;Declan&lt;/a&gt; has been traveling in South East Asia for the last few months, so Liz, Phil, and I met up with him in Hanoi. There was a lot to love about this trip, but I think everyone's highlight was the Ha Giang Loop, a three day motorbiking adventure in the northern mountains of Vietnam. If you google this term, you'll find travel blogs claiming that driving the loop is the best thing you can do in Vietnam, all of South East Asia, or all the world. I'll just say, if you find yourself in northern Vietnam with a few days on your hands, you should grab a motorbike and drive the Ha Giang loop.&lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/intro.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;I found the prospect of illegally riding motorbikes in a very foreign country on &lt;i&gt;very&lt;/i&gt; foreign roads intimidating. Declan insisted that there was nothing to worry about. This didn't comfort me much at the time, but I think he was right. The illegality seems to be a non-issue. From what we read, it is illegal to ride a motorbike in Vietnam without a Vietnamese license. However, we passed several policemen and none of them seemed to care about us. Apparently, even if they do stop you, they'll just fine you. Vietnam generally seemed to have a live-and-let-live approach to personal safety. As for the foreign roads, Google Maps and Maps.me worked well, and we seemed to have mobile internet everywhere. Driving in Vietnam looks hectic but you get used to it quickly. I had never even touched a motorbike before this, but I felt comfortable on the road very quickly.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/bus.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;From Hanoi, we grabbed an eight hour sleeper bus to Ha Giang. This was an interesting one. We had trouble finding the My Dinh bus station, and ended up being about ten minutes late. Tough luck, this was our first bus in Vietnam to leave on time. Once the mob of taxi drivers found out that we had missed our bus, one of them offered to &quot;drive us to the bus&quot;. Huh? We were desperate and flustered and we agreed. He rushed us into his cab and took off through the Hanoi. Twenty minutes later, we've cleared the city limits and we're racing north on the highway. With time to think, this plan doesn't really make sense. How are we going to find the bus? Are we meeting them at the next stop? Did the bus stop already, or will it stop when we reach it? The taxi driver is confusing to talk to, definitely not clearing any of this up. At this point, we were all wondering what kind of scam we had been wrapped up in. Then, we come around a curve and the bus is waiting for us on the side of the highway. It worked! We pulled into Ha Giang at 4 AM and crouched on a stoop until the sun came up.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m70!1m12!1m3!1d234979.19283683572!2d105.03366626397965!3d23.040293373822465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m55!3e0!4m5!1s0x36cc79b180b4239d%3A0xb7a373a73bc23544!2sTp.+H%C3%A0+Giang%2C+Ha+Giang%2C+Vietnam!3m2!1d22.8025588!2d104.97844939999999!4m5!1s0x36cc0b114465dddf%3A0x4604a14c96bd5f73!2stt.+Tam+S%C6%A1n!3m2!1d23.0703183!2d104.9797753!4m5!1s0x36cbf16231aecb21%3A0x4739f6b88032736e!2stt.+Y%C3%AAn+Minh!3m2!1d23.1185238!2d105.1555046!4m5!1s0x36cbe6cfb1c33961%3A0x5eff1d412485f4aa!2zdHQuIMSQ4buTbmcgVsSDbg!3m2!1d23.278147099999998!2d105.3627336!4m5!1s0x36cbe81fbd0477f3%3A0xb8b865a695ad5a84!2zdHQuIE3DqG8gVuG6oWM!3m2!1d23.1556005!2d105.41266519999999!4m5!1s0x36cbed78efd1f3b9%3A0x1d19ab4048e497a!2zTeG6rXUgRHXhu4c!3m2!1d23.0685118!2d105.2370339!4m5!1s0x36cbf16231aecb21%3A0x4739f6b88032736e!2stt.+Y%C3%AAn+Minh%2C+Y%C3%AAn+Minh+District%2C+Ha+Giang%2C+Vietnam!3m2!1d23.1185238!2d105.1555046!4m5!1s0x36cc0b114465dddf%3A0x4604a14c96bd5f73!2zdHQuIFRhbSBTxqFuLCBRdeG6o24gQuG6oSBEaXN0cmljdCwgSGEgR2lhbmcsIFZpZXRuYW0!3m2!1d23.0703183!2d104.9797753!4m5!1s0x36cc79b180b4239d%3A0xb7a373a73bc23544!2sTp.+H%C3%A0+Giang%2C+Ha+Giang%2C+Vietnam!3m2!1d22.8025588!2d104.97844939999999!5e0!3m2!1sen!2sus!4v1516985967095&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+&lt;p&gt;In Ha Giang, it was no problem to rent bikes. We picked up four of them for about two million dong, something like $100. We fueled up and headed north for Tam Son. Leaving Ha Giang, we passed through a long valley. The road was flat, but we could see mountains start to rise on either side of us. &lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/leaving_ha_giang.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Pretty soon, we were ascending steeply and looking back down at the valley floor.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/valley_floor.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;At the top of this climb was the Dong Van Karst Plateau. We stopped for some tea and wondered if we were dressed warmly enough for the elevation. We were. We all had wind breakers and gloves. This turned out to be the coldest part of our ride. We descended into Tam Son for lunch, and continued north toward Yen Minh.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/tam_son_yen_minh.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;We found a great hostel in Yen Minh and stayed for the night. If you're looking for a place to stay, check out the A2 Coffee an Hostel.
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/hostel_2.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Day two was spectacular. We left the hostel early, knowing we had a lot of riding to do. Our plan was to ride north to Dong Van, then south to Meo Vac, then back to Yen Minh via Mau Due. &lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/ma_pi_leng_0.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;We stopped in Dong Van for lunch. Phil wasn't feeling too hot and, unrelatedly, we saw a cow being ripped apart in the street. &lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/cow.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Between Dong Van and Meo Vac is the Ma Pi Leng pass. This is the most spectacular part of the loop. Don't skip it.&lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/ma_pi_leng_1.jpg&quot;&gt;&lt;/img&gt;
+&lt;img src=&quot;/assets/img/2018/01/ma_pi_leng_2.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;You get it.&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/ma_pi_leng_3.jpg&quot;&gt;&lt;/img&gt;
+&lt;img src=&quot;/assets/img/2018/01/ma_pi_leng_4.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;After about eight hours of driving, we made it back to Yen Minh before the sun went down. Phil was feeling a bit better&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/hostel.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;The next day we back tracked to Ha Giang. It was sad leaving. &lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/leaving.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Back in Ha Giang, we used our remaining daylight to climb to the shrine at the top of the hill. Instead of asking for a few thousand dong to visit, they asked us to carry bricks to a construction site at the top! &lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/hill.jpg&quot;&gt;&lt;/img&gt;
+&lt;img src=&quot;/assets/img/2018/01/bricks.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;We returned our bikes and headed to the bus station where we saw a very sad pig and caught our bus uneventfully. A great trip!&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/01/pig.jpg&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;</description>
+        <pubDate>Thu, 25 Jan 2018 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/travel/2018/01/25/ha-giang-loop.html</link>
+        <guid isPermaLink="true">http://localhost:4000/travel/2018/01/25/ha-giang-loop.html</guid>
+        
+        
+        <category>Travel</category>
+        
+      </item>
     
       <item>
         <title>Bench</title>
@@ -50,7 +186,7 @@
 &lt;/center&gt;
 &lt;br/&gt;
 
-&lt;p&gt;Next, we cut the motrices. We decided to go with uniform 1/8&quot; shoulders for all of our tenons. This left us with ~1/2&quot; wide mortices for the stretchers and ~1 1/2&quot; for the legs. We used Phil's drill press with some forstner bits to remove most of the wood, then finished the mortices with the chisels.&lt;/p&gt;
+&lt;p&gt;Next, we cut the mortices. We decided to go with uniform 1/8&quot; shoulders for all of our tenons. This left us with ~1/2&quot; wide mortices for the stretchers and ~1 1/2&quot; for the legs. We used Phil's drill press with some forstner bits to remove most of the wood, then finished the mortices with the chisels.&lt;/p&gt;
 
 &lt;center&gt;
 &lt;img src=&quot;/assets/img/2017/12/mortices.jpg&quot;&gt;&lt;/img&gt;
@@ -73,7 +209,7 @@
 
 &lt;p&gt;We weren't exactly sure how we would cut the curves into the stretchers and legs. We marked the curves very approximately according to the plan. We traced the small stretcher curves with a 24&quot; drum head. Luckily it had exactly the right radius for our design. For the long stretchers and legs, we didn't have any enormous circles on hand so we just bent a thin piece of wood and clamped it in place.&lt;/p&gt;
 
-&lt;p&gt;We didn't have access band saw, and we were worried that we'd mess it up with the jig saw. We couldn't think of another option, though. The curves looked only a little horrible immediately after cutting, and way better after some fine tuning with the palm sander. Now we had all the pieces ready.&lt;/p&gt;
+&lt;p&gt;We didn't have access to a band saw, and we were worried that we'd mess it up with the jig saw. There was no other option, though. The curves looked only a little horrible immediately after cutting, and way better after some fine tuning with the palm sander. Now we had all the pieces ready.&lt;/p&gt;
 
 &lt;p&gt;Gluing everything together was almost a disaster. We carefully fit every tenon to its matching mortice with chisels and sand paper, but when we started gluing we realized we had done it wrong and commited to an impossible orientation. We pressed ahead, hoping everything would fit, but the glue started setting and some of the tenons felt stuck half way in. I thought we were doomed. There were some moments of &quot;Oh god, what do we...?! Just hit it! Is it fitting? Just hit it keep hitting it!&quot;. After five minutes of terror and dozens of strikes with the mallet, the bench made it together. Somehow, it was square everywhere.&lt;/p&gt;
 
@@ -106,8 +242,8 @@
 &lt;br/&gt;
 </description>
         <pubDate>Wed, 27 Dec 2017 00:00:00 -0500</pubDate>
-        <link>/woodworking/2017/12/27/bench.html</link>
-        <guid isPermaLink="true">/woodworking/2017/12/27/bench.html</guid>
+        <link>http://localhost:4000/woodworking/2017/12/27/bench.html</link>
+        <guid isPermaLink="true">http://localhost:4000/woodworking/2017/12/27/bench.html</guid>
         
         
         <category>Woodworking</category>
@@ -163,8 +299,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;/center&gt;
 </description>
         <pubDate>Thu, 24 Aug 2017 00:00:00 -0400</pubDate>
-        <link>/programming/art/2017/08/24/lewitt.html</link>
-        <guid isPermaLink="true">/programming/art/2017/08/24/lewitt.html</guid>
+        <link>http://localhost:4000/programming/art/2017/08/24/lewitt.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/art/2017/08/24/lewitt.html</guid>
         
         
         <category>Programming</category>
@@ -292,8 +428,8 @@ I stumbled on some other neat looking results by accident too.
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maze&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Wed, 23 Aug 2017 00:00:00 -0400</pubDate>
-        <link>/programming/2017/08/23/Q-learning.html</link>
-        <guid isPermaLink="true">/programming/2017/08/23/Q-learning.html</guid>
+        <link>http://localhost:4000/programming/2017/08/23/Q-learning.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/2017/08/23/Q-learning.html</guid>
         
         
         <category>Programming</category>
@@ -347,8 +483,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;br/&gt;
 </description>
         <pubDate>Thu, 10 Aug 2017 00:00:00 -0400</pubDate>
-        <link>/art/2017/08/10/logos.html</link>
-        <guid isPermaLink="true">/art/2017/08/10/logos.html</guid>
+        <link>http://localhost:4000/art/2017/08/10/logos.html</link>
+        <guid isPermaLink="true">http://localhost:4000/art/2017/08/10/logos.html</guid>
         
         
         <category>Art</category>
@@ -471,8 +607,8 @@ I stumbled on some other neat looking results by accident too.
 &lt;br/&gt;
 </description>
         <pubDate>Sat, 01 Jul 2017 00:00:00 -0400</pubDate>
-        <link>/hiking/2017/07/01/pemi-loop.html</link>
-        <guid isPermaLink="true">/hiking/2017/07/01/pemi-loop.html</guid>
+        <link>http://localhost:4000/hiking/2017/07/01/pemi-loop.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hiking/2017/07/01/pemi-loop.html</guid>
         
         
         <category>Hiking</category>
@@ -521,8 +657,8 @@ All this does is asynchronously ask query the browser, filtering for active tab(
 When you're debugging extensions, you can get access to the regular chrome developer tools for the popup by right clicking on the icon and clicking &quot;inspect popup&quot;.
 </description>
         <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
-        <link>/programming/2017/01/25/chrome-extension.html</link>
-        <guid isPermaLink="true">/programming/2017/01/25/chrome-extension.html</guid>
+        <link>http://localhost:4000/programming/2017/01/25/chrome-extension.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/2017/01/25/chrome-extension.html</guid>
         
         
         <category>Programming</category>
@@ -553,8 +689,8 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Sun, 04 Dec 2016 00:00:00 -0500</pubDate>
-        <link>/woodworking/2016/12/04/CNN-shapes.html</link>
-        <guid isPermaLink="true">/woodworking/2016/12/04/CNN-shapes.html</guid>
+        <link>http://localhost:4000/woodworking/2016/12/04/CNN-shapes.html</link>
+        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/12/04/CNN-shapes.html</guid>
         
         
         <category>Woodworking</category>
@@ -612,8 +748,8 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Sat, 03 Dec 2016 00:00:00 -0500</pubDate>
-        <link>/woodworking/2016/12/03/jewelry-box.html</link>
-        <guid isPermaLink="true">/woodworking/2016/12/03/jewelry-box.html</guid>
+        <link>http://localhost:4000/woodworking/2016/12/03/jewelry-box.html</link>
+        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/12/03/jewelry-box.html</guid>
         
         
         <category>Woodworking</category>
@@ -647,96 +783,11 @@ When you're debugging extensions, you can get access to the regular chrome devel
 &lt;/center&gt;
 </description>
         <pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate>
-        <link>/woodworking/2016/11/29/router-based-planer.html</link>
-        <guid isPermaLink="true">/woodworking/2016/11/29/router-based-planer.html</guid>
+        <link>http://localhost:4000/woodworking/2016/11/29/router-based-planer.html</link>
+        <guid isPermaLink="true">http://localhost:4000/woodworking/2016/11/29/router-based-planer.html</guid>
         
         
         <category>Woodworking</category>
-        
-      </item>
-    
-      <item>
-        <title>The Hot Hand Fallacy?</title>
-        <description>&lt;p&gt;I was reading the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hot-hand_fallacy&quot;&gt;Wikipedia article about the &lt;i&gt;Hot Hand Fallacy&lt;/i&gt;&lt;/a&gt;, and I decided to try a little bit of statistical analysis myself. I've always found the idea of a player being &lt;i&gt;hot&lt;/i&gt; or &lt;i&gt;cold&lt;/i&gt; a bit suspicious. On one hand, it kind of feels right. Sometimes a player just has it, right? And there's no reason events in a game need to be considered completely independent. On the other hand, maybe the phenomenon can be explained by our natural inclination to look for patterns.
-&lt;/p&gt;
-
-&lt;p&gt;
-I chose baseball to look at. I downloaded the 2015 event database from &lt;a href=&quot;http://www.retrosheet.org/game.htm&quot;&gt;Retrosheet&lt;/a&gt;, and wrote some code to calculate autocorrelation functions. I generated a long list of every plate appearance outcome for the whole season. The list is grouped by player and in order for each player. I labeled all hits as 1 and all outs as 0. I then computed the autocorrelation of this sequence.
-&lt;/p&gt;
-
-&lt;center&gt;
-&lt;img src=&quot;/assets/img/2016/09/autocorrelation.png&quot;&gt;&lt;/img&gt;
-&lt;/center&gt;
-
-&lt;p&gt;
-I inserted the black line to guide the eye. As you can see, there is some correlation between successful plate appearances. I think this suggests that the time-scale for hotness or coldness is about ten plate appearances. Two games, or so.
-
-Also, it isn't a huge effect. It looks like 5% or something.
-&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;compiler.ast&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flatten&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# gets only the event lines from a file&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getEvents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;# splits line into parts&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;,&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;# filters for only play events&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;play&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# gets a list of players involved in a list of events&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getPlayers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;players&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;players&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# filters for only plays involving a certain hitter&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getEventsBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# maps hits to 1 and outs to 0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;maskHits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;S&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;D&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;T&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;H&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# replaces all lines containing a hit with a 1 and all containing and out with a 0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getPlayerSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maskHits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getEventsBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# concatenates all the player series for a team&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getPlayerSeriesForTeam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getEvents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;players&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getPlayers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;series&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getPlayerSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;players&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# concatenates the team series for the whole league&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./teams'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;total_series&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getPlayerSeriesForTeam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./teams/'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;total_series_flat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total_series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total_series_flat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;corr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;correlate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concatenate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total_series_flat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total_series_flat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total_series_flat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'valid'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;corr&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9900&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9900&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'k-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Correlation Between Sequential Plate Appearances, MLB 2015 &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r'$&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Delta$ PA'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'autocorrelation'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-        <pubDate>Wed, 28 Sep 2016 00:00:00 -0400</pubDate>
-        <link>/programming/2016/09/28/hot-hand.html</link>
-        <guid isPermaLink="true">/programming/2016/09/28/hot-hand.html</guid>
-        
-        
-        <category>Programming</category>
         
       </item>
     
