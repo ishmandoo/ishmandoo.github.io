@@ -19,6 +19,7 @@ github_username:  ishmandoo
 markdown: kramdown
 kramdown:
   input: GFM
+exclude: [vendor]
 
 # Third-party services
 # just leave someone empty to disable it
