@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>City Walk Problem</title>
-  <meta name="description" content="I thought of a fun puzzle while I was at a conference in Downtown LA.You're in a city with perfectly square blocks. You're trying to meet your boss at a rest...">
+  <meta name="description" content="	I thought of a fun puzzle while I was at a conference in Downtown LA.	You and I are in a city with a grid layout. All pedestrian signals alternate which dir...">
 
   <!-- evil icon -->
 
@@ -77,15 +77,71 @@
 
   <header class="artilce_header">
     <h1 class="artilce_title" itemprop="name headline">City Walk Problem</h1>
-    <p class="artilce_meta"><time datetime="2018-04-12T13:52:20-04:00" itemprop="datePublished">Apr 12, 2018</time></p>
+    <p class="artilce_meta"><time datetime="2018-04-12T17:26:39-04:00" itemprop="datePublished">Apr 12, 2018</time></p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    I thought of a fun puzzle while I was at a conference in Downtown LA.
+    <p>
+	I thought of a fun puzzle while I was at a conference in Downtown LA.
 
-You're in a city with perfectly square blocks. You're trying to meet your boss at a restaurant two blocks north and three blocks east. You come to an intersection. You've got a walk signal going north, and a don't walk signal going east, with a big red timer counting down. Which way do you go?
+	You and I are in a city with a grid layout. All pedestrian signals alternate which direction is allowed to walk, and last exactly the same amount of time. To simplify, we are only allowed to cross one road at each intersection and we can never jaywalk. 
 
-Maybe you're thinking it doesn't matter? You're right, but also wrong. You can save a few seconds on average if you make the right choice.
+</p>
+
+
+<br/>
+<center>
+<img src="/assets/img/2018/04/east.png"></img>
+
+<img src="/assets/img/2018/04/north.png"></img>
+</center>
+<br/>
+
+<p>
+	We're trying to meet a friend at a restaurant two blocks north and one block east. We come to an intersection. We've got a walk signal going north, and a don't walk signal going east, with a big red timer counting down. The timer says one second. What do we do?
+
+	Maybe you're thinking it doesn't matter?
+</p>
+
+<p>
+	Like a <i>fool</i>, you go north. Your fate is sealed. At the next intersection can only go east, so you have no choice but to wait three seconds for the light to change. The intersection after that, you need to go east again. You wait an excruciating five seconds. 
+</p>
+
+<p>
+	I go east. I lost one second waiting for the light to chance, but I'm not worried. As I arrive at the next intersection, I smile to myself and immediately walk whichever way the light allows, east in this case. At the next intersection, I wait a modest four seconds for the light to allow me to go north. One block later, I arrive at the intersection three precious seconds before you do. I high-five our mutual friend. You miss out.
+</p>
+
+
+<br/>
+<center>
+<img src="/assets/img/2018/04/paths.png"></img>
+</center>
+<br/>
+
+<p>
+	This could all have been avoided with a little math. The only signal you know about is the one you're standing at. We know that you can go north immediately, but you have to wait one second to go east so,  \( t_{north} = 0\text{ s} \) and \( t_{east} = 1\text{ s} \). We don't know anything about the other lights, other than their average behavior.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/04/paths_uncertain.png"></img>
+</center>
+<br/>
+
+<p>
+	To figure out the average wait time, let's plot out the behavior. Say each walk signal lasts a time \(T\). The x-axis is the time you arrive at the light, marked with the moments when the signals change and allow a new direction to go. The y-axis is how long you must wait to go in each direction. For each of these, if you know nothing about the state of the signal, the average time you expect to wait is \( \left < t_w \right > = \frac{T}{4} \). 
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/04/wait_time.png"></img>
+</center>
+<br/>
+
+<p>
+	We can apply this to the intersections in question. The intersections next to the goal each have an expected time of \( \left < t_w \right > = \frac{T}{4} \). The 
+</p>
+
   </div>
 
   <footer class="article-footer">

@@ -6,18 +6,74 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Apr 2018 13:52:21 -0400</pubDate>
-    <lastBuildDate>Thu, 12 Apr 2018 13:52:21 -0400</lastBuildDate>
+    <pubDate>Thu, 12 Apr 2018 17:26:41 -0400</pubDate>
+    <lastBuildDate>Thu, 12 Apr 2018 17:26:41 -0400</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
         <title>City Walk Problem</title>
-        <description>I thought of a fun puzzle while I was at a conference in Downtown LA.
+        <description>&lt;p&gt;
+	I thought of a fun puzzle while I was at a conference in Downtown LA.
 
-You're in a city with perfectly square blocks. You're trying to meet your boss at a restaurant two blocks north and three blocks east. You come to an intersection. You've got a walk signal going north, and a don't walk signal going east, with a big red timer counting down. Which way do you go?
+	You and I are in a city with a grid layout. All pedestrian signals alternate which direction is allowed to walk, and last exactly the same amount of time. To simplify, we are only allowed to cross one road at each intersection and we can never jaywalk. 
 
-Maybe you're thinking it doesn't matter? You're right, but also wrong. You can save a few seconds on average if you make the right choice.</description>
-        <pubDate>Thu, 12 Apr 2018 13:52:20 -0400</pubDate>
+&lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/04/east.png&quot;&gt;&lt;/img&gt;
+
+&lt;img src=&quot;/assets/img/2018/04/north.png&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;
+	We're trying to meet a friend at a restaurant two blocks north and one block east. We come to an intersection. We've got a walk signal going north, and a don't walk signal going east, with a big red timer counting down. The timer says one second. What do we do?
+
+	Maybe you're thinking it doesn't matter?
+&lt;/p&gt;
+
+&lt;p&gt;
+	Like a &lt;i&gt;fool&lt;/i&gt;, you go north. Your fate is sealed. At the next intersection can only go east, so you have no choice but to wait three seconds for the light to change. The intersection after that, you need to go east again. You wait an excruciating five seconds. 
+&lt;/p&gt;
+
+&lt;p&gt;
+	I go east. I lost one second waiting for the light to chance, but I'm not worried. As I arrive at the next intersection, I smile to myself and immediately walk whichever way the light allows, east in this case. At the next intersection, I wait a modest four seconds for the light to allow me to go north. One block later, I arrive at the intersection three precious seconds before you do. I high-five our mutual friend. You miss out.
+&lt;/p&gt;
+
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/04/paths.png&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;
+	This could all have been avoided with a little math. The only signal you know about is the one you're standing at. We know that you can go north immediately, but you have to wait one second to go east so,  \( t_{north} = 0\text{ s} \) and \( t_{east} = 1\text{ s} \). We don't know anything about the other lights, other than their average behavior.
+&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/04/paths_uncertain.png&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;
+	To figure out the average wait time, let's plot out the behavior. Say each walk signal lasts a time \(T\). The x-axis is the time you arrive at the light, marked with the moments when the signals change and allow a new direction to go. The y-axis is how long you must wait to go in each direction. For each of these, if you know nothing about the state of the signal, the average time you expect to wait is \( \left &lt; t_w \right &gt; = \frac{T}{4} \). 
+&lt;/p&gt;
+
+&lt;br/&gt;
+&lt;center&gt;
+&lt;img src=&quot;/assets/img/2018/04/wait_time.png&quot;&gt;&lt;/img&gt;
+&lt;/center&gt;
+&lt;br/&gt;
+
+&lt;p&gt;
+	We can apply this to the intersections in question. The intersections next to the goal each have an expected time of \( \left &lt; t_w \right &gt; = \frac{T}{4} \). The 
+&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 Apr 2018 17:26:39 -0400</pubDate>
         <link>http://localhost:4000/programming/2018/04/12/city-problem.html</link>
         <guid isPermaLink="true">http://localhost:4000/programming/2018/04/12/city-problem.html</guid>
         
