@@ -19,8 +19,15 @@ github_username:  ishmandoo
 markdown: kramdown
 kramdown:
   input: GFM
-exclude: [vendor]
-
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  
 # Third-party services
 # just leave someone empty to disable it
 # google_analytics:
