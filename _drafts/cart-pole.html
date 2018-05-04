@@ -7,14 +7,61 @@ tags: []
 comments: []
 ---
 
+<br/>
+<center>
+<img src="/assets/img/2018/05/cart_pole_real.jpg"></img>
+</center>
+<br/>
+
+
 <p>
-	Phil and I have been working on this one for a long time. We've been interested in reinforcement learning but we wanted to see it actually work on a physical system. The cart pole system seems to be the main <i>Hello World</i> for reinforcement learning, so we built one. 
+	Phil and I have been working on this one for a long time. We've been interested in reinforcement learning but we wanted to see it actually work on a physical system. <a href="https://gym.openai.com/envs/CartPole-v0/">The cart pole system</a> seems to be a popular <i>Hello World</i> for reinforcement learning, so we built one. 
 </p> 
 
 <p>
-<h3>
-	A Physical Cart Pole
-</h3>
-	The foundation of the system is a piece of aluminum extrusion. 
+	Phil and I have been working on this one for a long time. We've been interested in reinforcement learning but we wanted to see it actually work on a physical system. <a href="https://gym.openai.com/envs/CartPole-v0/">The cart pole system</a> seems to be a popular <i>Hello World</i> for reinforcement learning, so we built one. 
+</p> 
 
+<br/>
+<center>
+<img src="/assets/img/2018/05/cart_pole.gif"></img>
+</center>
+<br/>
+
+<h3>
+	A Real-Life Cart Pole
+</h3>
+
+<p>
+	It took a few iterations, but we eventually found a system that works well. Our cart is 3D printed PLA driven by a DC motor via a toothed belt. A rotary encoder opposite the motor acts as a pulley for the belt and allows us to track the motion of the cart, while a second rotary encoder on the cart acts as a pivot for the pole and measures its angle. The motor is controlled by a 32 amp Sabertooth motor controller. It's pretty expensive at about $120, but we already had it for another project. We monitored the encoders with an Arduino. The foundation of the system is a piece of extruded aluminum rail called V-Slot, on which the cart slides and the motor and encoder are mounted. Our rail is 1.5 m long, from a company called <a href="https://www.smw3d.com/">SMW3D</a>. 
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/v_slot.png"></img>
+</center>
+<br/>
+
+<p>
+	We used a 3D printer to make a PLA cart with mounting points for a rotary encoder and grooves to lock in a toothed belt.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/cart.png"></img>
+</center>
+<br/>
+
+<p>
+	We found that if you slide the cart onto the V-Slot and dunk the two in boiling water for a moment, you a good fit for sliding with no bearings. A touch of 3-in-1 oil seems to help as well. We also printed some pieces to mount the motor and rotary encoder to the rail.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/mount.png"></img>
+</center>
+<br/>
+
+<p>
+	
 </p>
