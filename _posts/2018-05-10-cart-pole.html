@@ -1,0 +1,145 @@
+---
+layout: post
+title: ZIPY -- ZIPY Inverted Pendulum Yakshave
+categories:
+- Programming
+tags: []
+comments: []
+---
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/video.gif"></img>
+</center>
+<br/>
+
+
+<p>
+	Phil and I have been working on this one for a long time. We finally succeeded in controlling an inverted pendulum. It swings up and balances. Would ya look at that!
+</p>
+
+<p>
+	The inverted pendulum or cart pole is a classic problem in control theory. It's in <a href="https://gym.openai.com/"> OpenAI Gym</a> of course, but we wanted to see it work in real life, not some <i>lame simulation</i>. We were inspired by <a href="http://underactuated.mit.edu/underactuated.html"> Russ Tedrake's class on underactuated robotics</a> and by the popularity of the problem for reinforcement learning.
+</p> 
+
+<!--<p>
+	Phil and I have been working on this one for a long time. We've been interested in reinforcement learning but we wanted to see it actually work on a physical system. <a href="https://gym.openai.com/envs/CartPole-v0/">The cart pole system</a> seems to be a popular <i>Hello World</i> for reinforcement learning, so we built one. 
+</p> -->
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/cart_pole.gif"></img>
+</center>
+<br/>
+
+<h3>A Real-Life Cart Pole</h3>
+
+<p>
+	It took a few iterations, but we eventually found a system that works well. Our cart is 3D printed PLA driven by a <a href="https://www.amazon.com/gp/product/B01KTZXZDE/ref=oh_aui_search_detailpage?ie=UTF8&psc=1">DC motor</a> via a toothed belt. The pole itself is a paint stirrer. One of the longer type, about 24". A <a href="https://www.amazon.com/Signswise-Incremental-Encoder-Dc5-24v-Voltage/dp/B00UTIFCVA/ref=sr_1_4?ie=UTF8&qid=1526249294&sr=8-4&keywords=rotary+encoder">rotary encoder</a> opposite the motor acts as a pulley for the belt and allows us to track the motion of the cart, while a second rotary encoder on the cart is a pivot for the pole and measures its angle. The motor is controlled by a 32 amp Sabertooth motor controller. It's overkill, and pretty expensive at about $120, but we already had it for another project. We monitored the encoders with an Arduino. The foundation of the system is a piece of extruded aluminum rail called V-Slot, on which the cart slides and the motor and encoder are mounted. Our rail is 1.5 m long, from a company called <a href="https://www.smw3d.com/">SMW3D</a>. 
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/v_slot.png"></img>
+</center>
+<br/>
+
+<p>
+	We used a 3D printer to make a PLA cart with mounting points for a rotary encoder and grooves to lock in a toothed belt.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/cart.png"></img>
+</center>
+<br/>
+
+<p>
+	We found that if you slide the cart onto the V-Slot and dunk the two in boiling water for a moment, you a good fit for sliding with no fancy bearings. A touch of 3-in-1 oil seems to help as well. We also printed some pieces to mount the motor and rotary encoder to the rail. <a href="https://cad.onshape.com/documents/0c9cb62ee8c98129226725b1/w/354a73b7d877f36fc06b8590/e/3254e7baca6a2053be4aa0fe"> All of the designs can be found in our OnShape project</a>. OnShape is great.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2018/05/mount.png"></img>
+</center>
+<br/>
+
+<h3>The Software</h3>
+<p>
+	All the software can be found in <a href="https://github.com/philzook58/cart_pole">this git repositiory</a>. The rotary encoders were monitored by an Arduino Uno. Rotary encoders work by monitoring pulses on two outputs as the shaft rotates. The pulses occur at regular intervals as the shaft turns, and the relative timing of the pulses give the direction of rotation. Normal operation requires two interrupt pins per encoder, but you can get away with one if you're willing to accept halving the resolution. That's what we did because the Uno only has two interrupt pins. We still got 600 positions per revolution of resolution. The microcontroller counts these pulses and keeps track of position by dead reconing. We found that it missed few pulses and worked well. The program sends the current encoder positions whenever it receives a query over serial.
+</p>
+
+<p>
+	On the other side, a Python program contains all the smarts. It commands the motor controller over serial and can ask the Arduino whenever it needs to know the state of the system. Used two different controllers, a controller to pump energy into the system and swing the cart into the upright position, and an linear quadratic regulator to balance it upright. 
+</p>
+
+<h3>The LQR Controller</h3>
+<p>
+	The balancing controller is called an linear quadratic regulator or LQR controller. It's an optimal controller for a linear system in a state,
+
+	$$x = \begin{bmatrix}q\\\dot{q}\\\theta\\\dot{\theta}\end{bmatrix},$$
+
+	with control input,
+
+	$$u = \left[f\right]$$
+
+	equations of motion,
+
+	$$\dot{x} = Ax + Bu,$$
+
+	and a quadratic cost function,
+
+	$$c = x^T Q x + u^T R u,$$
+
+	Where \(q\) is the position of the cart, \(\theta\) is the angle of the pole counter-clockwise from vertical, \(f\) is the force on the cart, \(A\) and \(B\) are matrices that define the dynamics, and \(Q\) and \(R\) are matrices that define the cost.
+</p>
+<p>
+	To obtain the LQR controller, we first found the equations of motion. We assumed that our pole was light enough that it didn't significantly affect the cart's motion, reducing the free parameters to just \(\theta\) and \(\dot{\theta}\). The only forces on the pole are due to gravity and the motor. The torque on the pole from gravity is \(\tau = \frac{mgl}{2} \sin{\theta}\), so the angular acceleration is \(\ddot{\theta} = \frac{\tau}{I} = \frac{m g l}{2I}\sin{\theta} \approx \frac{m g l}{2I}\theta\). The torque on the pole from the motor is identical to that of gravity, but turned 90 degrees in \(\theta\), so \(\ddot{\theta} = \frac{m \ddot{x} l}{2I}\cos{\theta}\ \approx \frac{m \ddot{x} l}{2I}\). The effects of gravity end up in \(A\),
+
+	$$A = \begin{bmatrix}0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & \frac{m g l}{2I} & 0\end{bmatrix},$$
+
+	and those of the cart acceleration end up in \(B\),
+
+	$$B = \begin{bmatrix} 0 & 1 & 0 & \frac{m l}{2I}\end{bmatrix}.$$
+
+	The controller \(K\) allows you to find the optimal control input,
+
+	$$ u = -K x.$$
+
+	You can find \(K\) by solving a nasty equation for \(P\),
+
+	$$A^TP + PA - PBR^{-1}B^TP + Q = 0 $$,
+
+	and plugging into,
+
+	$$K= R^{-1} B^T P.$$
+
+	Luckily, <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.solve_continuous_are.html">there is a SciPy function that does it for you</a>.
+
+</p>
+<h3>The Swing-Up Controller</h3>
+<p>
+	A clever trick allows us to pump energy into the system when the energy is below the target energy (a still pendulum, standing straight up), and suck energy out below the target.
+
+	$$f = (E(x)-E_{target}) \dot{\theta} \cos(\theta)$$
+
+	Imagine the cart is below the energy threshold and moving counter-clockwise. You want to apply a counter-clockwise torque to increase the rotation speed. If the pole is above the horizontal, that means pushing the cart right with a positive force. If it is below the horizontal, the cart should be pushed left. This flip is captured by the \(\cos{\theta}\). Flip the sign of the diffence from target energy or the current direction of rotation, and you also want to flip the input. So overall, this equation always provides the right direction for the force. Pretty neat!
+</p>
+
+
+<h3>Videos</h3>
+<br/>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vmS8EdxgHoE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</center>
+<br/>
+<br/>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wW5EnOloSAU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</center>
+<br/>
+
+<h3>What didn't work</h3>
+<p>
+	
+</p>
