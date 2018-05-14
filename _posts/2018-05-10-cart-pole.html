@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ZIPY -- ZIPY Inverted Pendulum Yakshave
+title: ZIPY &mdash; A Homebrew Inverted Pendulum and Control System
 categories:
 - Programming
 tags: []
@@ -15,7 +15,7 @@ comments: []
 
 
 <p>
-	Phil and I have been working on this one for a long time. We finally succeeded in controlling an inverted pendulum. It swings up and balances. Would ya look at that!
+	Phil and I have been working on this one for a long time. We're calling it ZIPY: Zippy Inverted Pendulum Yakshave. We finally succeeded in controlling an inverted pendulum. It swings up and balances. Would ya look at that! Also check out <a href="http://www.philipzucker.com/cartpole-workin-boyeee/">Phil's</a> <a href="http://www.philipzucker.com/cartpole-maths/">posts</a> on the <a href="http://www.philipzucker.com/cart-pole-using-lyapunov-lqr-control-openai-gym/">project</a>.
 </p>
 
 <p>
@@ -55,7 +55,7 @@ comments: []
 <br/>
 
 <p>
-	We found that if you slide the cart onto the V-Slot and dunk the two in boiling water for a moment, you a good fit for sliding with no fancy bearings. A touch of 3-in-1 oil seems to help as well. We also printed some pieces to mount the motor and rotary encoder to the rail. <a href="https://cad.onshape.com/documents/0c9cb62ee8c98129226725b1/w/354a73b7d877f36fc06b8590/e/3254e7baca6a2053be4aa0fe"> All of the designs can be found in our OnShape project</a>. OnShape is great.
+	We found that if you slide the cart onto the V-Slot and dunk the two in boiling water for a moment, you a good fit for sliding with no fancy bearings. A touch of 3-in-1 oil seems to help as well. We also printed some pieces to mount the motor and rotary encoder to the rail.  All of the designs can be found in <a href="https://cad.onshape.com/documents/0c9cb62ee8c98129226725b1/w/354a73b7d877f36fc06b8590/e/3254e7baca6a2053be4aa0fe">our OnShape project</a>. OnShape is great.
 </p>
 
 <br/>
@@ -66,22 +66,22 @@ comments: []
 
 <h3>The Software</h3>
 <p>
-	All the software can be found in <a href="https://github.com/philzook58/cart_pole">this git repositiory</a>. The rotary encoders were monitored by an Arduino Uno. Rotary encoders work by monitoring pulses on two outputs as the shaft rotates. The pulses occur at regular intervals as the shaft turns, and the relative timing of the pulses give the direction of rotation. Normal operation requires two interrupt pins per encoder, but you can get away with one if you're willing to accept halving the resolution. That's what we did because the Uno only has two interrupt pins. We still got 600 positions per revolution of resolution. The microcontroller counts these pulses and keeps track of position by dead reconing. We found that it missed few pulses and worked well. The program sends the current encoder positions whenever it receives a query over serial.
+	All the software can be found in <a href="https://github.com/philzook58/cart_pole">our Git repositiory</a>. The rotary encoders were monitored by an Arduino Uno. Rotary encoders produce pulses on their two outputs as the shaft rotates. The pulses occur at regular intervals as the shaft turns, and the relative timing of the pulses give the direction of rotation. Driving them is just a matter of counting and interpreting these pulses. Normal operation requires two interrupt pins per encoder, but you can get away with one if you're willing to accept half the resolution. That's what we did because the Uno only has two interrupt pins. We still got 600 positions per revolution of resolution. Good enough. The microcontroller counts these pulses and keeps track of position by dead reconing. The program sends the current encoder positions whenever it receives a query over serial.
 </p>
 
 <p>
-	On the other side, a Python program contains all the smarts. It commands the motor controller over serial and can ask the Arduino whenever it needs to know the state of the system. Used two different controllers, a controller to pump energy into the system and swing the cart into the upright position, and an linear quadratic regulator to balance it upright. 
+	On the other side, a Python program contains all the smarts. It commands the motor controller over serial and can poll the Arduino whenever it needs to know the state of the system. We used two different controllers, a controller to pump energy into the system and swing the cart into the upright position, and an linear quadratic regulator to balance it upright. 
 </p>
 
 <h3>The LQR Controller</h3>
 <p>
-	The balancing controller is called an linear quadratic regulator or LQR controller. It's an optimal controller for a linear system in a state,
+	The balancing controller is called an linear quadratic regulator or LQR controller. Phil wrote <a href="http://www.philipzucker.com/cartpole-maths/">a more detailed explanation</a> of the math involved, but here's an overview. It's an optimal controller for a linear system in a state,
 
 	$$x = \begin{bmatrix}q\\\dot{q}\\\theta\\\dot{\theta}\end{bmatrix},$$
 
 	with control input,
 
-	$$u = \left[f\right]$$
+	$$u = \begin{bmatrix}f\end{bmatrix}$$
 
 	equations of motion,
 
@@ -102,24 +102,24 @@ comments: []
 
 	$$B = \begin{bmatrix} 0 & 1 & 0 & \frac{m l}{2I}\end{bmatrix}.$$
 
-	The controller \(K\) allows you to find the optimal control input,
+	The controller \(K\) allows you to find the optimal control input for a state \(x\),
 
 	$$ u = -K x.$$
 
 	You can find \(K\) by solving a nasty equation for \(P\),
 
-	$$A^TP + PA - PBR^{-1}B^TP + Q = 0 $$,
+	$$A^TP + PA - PBR^{-1}B^TP + Q = 0,$$
 
 	and plugging into,
 
 	$$K= R^{-1} B^T P.$$
 
-	Luckily, <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.solve_continuous_are.html">there is a SciPy function that does it for you</a>.
+	Luckily, there is <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.solve_continuous_are.html">a SciPy function</a> that does it for you.
 
 </p>
 <h3>The Swing-Up Controller</h3>
 <p>
-	A clever trick allows us to pump energy into the system when the energy is below the target energy (a still pendulum, standing straight up), and suck energy out below the target.
+	A clever trick allows us to pump energy into the system when the energy is below the target energy (the energy of a motionless pendulum, standing straight up), and suck energy out when the energy is above the target.
 
 	$$f = (E(x)-E_{target}) \dot{\theta} \cos(\theta)$$
 
@@ -141,5 +141,9 @@ comments: []
 
 <h3>What didn't work</h3>
 <p>
-	
+	We tried monitoring the position of the cart and pole using an OpenCV vision system. We put large colorful stickers at the top and bottom of the pole, and looked for areas in the images with those colors. You can see in our images that we had all kinds of junk in frame along with the pendulum. By choosing the right colors and removing prolematic objects, we were able to make this work. It was very annoying, though. As light changed in the room, we had to recalibrate the system often. 
+</p>
+
+<p>
+	There was a bigger problem, though. We discovered that OpenCV (or possibly the drivers of the webcams we tried) introduced a five frame buffer, which caused a five frame delay. We never figured out a way around this and we never succeeded in controlling the system with this delay. 
 </p>
