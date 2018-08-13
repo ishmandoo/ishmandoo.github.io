@@ -7,13 +7,13 @@ tags: []
 comments: []
 ---
 
-<p><a href="">The brachistochrone problem</a> is simple to explain. Imagine a bead which is free to slide on a wire. What shape of wire will get the bead from point A to point B in the shortest time? If you're wondering about the name, "brachistochrone" apparently means "shortest time" in Ancient Greek. Makes sense. The image below shows the optimal path in red, along with some slower paths in blue. </p>
+<p><a href="https://en.wikipedia.org/wiki/Brachistochrone_curve">The brachistochrone problem</a> is simple to explain. Imagine a bead which is free to slide on a wire. What shape of wire will get the bead from point A to point B in the shortest time? If you're wondering about the name, "brachistochrone" apparently means "shortest time" in Ancient Greek. Makes sense. The image below shows the optimal path in red, along with some slower paths in blue. </p>
 
 <center>
 <img src="/assets/img/2018/08/wiki.gif" width=90%></img>
 </center>
 
-<p>This was inspired by Declan, who was using this problem to learn about genetic algorithms. To quote him, "The genetic optimization algorithm may be the greatest concept to ever emerge from the mind of man." A bit dramatic, I think. </p>
+<p>This was inspired by <a href="http://www.declanoller.com">Declan</a>, who was using this problem to learn about genetic algorithms. To quote him, "The genetic optimization algorithm may be the greatest concept to ever emerge from the mind of man." A bit dramatic, I think. </p>
 
 <p>The problem can be solved with calculus, but I decided to approach this problem with gradient descent using PyTorch. It seemed like a natural solution, and a good way to learn about Torch. The image below shows my optimization approaching the shape of the known cycloid solution in blue.</p>	
 
