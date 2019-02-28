@@ -1,0 +1,138 @@
+---
+layout: post
+title: Hanayama O'Gear Puzzle
+categories:
+- Programming
+tags: []
+comments: []
+---
+
+<p>
+    <a href="http://www.declanoller.com">Declan</a> showed me a brain teaser his friend sent him. Apparently, it's known as the O'Gear Puzzle. It consists of a bronze colored metal cube with a captive gear which can roll from face to face on the cube. The gear can also rotate between two directions on each face. Some edges of the cube are made so that the gear can't roll over them. One tooth of the gear and one face of the cube have a special cut-out. Only when the special tooth is engaged with the special face can the gear be freed. The object of the puzzle is to manipulate the gear into this orientation. Here's <a href="https://www.youtube.com/watch?v=pvfUGu6KEjE">a video</a> of the puzzle in action.
+</p>
+
+<br/>
+<center>
+<img src="/assets/img/2019/02/cube.png"></img>
+</center>
+<br/>
+
+<p>
+    I tried solving the puzzle for about fifteen minutes before deciding to use a computer. My basic strategy was to treat the problem as a graph search,where the nodes of the graph are the different states the cube and gear can be in. At any time, you can only do three things: rotate, roll forward, and roll backward. I figured that the limited set of moves and possible positions would prevent the search space from getting too big.
+</p>
+
+<p>
+    I marked up the cube with stickers, naming each face and difining its 'north' direction. I also marked the gear by labeling each tooth and setting a forward rotation direction.
+</p>
+
+<p>
+    I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a href="www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched function to keep track of the possible rotations. I defined north on each face so that these rotations were always the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west. 
+</p>
+<p>    
+    Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first search. The program keeps track of a search frontier. It recursively searches the frontier for the winning state and expands the frontier to contain every state accessable from the old frontier. Code below. 
+</p>
+
+{% highlight Haskell %}
+import Data.Maybe (catMaybes)
+import Data.List (find)
+
+data Face = Top | Bot | Lef | Ri | Front | Back deriving (Show, Eq)
+data Dir = North | South | East | West deriving (Show, Eq)
+
+data GearState = GearState{ face :: Face, dir :: Dir, tooth :: Int, history :: [(Face, Dir)] } deriving Show
+
+-- a list defining connections between faces
+connections = 
+    [ ((Top, East),(Ri, South))
+    , ((Top, West),(Lef, South))
+
+    , ((Bot, North),(Front, West))
+    , ((Bot, South),(Back, East))
+    , ((Bot, West),(Ri, North)) 
+
+    , ((Front, South),(Bot, North)) 
+    , ((Front, West),(Back, West)) 
+
+    , ((Back, South),(Bot, North)) 
+    , ((Back, East),(Ri, East)) 
+    , ((Back, West),(Lef, West)) 
+
+    , ((Lef, North),(Top, East)) 
+    , ((Lef, East),(Front, East))
+    , ((Lef, West),(Back, West)) 
+    
+    , ((Ri, North),(Top, West)) 
+    , ((Ri, South),(Bot, East)) 
+    , ((Ri, East),(Back, East))  
+    ]
+
+-- a function for reversing tuples
+reverseTuple :: (a, b) -> (b, a)
+reverseTuple (a,b) = (b,a)
+
+-- mapping the reverse tuple function over the connections gives the connections for reverse gear moves
+reverse_connections = map reverseTuple connections
+
+-- a function which applies a forward move to the gear
+forward :: GearState -> Maybe GearState
+forward (GearState face dir tooth history) = 
+    case (lookup (face, dir) connections) of -- looks for a connection
+        Nothing -> Nothing -- if no forward connection exists from the current state
+        (Just (new_face, new_dir)) -> Just (GearState new_face new_dir (incr tooth) ((new_face,new_dir):history)) -- returns a new state, incrementing the tooth and adding to the history
+
+-- a function which applies a backward move to the gear, if possible
+backward :: GearState -> Maybe GearState
+backward (GearState face dir tooth history) = 
+    case (lookup (face, dir) reverse_connections) of
+        Nothing -> Nothing
+        (Just (new_face, new_dir)) -> Just (GearState new_face new_dir (decr tooth) ((new_face,new_dir):history))
+
+-- a function which applies a turn to the gear, if possible
+turn :: GearState -> Maybe GearState
+turn (GearState face North tooth history) = Just (GearState face East tooth ((face,North):history))
+turn (GearState face East tooth history) = Just (GearState face North tooth ((face,East):history))
+
+turn (GearState face South tooth history) = Just (GearState face West tooth ((face,South):history))
+turn (GearState face West tooth history) = Just (GearState face South tooth ((face,West):history))
+
+-- some mod 5 math for the teeth
+mod5 :: Int -> Int
+mod5 = (flip mod) 5
+
+incr :: Int -> Int
+incr x = mod5 (x+1)
+
+decr :: Int -> Int
+decr x = mod5 (x-1)
+
+-- determines if the gear can leave the cube
+isWinningState :: GearState -> Bool
+isWinningState (GearState Top North 0 _) = True
+isWinningState _ = False
+
+-- creates a list of all the states accessible from the current state
+getNextStates :: GearState -> [GearState]
+getNextStates state = catMaybes [(turn state), (forward state), (backward state)] -- removes Nothings and strips the values out of Just
+
+-- creates a new search frontier by replacing each state in the search frontier with all the states accessable from that state and flattening
+getNewFrontier :: [GearState] -> [GearState]
+getNewFrontier frontier = (concatMap getNextStates frontier)
+
+-- searches the frontier for the winning state
+checkFrontier :: [GearState] -> Maybe GearState
+checkFrontier frontier = find isWinningState frontier
+
+-- recursively searches for a winning state and expands the search frontier, subject to a maximum search depth
+search :: Int -> [GearState] -> Maybe GearState
+search 0 _ = Nothing
+search depth frontier = 
+    case (checkFrontier frontier) of 
+        Nothing -> (search (depth - 1) (getNewFrontier frontier)) 
+        (Just state) -> Just state
+
+{% endhighlight %}
+
+
+<p>
+    You can run it with a command like, <code>search 20 [(GearState Top South 4 [])]</code>. The 20 is the maximum search depth. I added this to prevent the solver from crashing your computer if you give it an impossible starting position. This code, and a different Python solver I wrote are available in my <a href="https://github.com/ishmandoo/cube_puzzle">Github</a>.
+</p>
