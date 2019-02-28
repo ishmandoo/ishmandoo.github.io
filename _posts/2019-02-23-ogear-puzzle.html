@@ -26,7 +26,7 @@ comments: []
 </p>
 
 <p>
-    I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a href="www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched function to keep track of the possible rotations. I defined north on each face so that these rotations were always the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west. 
+    I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a href="http://www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched function to keep track of the possible rotations. I defined north on each face so that these rotations were always the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west. 
 </p>
 <p>    
     Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first search. The program keeps track of a search frontier. It recursively searches the frontier for the winning state and expands the frontier to contain every state accessable from the old frontier. Code below. 
