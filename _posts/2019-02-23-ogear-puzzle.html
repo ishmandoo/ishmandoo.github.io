@@ -29,7 +29,7 @@ comments: []
     I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a href="http://www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched function to keep track of the possible rotations. I defined north on each face so that these rotations were always the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west. 
 </p>
 <p>    
-    Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first search. The program creates a list of all states accessable from the starting state. Because the list is generated with successive expansions of the search frontier, it is naturally sorted by search depth. I take advantage of Haskell's lazy evaluation, creating an infinite list of accessable states but only ever calculating a few of them. Code below. 
+    Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first search. The program creates a list of all states accessible from the starting state. Because the list is generated with successive expansions of the search frontier, it is naturally sorted by search depth. I take advantage of Haskell's lazy evaluation, creating an infinite list of accessible states but only ever calculating a few of them. Code below. 
 </p>
 
 {% highlight Haskell %}
@@ -107,7 +107,7 @@ isWinningState _ = False
 nextStates :: GearState -> [GearState]
 nextStates state = catMaybes [Just (turn state), (move state forward_connections incr), (move state backward_connections decr)] -- removes Nothings and strips the values out of Just
 
--- creates a new search frontier by replacing each state in the search frontier with all the states accessable from that state and flattening
+-- creates a new search frontier by replacing each state in the search frontier with all the states accessible from that state and flattening
 newFrontier :: [GearState] -> [GearState]
 newFrontier frontier = (concatMap nextStates frontier)
 
