@@ -7,7 +7,6 @@ tags: []
 comments: []
 ---
 
-<br/>
 <center>
 <img src="/assets/img/2019/04/chariot.jpg"></img>
 </center>
@@ -17,13 +16,12 @@ comments: []
     It is thought that the wheel was invented more than five thousand years ago, yet modern machine learning tools were only developed in the past few decades. We have all wondered about this paradox at some point. How could ancient Sumerian wheel builders have calculated the ideal shape without modern computers and software? We may never know. Luckily, with today's technology, it is relatively easy to rediscover the wheel's optimal shape. I'll show you how.
 </p>
 
-<br/>
 <center>
 <img src="/assets/img/2019/04/wheel.gif"></img>
-<br/>
+
 <img src="/assets/img/2019/04/obj.jpg"></img>
 </center>
-<br/>
+
 
 <p>
     The goal of this goofy project was to optimize the performance of a wheel, which is probably a circle. I parameterized the wheel as a twenty sided polygon with a variable radius for each vertex, \(r_i\). The performance of the wheel was based on the final speed achieved by an accelerating imaginary car, \(v_f\). The wheel was driven with a constant torque, \(\tau\), and no slipping. I used PyTorch to simulate the effect of a wheel and calculate the gradients in the final speed with respect to the radii, \(\frac{dv_f}{dr_i}\). I used these gradients to update the radii using gradient descent. Above, you can see the evolution of a wheel with randomly generated radii, along with the objecive function. 
