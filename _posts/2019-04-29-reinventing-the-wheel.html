@@ -24,7 +24,7 @@ comments: []
 
 
 <p>
-    The goal of this goofy project was to optimize the performance of a wheel, which is probably a circle. I parameterized the wheel as a twenty sided polygon with a variable radius for each vertex, \(r_i\). The performance of the wheel was based on the final speed achieved by an accelerating imaginary car, \(v_f\). The wheel was driven with a constant torque, \(\tau\), and no slipping. I used PyTorch to simulate the effect of a wheel and calculate the gradients in the final speed with respect to the radii, \(\frac{dv_f}{dr_i}\). I used these gradients to update the radii using gradient descent. Above, you can see the evolution of a wheel with randomly generated radii, along with the objecive function. 
+    The goal of this goofy project was to find the optimal shape of a wheel, which is probably a circle. I parameterized the wheel as a twenty sided polygon with a variable radius for each vertex, \(r_i\). The performance of the wheel was based on the final speed achieved by an accelerating imaginary car, \(v_f\). The wheel was driven with a constant torque, \(\tau\), and no slipping. I used PyTorch to simulate the effect of a wheel and calculate the gradients in the final speed with respect to the radii, \(\frac{dv_f}{dr_i}\). I used these gradients to update the radii using gradient descent. Above, you can see the evolution of a wheel with randomly generated radii, along with the objecive function. 
 </p>
 
 <p>
