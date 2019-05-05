@@ -15,8 +15,10 @@ My name is Ben Wiener. This is a blog where I document things I work on in my sp
 </p>
 
 <p>
-You can email me at &#098;&#101;&#110;&#046;&#110;&#046;&#119;&#105;&#101;&#110;&#101;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;.
-</p>
-<p>
+If you want to hire me, <a href="https://www.linkedin.com/in/benjamin-wiener-9b750095/" target="_blank"> contact me on LinkedIn</a> or email me at me at <a href="mailto:ben.n.wiener@gmail.com" target="_blank">ben.n.wiener@gmail.com</a>.
 <a href="/assets/files/ben_wiener_resume.pdf" target="_blank"> Here's my resume</a>, if you want it.
+</p>
+
+<p>
+If you're looking for technical consultants, check out <a href="http://www.perciplex.com" target="_blank">Perciplex</a>. 
 </p>
