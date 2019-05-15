@@ -1,0 +1,159 @@
+---
+layout: post
+title: Optimizing Steering Car Paths with PyTorch
+categories:
+- Programming
+tags: []
+comments: []
+---
+
+<center>
+<img src="/assets/img/2019/05/r-s.jpg"></img>
+</center>
+<br/>
+
+
+<p>
+    Want to see another bizarre way to use PyTorch? If you've read some of my recent posts, you've seen the basic idea before. I'm using automatic differentiation and gradient descent, this time to optimize the path of a car. The model is similar to a Reeds-Shepp car, a simple steering car model. The state at time step \(i\) is defined by a 2D position and an angle, \((x_i, y_i, \theta_i)\). In each step of the simulation, the car's state is updated based on an input consisting of speed and steering angle \((v_i, \phi_i)\). 
+</p>
+
+<p>
+    Check out some results:
+</p>
+<center>
+    <img src="/assets/img/2019/05/out.gif"></img>
+    <img src="/assets/img/2019/05/in.jpg"></img>
+</center>   
+
+<p>
+    The animated plot above shows an example optimization, with the working solution evolving over time. The car starts at \((0,0)\), facing right and its target is \((3,3)\), facing down. In the ultimate solution, the car performs a wide left turn before backing into its final position. The second plot above shows the input that produced that trajectory.
+</p>
+
+<center>
+    <img src="/assets/img/2019/05/obj.jpg"></img>
+</center>
+
+<p>
+    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position along the whole route and the distance from the target angle in the final step, \(c= n_\text{steps} \left(\theta_t - \theta_n\right)^2  + \sum_i \left(x_t - x_i\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
+</p>
+
+{% highlight Python %}
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import optimize
+
+n_steps = 200 # number of steps to test the car performance
+speeds = torch.zeros(n_steps-1, requires_grad=True) # init speed control tensor
+steers = torch.zeros(n_steps-1, requires_grad=True) # init steering control tensir
+dt = .1 # time step for dynamics
+
+target_pos = torch.tensor([3.,3.]) # target position for the car
+target_angle = torch.tensor(3*np.pi/2.) # target angle for the car
+
+# finds the trajectory from the speed and steering commands
+def test_car(speeds, steers):
+    angles =[torch.tensor(0.)]
+    xs = [torch.tensor(0.)]
+    ys = [torch.tensor(0.)]
+
+    # simulate the car performance
+    for i in range(1,n_steps):
+        speed =  torch.clamp(speeds[i-1], -1., 1.) # limit the speed
+        steer = torch.clamp(steers[i-1], -10., 10.) # limit the steering angle
+        xs.append(xs[-1]+ dt * speed * torch.cos(angles[-1]))
+        ys.append(ys[-1]+ dt * speed * torch.sin(angles[-1]))
+        angles.append((angles[i-1] + dt * speed * steer)%(2*np.pi))
+    return xs, ys, angles
+
+
+# list to keep track of objective progress
+costs = []
+angle_costs = []
+dist_costs = []
+
+# cost plot
+fig_cost = plt.figure()
+ax_cost = fig_cost.add_subplot(111)
+ax_cost.autoscale(enable=True, axis="y", tight=False)
+ax_cost.set_xlabel("iteration")
+ax_cost.set_ylabel("cost")
+
+li_cost, = ax_cost.plot([],[])
+li_cost_ang, = ax_cost.plot([],[])
+li_cost_dist, = ax_cost.plot([],[])
+
+# input plot
+fig_in = plt.figure()
+ax_in = fig_in.add_subplot(111)
+ax_in.autoscale(enable=True, axis="y", tight=False)
+
+li_speed, = ax_in.plot(speeds.detach().numpy())
+li_steer, = ax_in.plot(steers.detach().numpy())
+
+# trajectory plot
+fig_traj = plt.figure()
+ax_traj = fig_traj.add_subplot(111)
+
+li_traj, = ax_traj.plot([])
+
+fig_cost.canvas.draw()
+fig_traj.canvas.draw()
+fig_in.canvas.draw()
+plt.show(block=False)
+
+optimizer =  torch.optim.SGD([speeds, steers], lr=0.001, momentum=.01, nesterov=True)
+#optimizer =  torch.optim.Adam([speeds, steers])
+
+for i in range(1000):
+    # run simulation
+    xs, ys, angles = test_car(speeds, steers)
+
+    # calculate costs
+    angle_error = target_angle - angles[-1]
+    angle_cost = n_steps * torch.min(torch.min((angle_error+2*np.pi)**2, (angle_error-2*np.pi)**2), angle_error**2)
+
+    dist_cost = sum([(target_pos[0] - xs[i])**2 + (target_pos[1] - ys[i])**2 for i in range(len(xs))])    
+
+    cost = dist_cost + angle_cost
+
+    # save costs
+    costs.append(cost)
+    angle_costs.append(angle_cost)
+    dist_costs.append(dist_cost)
+
+    #calculate gradients
+    optimizer.zero_grad()
+    cost.backward()
+
+    # update inputs
+    optimizer.step()
+
+    # update plots
+    li_cost.set_data(range(len(costs)),costs)
+    li_cost_ang.set_data(range(len(angle_costs)),angle_costs)
+    li_cost_dist.set_data(range(len(dist_costs)),dist_costs)
+    li_speed.set_ydata(speeds.detach().numpy())
+    li_steer.set_ydata(steers.detach().numpy())
+    
+    ax_cost.relim()
+    ax_cost.autoscale_view()
+    ax_cost.legend(["total", "angle", "dist"])
+
+    ax_in.relim()
+    ax_in.autoscale_view()
+    ax_in.legend(["speed", "steer"])
+
+    ax_traj.clear()
+    ax_traj.set_aspect('equal', 'datalim')
+    ax_traj.plot(xs, ys)
+
+    fig_traj.canvas.draw()
+    fig_cost.canvas.draw()
+    fig_in.canvas.draw()
+    
+    fig_traj.savefig("vid_1/path_{i}.jpg".format(i=i))
+    fig_cost.savefig("vid_1/obj.jpg")
+
+{% endhighlight %}
+
