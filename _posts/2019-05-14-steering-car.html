@@ -18,23 +18,26 @@ comments: []
 </p>
 
 <p>
-    Check out some results. The starting position and direction are represented by the red arrow and the target position and direction are represented by the green arrow.
+    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position and the distance from the target angle in the final step, \(c=  \left(\theta_t - \theta_n\right)^2  +\left(x_t - x_n\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. 
+</p>
+<p>
+    Check out some results. The animated plot below shows an example optimization, with the working solution evolving over time. The car starts at \((0,0)\), facing right and its target is \((3,3)\), facing down. The starting position and direction are represented by the red arrow and the target position and direction are represented by the green arrow.
 </p>
 <center>
     <img src="/assets/img/2019/05/out.gif"></img>
-    <img src="/assets/img/2019/05/in.jpg"></img>
 </center>   
 
 <p>
-    The animated plot above shows an example optimization, with the working solution evolving over time. The car starts at \((0,0)\), facing right and its target is \((3,3)\), facing down. In the ultimate solution, the car performs a wide left turn before backing into its final position. The second plot above shows the input that produced that trajectory.
+    In the ultimate solution, the car performs a wide left turn into its final position. The plot below shows the input that produced that trajectory.
 </p>
 
 <center>
+    <img src="/assets/img/2019/05/in.jpg"></img>
     <img src="/assets/img/2019/05/obj.jpg"></img>
 </center>
 
 <p>
-    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position and the distance from the target angle in the final step, \(c=  \left(\theta_t - \theta_n\right)^2  +\left(x_t - x_n\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
+    The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
 </p>
 
 {% highlight Python %}
