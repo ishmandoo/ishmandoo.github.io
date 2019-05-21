@@ -17,8 +17,27 @@ comments: []
     Want to see another bizarre way to use PyTorch? If you've read some of my recent posts, you've seen the basic idea before. I'm using automatic differentiation and gradient descent, this time to optimize the path of a car. The model is similar to a Reeds-Shepp car, a simple steering car model. The state at time step \(i\) is defined by a 2D position and an angle, \((x_i, y_i, \theta_i)\). In each step of the simulation, the car's state is updated based on an input consisting of speed and steering angle \((v_i, \phi_i)\). 
 </p>
 
+<center>
+    \(x_{i+1} = x_i + v_i \cos{\theta_i}  dt\) 
+    <br>
+    \(y_{i+1} = y_i + v_i \sin{\theta_i} dt\)
+    <br>
+    \(\theta_{i+1} = \theta_i + v_i \phi_i dt\) 
+    <br>
+</center>
+
 <p>
-    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position and the distance from the target angle in the final step, \(c=  \left(\theta_t - \theta_n\right)^2  +\left(x_t - x_n\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. 
+    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position and the distance from the target angle in the final step.
+</p>
+
+<center>
+    \(c=  \left(\theta_t - \theta_n\right)^2  +\left(x_t - x_n\right)^2 + \left(y_t - y_n\right)^2 \)
+    <br>
+    <br>
+</center>
+
+<p>
+     I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. 
 </p>
 <p>
     Check out some results. The animated plot below shows an example optimization, with the working solution evolving over time. The car starts at \((0,0)\), facing right and its target is \((3,3)\), facing down. The starting position and direction are represented by the red arrow and the target position and direction are represented by the green arrow.
@@ -28,7 +47,7 @@ comments: []
 </center>   
 
 <p>
-    In the ultimate solution, the car performs a wide left turn into its final position. The plot below shows the input that produced that trajectory.
+    In the first frame of the animation, the inputs are initialized to zero and the car does not move. In the ultimate solution, the car performs a wide left turn into its final position. The plots below shows the input that produced that trajectory and the evolution of the cost function.
 </p>
 
 <center>
@@ -37,7 +56,7 @@ comments: []
 </center>
 
 <p>
-    The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
+    Code below.
 </p>
 
 {% highlight Python %}
