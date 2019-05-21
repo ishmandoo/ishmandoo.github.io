@@ -96,24 +96,29 @@ fig_traj = plt.figure()
 ax_traj = fig_traj.add_subplot(111)
 
 li_traj, = ax_traj.plot([])
+l = 0.25
+ax_traj.arrow(0,0,0,l, width=0.05, color="red")
+ax_traj.arrow(*target_pos, l* torch.cos(target_angle), l*torch.sin(target_angle), width=0.05, color="green")
+ax_traj.set_xlim(-1.,4.)
+ax_traj.set_ylim(-1.,4.)
 
 fig_cost.canvas.draw()
 fig_traj.canvas.draw()
 fig_in.canvas.draw()
 plt.show(block=False)
 
-optimizer =  torch.optim.SGD([speeds, steers], lr=0.001, momentum=.01, nesterov=True)
+optimizer =  torch.optim.SGD([speeds, steers], lr=0.1)
 #optimizer =  torch.optim.Adam([speeds, steers])
 
-for i in range(1000):
+for i in range(170):
     # run simulation
     xs, ys, angles = test_car(speeds, steers)
 
     # calculate costs
     angle_error = target_angle - angles[-1]
-    angle_cost = n_steps * torch.min(torch.min((angle_error+2*np.pi)**2, (angle_error-2*np.pi)**2), angle_error**2)
+    angle_cost = torch.min(torch.min((angle_error+2*np.pi)**2, (angle_error-2*np.pi)**2), angle_error**2)
 
-    dist_cost = sum([(target_pos[0] - xs[i])**2 + (target_pos[1] - ys[i])**2 for i in range(len(xs))])    
+    dist_cost = (target_pos[0] - xs[-1])**2 + (target_pos[1] - ys[-1])**2   
 
     cost = dist_cost + angle_cost
 
@@ -135,6 +140,7 @@ for i in range(1000):
     li_cost_dist.set_data(range(len(dist_costs)),dist_costs)
     li_speed.set_ydata(speeds.detach().numpy())
     li_steer.set_ydata(steers.detach().numpy())
+    li_traj.set_data(xs, ys)
     
     ax_cost.relim()
     ax_cost.autoscale_view()
@@ -144,16 +150,9 @@ for i in range(1000):
     ax_in.autoscale_view()
     ax_in.legend(["speed", "steer"])
 
-    ax_traj.clear()
-    ax_traj.set_aspect('equal', 'datalim')
-    ax_traj.plot(xs, ys)
-
     fig_traj.canvas.draw()
     fig_cost.canvas.draw()
     fig_in.canvas.draw()
-    
-    fig_traj.savefig("vid_1/path_{i}.jpg".format(i=i))
-    fig_cost.savefig("vid_1/obj.jpg")
 
 {% endhighlight %}
 
