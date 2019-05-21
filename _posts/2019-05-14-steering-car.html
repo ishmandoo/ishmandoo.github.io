@@ -34,7 +34,7 @@ comments: []
 </center>
 
 <p>
-    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position along the whole route and the distance from the target angle in the final step, \(c= n_\text{steps} \left(\theta_t - \theta_n\right)^2  + \sum_i \left(x_t - x_i\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
+    I simulated the car for \(n_\text{steps}\) steps, with a target position and angle, \((x_t, y_t, \theta_t)\) and a cost function, \(c\), which depended on the distance from the target position and the distance from the target angle in the final step, \(c= n_\text{steps} \left(\theta_t - \theta_n\right)^2  +\left(x_t - x_n\right)^2 \). I used automatic differentiation to find the derivates \(\frac{dc}{dv_i}\) and \(\frac{dc}{d\phi_i}\), which I used to update the inputs. The plot above shows the evolution of this cost function, separately displaying the position and angle terms. Code below.
 </p>
 
 {% highlight Python %}
