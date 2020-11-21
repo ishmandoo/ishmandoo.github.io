@@ -5,32 +5,49 @@ categories:
 - Programming
 tags: []
 comments: []
-sticky: True
 ---
 
 <p>
-    <a href="http://www.declanoller.com">Declan</a> showed me a brain teaser his friend sent him. Apparently, it's known as the Hanayama O'Gear Puzzle. It consists of a bronze colored metal cube with a captive gear which can roll from face to face on the cube. The gear can also rotate between two directions on each face. Some edges of the cube are made so that the gear can't roll over them. One tooth of the gear and one face of the cube have a special cut-out. Only when the special tooth is engaged with the special face can the gear be freed. The object of the puzzle is to manipulate the gear into this orientation. Here's <a href="https://www.youtube.com/watch?v=pvfUGu6KEjE">a video</a> of the puzzle in action.
+    <a href="http://www.declanoller.com">Declan</a> showed me a brain teaser his friend sent him. Apparently, it's known
+    as the Hanayama O'Gear Puzzle. It consists of a bronze colored metal cube with a captive gear which can roll from
+    face to face on the cube. The gear can also rotate between two directions on each face. Some edges of the cube are
+    made so that the gear can't roll over them. One tooth of the gear and one face of the cube have a special cut-out.
+    Only when the special tooth is engaged with the special face can the gear be freed. The object of the puzzle is to
+    manipulate the gear into this orientation. Here's <a href="https://www.youtube.com/watch?v=pvfUGu6KEjE">a video</a>
+    of the puzzle in action.
 </p>
 
-<br/>
+<br />
 <center>
-<img src="/assets/img/2019/02/cube.png"></img>
+    <img src="/assets/img/2019/02/cube.png"></img>
 </center>
-<br/>
+<br />
 
 <p>
-    I tried solving the puzzle for about fifteen minutes before deciding to use a computer. My basic strategy was to treat the problem as a graph search, where the nodes of the graph are the different states the cube and gear can be in. At any time, you can only do three things: rotate, roll forward, and roll backward. I figured that the limited set of moves and possible positions would prevent the search space from getting too big.
+    I tried solving the puzzle for about fifteen minutes before deciding to use a computer. My basic strategy was to
+    treat the problem as a graph search, where the nodes of the graph are the different states the cube and gear can be
+    in. At any time, you can only do three things: rotate, roll forward, and roll backward. I figured that the limited
+    set of moves and possible positions would prevent the search space from getting too big.
 </p>
 
 <p>
-    I marked up the cube with stickers, naming each face and defining its 'north' direction. I also marked the gear by labeling each tooth and setting a forward rotation direction.
+    I marked up the cube with stickers, naming each face and defining its 'north' direction. I also marked the gear by
+    labeling each tooth and setting a forward rotation direction.
 </p>
 
 <p>
-    I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a href="http://www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched function to keep track of the possible rotations. I defined north on each face so that these rotations were always the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west. 
+    I don't know Haskell very well, so I thought using it would be a fun challenge. Plus, I had Haskell guru <a
+        href="http://www.philipzucker.com">Phil</a> to ask for help and advice. A lot of the code is just defining the
+    connectivity of the puzzle. I used a list to keep track of the links between different faces and a pattern-matched
+    function to keep track of the possible rotations. I defined north on each face so that these rotations were always
+    the same. A north-facing gear could only rotate to the east, and a south-facing one could only rotate west.
 </p>
-<p>    
-    Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first search. The program creates a list of all states accessible from the starting state. Because the list is generated with successive expansions of the search frontier, it is naturally sorted by search depth. I take advantage of Haskell's lazy evaluation, creating an infinite list of accessible states but only ever calculating a few of them. Code below. 
+<p>
+    Beyond the trickiness of defining directions and connectivity, I just implemented a straightforward breadth-first
+    search. The program creates a list of all states accessible from the starting state. Because the list is generated
+    with successive expansions of the search frontier, it is naturally sorted by search depth. I take advantage of
+    Haskell's lazy evaluation, creating an infinite list of accessible states but only ever calculating a few of them.
+    Code below.
 </p>
 
 {% highlight Haskell %}
@@ -44,29 +61,29 @@ data Dir = North | South | East | West deriving (Show, Eq)
 data GearState = GearState{ face :: Face, dir :: Dir, tooth :: Int, history :: [(Face, Dir)] } deriving Show
 
 -- a list defining connections between faces
-forward_connections = 
-    [ ((Top, East),(Ri, South))
-    , ((Top, West),(Lef, South))
+forward_connections =
+[ ((Top, East),(Ri, South))
+, ((Top, West),(Lef, South))
 
-    , ((Bot, North),(Front, West))
-    , ((Bot, South),(Back, East))
-    , ((Bot, West),(Ri, North)) 
+, ((Bot, North),(Front, West))
+, ((Bot, South),(Back, East))
+, ((Bot, West),(Ri, North))
 
-    , ((Front, South),(Bot, North)) 
-    , ((Front, West),(Back, West)) 
+, ((Front, South),(Bot, North))
+, ((Front, West),(Back, West))
 
-    , ((Back, South),(Bot, North)) 
-    , ((Back, East),(Ri, East)) 
-    , ((Back, West),(Lef, West)) 
+, ((Back, South),(Bot, North))
+, ((Back, East),(Ri, East))
+, ((Back, West),(Lef, West))
 
-    , ((Lef, North),(Top, East)) 
-    , ((Lef, East),(Front, East))
-    , ((Lef, West),(Back, West)) 
-    
-    , ((Ri, North),(Top, West)) 
-    , ((Ri, South),(Bot, East)) 
-    , ((Ri, East),(Back, East))  
-    ]
+, ((Lef, North),(Top, East))
+, ((Lef, East),(Front, East))
+, ((Lef, West),(Back, West))
+
+, ((Ri, North),(Top, West))
+, ((Ri, South),(Bot, East))
+, ((Ri, East),(Back, East))
+]
 
 -- mapping the reverse tuple function over the connections gives the connections for reverse gear moves
 backward_connections = map swap forward_connections
@@ -76,10 +93,11 @@ backward_connections = map swap forward_connections
 -- forward_connections and incr for forward moves
 -- backward_connections and decr for backward moves
 move :: GearState -> [((Face, Dir),(Face, Dir))] -> (Int -> Int) -> Maybe GearState
-move (GearState face dir tooth history) connections nextTooth = 
-    case (lookup (face, dir) connections) of -- looks for a connection
-        Nothing -> Nothing -- if no forward connection exists from the current state
-        (Just (new_face, new_dir)) -> Just (GearState new_face new_dir (nextTooth tooth) ((new_face,new_dir):history)) -- returns a new state, incrementing the tooth and adding to the history
+move (GearState face dir tooth history) connections nextTooth =
+case (lookup (face, dir) connections) of -- looks for a connection
+Nothing -> Nothing -- if no forward connection exists from the current state
+(Just (new_face, new_dir)) -> Just (GearState new_face new_dir (nextTooth tooth) ((new_face,new_dir):history)) --
+returns a new state, incrementing the tooth and adding to the history
 
 -- a function which applies a turn to the gear
 turn :: GearState -> GearState
@@ -106,9 +124,11 @@ isWinningState _ = False
 
 -- creates a list of all the states accessible from the current state
 nextStates :: GearState -> [GearState]
-nextStates state = catMaybes [Just (turn state), (move state forward_connections incr), (move state backward_connections decr)] -- removes Nothings and strips the values out of Just
+nextStates state = catMaybes [Just (turn state), (move state forward_connections incr), (move state backward_connections
+decr)] -- removes Nothings and strips the values out of Just
 
--- creates a new search frontier by replacing each state in the search frontier with all the states accessible from that state and flattening
+-- creates a new search frontier by replacing each state in the search frontier with all the states accessible from that
+state and flattening
 newFrontier :: [GearState] -> [GearState]
 newFrontier frontier = (concatMap nextStates frontier)
 
@@ -124,5 +144,6 @@ solve start = fmap history (find isWinningState (reachableStates start))
 
 
 <p>
-    You can run it with a command like, <code>solve (GearState Top South 4 [])</code>. This code, and a different Python solver I wrote are available in my <a href="https://github.com/ishmandoo/cube_puzzle">Github</a>.
+    You can run it with a command like, <code>solve (GearState Top South 4 [])</code>. This code, and a different Python
+    solver I wrote are available in my <a href="https://github.com/ishmandoo/cube_puzzle">Github</a>.
 </p>
