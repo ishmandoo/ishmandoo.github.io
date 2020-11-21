@@ -30,13 +30,13 @@ comments:
 <p>Then I restarted the IDE.</p>
 <p>I chose the HelloServer example from the ESP8266WebServer folder. It looks like this:</p>
 <p>{% highlight c %}
-  #include &lt;ESP8266WiFi.h&gt;
-  #include &lt;WiFiClient.h&gt;
-  #include &lt;ESP8266WebServer.h&gt;
-  #include &lt;ESP8266mDNS.h&gt;
+  #include <ESP8266WiFi.h>
+  #include <WiFiClient.h>
+  #include <ESP8266WebServer.h>
+  #include <ESP8266mDNS.h>
 
-  const char* ssid = &quot;{YOUR SSID HERE}&quot;;
-  const char* password = &quot;{YOUR PASSWORD HERE}&quot;;
+  const char* ssid = "{YOUR SSID HERE}";
+  const char* password = "{YOUR PASSWORD HERE}";
 
   ESP8266WebServer server(80);
 
@@ -44,24 +44,24 @@ comments:
 
   void handleRoot() {
     digitalWrite(led, 1);
-    server.send(200, &quot;text/plain&quot;, &quot;hello from esp8266!&quot;);
+    server.send(200, "text/plain", "hello from esp8266!");
     digitalWrite(led, 0);
   }
 
   void handleNotFound(){
     digitalWrite(led, 1);
-    String message = &quot;File Not Found\n\n&quot;;
-    message += &quot;URI: &quot;;
+    String message = "File Not Found\n\n";
+    message += "URI: ";
     message += server.uri();
-    message += &quot;\nMethod: &quot;;
-    message += (server.method() == HTTP_GET)?&quot;GET&quot;:&quot;POST&quot;;
-    message += &quot;\nArguments: &quot;;
+    message += "\nMethod: ";
+    message += (server.method() == HTTP_GET)?"GET":"POST";
+    message += "\nArguments: ";
     message += server.args();
-    message += &quot;\n&quot;;
-    for (uint8_t i=0; i&lt;server.args(); i++){
-      message += &quot; &quot; + server.argName(i) + &quot;: &quot; + server.arg(i) + &quot;\n&quot;;
+    message += "\n";
+    for (uint8_t i=0; i<server.args(); i++){
+      message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
     }
-    server.send(404, &quot;text/plain&quot;, message);
+    server.send(404, "text/plain", message);
     digitalWrite(led, 0);
   }
 
@@ -70,33 +70,33 @@ comments:
     digitalWrite(led, 0);
     Serial.begin(115200);
     WiFi.begin(ssid, password);
-    Serial.println(&quot;&quot;);
+    Serial.println(");
 
     // Wait for connection
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
-      Serial.print(&quot;.&quot;);
+      Serial.print(".");
     }
-    Serial.println(&quot;&quot;);
-    Serial.print(&quot;Connected to &quot;);
+    Serial.println(");
+    Serial.print("Connected to ");
     Serial.println(ssid);
-    Serial.print(&quot;IP address: &quot;);
+    Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
 
-    if (MDNS.begin(&quot;esp8266&quot;)) {
-      Serial.println(&quot;MDNS responder started&quot;);
+    if (MDNS.begin("esp8266")) {
+      Serial.println("MDNS responder started");
     }
 
-    server.on(&quot;/&quot;, handleRoot);
+    server.on("/", handleRoot);
 
-    server.on(&quot;/inline&quot;, [](){
-      server.send(200, &quot;text/plain&quot;, &quot;this works as well&quot;);
+    server.on("/inline", [](){
+      server.send(200, "text/plain", "this works as well");
     });
 
     server.onNotFound(handleNotFound);
 
     server.begin();
-    Serial.println(&quot;HTTP server started&quot;);
+    Serial.println("HTTP server started");
   }
 
   void loop(void){
