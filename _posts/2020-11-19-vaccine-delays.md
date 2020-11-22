@@ -30,4 +30,10 @@ Maybe this just isn't the way the FDA usually works and they weren't able to ada
 
 Obviously scientific integrity is important here. Maybe the scientists are intentionally kept separate from other parts of Pfizer and from the FDA to prevent some kind of academic dishonesty. I wonder about the relative dangers involved, but I could imagine an explanation like this. 
 
+### Answers that other people have suggested:
+
+Commenters on Hacker News and Reddit have suggested that the things I want to happen are already happening. I've looked into this a little bit, and I'm unsure. Both Moderna and Pfizer have been granted the FDA's [Fast Track status](https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/fast-track). This sounds great. It apparently means these companies have the opportunity for closer collaboration with the FDA, at least on clinical trial design. Some have suggested that the companies would also already be sharing advance results from their studies, but I haven't found any reference saying that. 
+
+Fast Track also gives them the opportunity to participate in Rolling Review, which allows them to submit sections of their applications as they become ready. The references I've found discussing this are mostly [press releases by the companies](https://www.pfizer.com/news/press-release/press-release-detail/pfizer-and-biontech-submit-emergency-use-authorization) or closely based on them. They discuss participation in Rolling Review in Europe and elsewhere, but I haven't seen that they are doing this in the US.
+
 [^hcc]: At least outside of controversial [human challenge trials](https://www.nytimes.com/2020/07/01/health/coronavirus-vaccine-trials.html).
