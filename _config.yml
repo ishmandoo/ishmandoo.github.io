@@ -19,6 +19,8 @@ github_username:  ishmandoo
 markdown: kramdown
 kramdown:
   input: GFM
+  enable_coderay: true
+  coderay_default_lang: python
 exclude:
   - Gemfile
   - Gemfile.lock
