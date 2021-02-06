@@ -32,8 +32,7 @@ exclude:
   
 # Third-party services
 # just leave someone empty to disable it
-google_analytics: UA-8862815-3
-
+google_analytics:
 disqus_shortname: blog-benwiener-com
 
 # used this for post_excerpt at index_page
