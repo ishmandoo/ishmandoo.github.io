@@ -10,7 +10,7 @@ comments: []
 ---
 
 
-![Photo front](/assets/img/2021/10/marble_mirror_front.png){: .center width="60%"}
+![Photo front](/assets/img/2021/10/marble_mirror_front.png){: .center width="95%"}
 
 
 I've always sort of wanted to make a marble-based machine. I've been following the progress of Wintergatan/Martin Molin's [Marble Machine X](https://www.youtube.com/watch?v=C8qyVURtSZc) for some time. It's a follow-up to the original and more famous [Marble Machine](https://www.youtube.com/watch?v=IvUU8joBb1Q) of YouTube fame. 
@@ -39,7 +39,13 @@ We considered a few designs but settled on one that's nowhere near real time. We
 <blockquote class="twitter-tweet"><p lang="fr" dir="ltr">A momentous occasion! <a href="https://t.co/fWjtwTHqRN">pic.twitter.com/fWjtwTHqRN</a></p>&mdash; Philip Zucker (@SandMouth) <a href="https://twitter.com/SandMouth/status/1453563957696999430?ref_src=twsrc%5Etfw">October 28, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
 
-It forms an image in the style of a Connect 4 board. A motor lifts a column of marbles to the top of the machine by rotating a notched disk (blue) and drops one into the carriage (green). A sensor in the carriage (red) measures the color of the marble using an RGB sensor and an LED. If the marble can be used in one of the columns of the image, it is delivered to that column and dropped in. If the marble can't be used because it doesn't match the next pixel in any column, it is rejected and dropped back into the reservoir at the bottom.
+It forms an image in the style of a Connect 4 board. A stepper motor lifts a column of marbles to the top of the machine by rotating a notched disk (blue) and drops one into the carriage (green). A RGB sensor in the carriage (red) measures the color of the cargo area and decides if it contains a reflective steel marble, a black marble, or no marble. If the marble can be used in one of the columns of the image, it is delivered to that column and dropped in. If the marble can't be used because it doesn't match the next pixel in any column, it is rejected and dropped back into the reservoir at the bottom.
 
 ![Model front](/assets/img/2021/10/model_front.png){: width="48%"}
 ![Model front](/assets/img/2021/10/model_rear.png){: width="48%"}
+
+The carriage rides on linear bearings on an 8mm steel rod. It's driven by a stepper motor and lead screw. A servo with a plastic horn acts as a gate.
+
+
+![Model front](/assets/img/2021/10/carriage.png){: width="38%"}
+![Model front](/assets/img/2021/10/carriage_2.png){: width="58%"}
