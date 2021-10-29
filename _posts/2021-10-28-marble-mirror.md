@@ -22,7 +22,7 @@ I've always sort of wanted to make a marble-based machine. I've been following t
 You should probably just leave that video running and let it be the background music while you read this post.
 
 This time around, Martin's documented his progress with a compelling series of videos showing the ups and downs of his adventure to build a giant music playing machine based around marbles. 
-A marble machine almost seems simple. Each element of it seems doable. It's just tracks and belts and xylophones and stuff. 
+A marble machine almost seems simple. Each element of it seems so doable. It's just tracks and belts and xylophones and stuff. 
 His videos put the lie to this stupid idea.
 The Marble Machine X project has stalled and as of late 2021, he's pursuing a ground-up redesign of his incredible machine after [coming to terms with some fundamental design flaws](https://www.youtube.com/watch?v=WN90HYiFpAw).
 
