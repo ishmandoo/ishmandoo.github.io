@@ -5,6 +5,7 @@ categories:
 - Economics
 tags: []
 comments: []
+published: false
 ---
 
 I keep hearing about small delays in the vaccine development process that I don't understand given how urgent the need is. I read a perfect example today. [A New York Times article](https://www.nytimes.com/2020/11/18/health/pfizer-covid-vaccine.html) sharing good news about the effectiveness of the Pfizer vaccine mentioned that the company would be applying for emergency use authorization "within days". [A similar article](https://www.nytimes.com/2020/11/16/health/Covid-moderna-vaccine.html") cited a period of weeks for the Moderna vaccine. This progress is great news. It made me wonder, though, why not today? What prevented these companies from being ready to file with the FDA right away?
