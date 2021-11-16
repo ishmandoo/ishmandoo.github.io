@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Marble Mirror
+title: Marble Mirror (work in progress)
 categories:
 - Electronics
 - Projects
 - Programming
-tags: []
+tags: [WIP]
 comments: []
 ---
 
