@@ -24,11 +24,10 @@ Usually, we plan things out in advance and more or less stick to the plan.
 This time, we generally deferred choices until we were forced to make them.
 For example, we never had a coherent plan to connect the seat to the stretchers. 
 Ultimately, we avoided the stretchers all together and fastened the seat to the fame with four 3/4" pins.
-This strategy, driven more by laziness and indecisiveness than anything else, was both flexible and stressful. 
+This strategy, driven mostly by laziness and indecisiveness, was both flexible and stressful. 
 I wasn't truly confident in the project until we clamped up for the last time.
 
 Eventually, we landed on this:
-
 ![Photo front](/assets/img/2022/01/rocking_chair/design.png){: .center width="70%"}
 
 # A Botch-Job in Three Acts
