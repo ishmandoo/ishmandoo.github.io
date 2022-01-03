@@ -11,7 +11,7 @@ comments: []
 My dad turned 70 this year, so Matt and I decided to make him an old man rocking chair.
 This project was an adventure. 
 We wasted a lot of perfectly good cherry by repeatedly messing up and/or changing our design.
-I'm proud of how it came out:
+Still, I'm proud of how it came out:
 
 ![Photo front](/assets/img/2022/01/rocking_chair/final.jpg){: .center width="70%"}
 
