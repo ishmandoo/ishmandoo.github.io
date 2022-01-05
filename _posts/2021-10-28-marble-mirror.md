@@ -13,7 +13,7 @@ comments: []
 ![Photo front](/assets/img/2021/10/marble_mirror_front.png){: .center width="95%"}
 
 
-I've always sort of wanted to make a marble-based machine. I've been following the progress of Wintergatan/Martin Molin's [Marble Machine X](https://www.youtube.com/watch?v=C8qyVURtSZc) for some time. It's a follow-up to the original and more famous [Marble Machine](https://www.youtube.com/watch?v=IvUU8joBb1Q) of YouTube fame. 
+I've always sort of wanted to make a marble-based machine. I've been following the progress of Wintergatan/Martin Molin's [Marble Machine X](https://www.youtube.com/watch?v=C8qyVURtSZc) for some time. It's a follow-up to the original and more well-known [Marble Machine](https://www.youtube.com/watch?v=IvUU8joBb1Q) of YouTube. 
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IvUU8joBb1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -22,8 +22,8 @@ I've always sort of wanted to make a marble-based machine. I've been following t
 You should probably just leave that video running and let it be the background music while you read this post.
 
 This time around, Martin's documented his progress with a compelling series of videos showing the ups and downs of his adventure to build a giant music playing machine based around marbles. 
-A marble machine almost seems simple. Each element of it seems so doable. It's just tracks and belts and xylophones and stuff. 
-His videos put the lie to this stupid idea.
+A marble machine almost seems simple. It's just tracks and belts and xylophones and stuff. 
+His videos put the lie to this idea.
 The Marble Machine X project has stalled and as of late 2021, he's pursuing a ground-up redesign of his incredible machine after [coming to terms with some fundamental design flaws](https://www.youtube.com/watch?v=WN90HYiFpAw).
 
 Fortunately, we picked a much easier project.

@@ -15,8 +15,7 @@ My name is Ben Wiener. This is a blog where I document things I work on in my sp
 </p>
 
 <p>
-If you want to hire me, <a href="https://www.linkedin.com/in/ben-wiener/" target="_blank"> contact me on LinkedIn</a> or email me at me at <a href="mailto:ben.n.wiener@gmail.com" target="_blank">ben.n.wiener@gmail.com</a>.
-<a href="/assets/files/ben_wiener_resume.pdf" target="_blank"> Here's my resume</a>, if you want it.
+If you're interested, <a href="https://www.linkedin.com/in/ben-wiener/" target="_blank"> contact me on LinkedIn</a>, email me at me at <a href="mailto:ben.n.wiener@gmail.com" target="_blank">ben.n.wiener@gmail.com</a>, or <a href="/assets/files/ben_wiener_resume.pdf" target="_blank"> take a look at my resume</a>.
 </p>
 
 <p>

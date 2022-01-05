@@ -21,7 +21,7 @@ Our starting design closely followed the Masaya chair.
 We planned to copy most of the details including the bridle jointed rockers, cantilevered armrests, and stretcher-supported seat. 
 As we built, we made some changes. 
 Usually, we plan things out in advance and more or less stick to the plan. 
-This time, we generally deferred choices until we were forced to make them.
+This time, we often deferred choices until we were forced to make them.
 For example, we never had a coherent plan to connect the seat to the stretchers. 
 Ultimately, we avoided the stretchers all together and fastened the seat to the fame with four 3/4" pins.
 This strategy, driven mostly by laziness and indecisiveness, was both flexible and stressful. 
