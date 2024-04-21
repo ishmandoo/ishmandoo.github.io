@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Team Fielding -- Expected Outs Difference"
+title: "Expected Outs Difference -- A simple team fielding metric"
 categories:
 - Baseball
 tags: []
