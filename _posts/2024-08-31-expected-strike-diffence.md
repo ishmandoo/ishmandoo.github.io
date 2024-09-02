@@ -121,6 +121,8 @@ There are so many pitches that the 25 nearest ones are close together.
 Two of the features I used (two strikes less than three balls, three balls less than two strikes) have values that are either 0 or 1.
 These have an interesting effect on the neighborhood calculation.
 Because of the relative scales involved, neighborhoods will almost always include only pitches with the same value for these discrete features.
+This is okay though.
+Essentially I have three separate classifiers here: one for 0-2, 1-2, and 2-2 counts when umpires are more inclined to call a ball, one for 3-0 and 3-1 counts when umpires are more likely to call a strike, and one for all other counts.
 
 ![Inside corner neighborhood](/assets/img/2024/08/neighborhood_cat.png){: .center width="60%"}
 
