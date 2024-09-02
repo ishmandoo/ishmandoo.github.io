@@ -130,7 +130,10 @@ For each pitch find the neighborhood pitches and calculate the fraction that wer
 Add up these fractions to determine the number of expected strikes.
 Compare that sum to the total number of strike calls they got.
 
-Here's how the numbers come out for 2023
+The resulting stat correlates well with Fangraphs and Baseball Savant catcher framing statistics.
+![Correlation with other statistics](/assets/img/2024/08/corr.png){: .center width="95%"}
+
+Finally, here's how the numbers come out for 2023:
 <table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -758,5 +761,3 @@ Here's how the numbers come out for 2023
   </tbody>
 </table>
 
-This correlates well with Fangraphs and Baseball Savant catcher framing statistics.
-![Correlation with other statistics](/assets/img/2024/08/corr.png){: .center width="95%"}
