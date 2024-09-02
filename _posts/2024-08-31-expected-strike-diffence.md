@@ -15,6 +15,7 @@ This difference theoretically represents the number of extra strikes stolen (or 
 
 # The Data
 First the basics.
+
 In the Statcast coordinate system, x is inside-outside in the strikezone with the first-base side positive, y is toward-away from the catcher with the field side positive, z is up-down with up positive.
 ![Statcast coordinate system](/assets/img/2024/08/coordinates.png){: .center width="40%"}
 
@@ -49,7 +50,7 @@ I also noticed that umpires are less likely to call a marginal pitch a strike wh
 I've heard this called "omission bias" and it is a well documented effect in strike calling.
 Basically, umps are a bit adverse to calling strike three or ball four and directly ending the at-bat.
 
-![](/assets/img/2024/08/two_strikes.png){: .center width="60%"}
+![Strikezone x coordinate with and without two strikes](/assets/img/2024/08/two_strikes.png){: .center width="60%"}
 
 This plot shows a skinnier yellow band when there are two strikes and less than three balls.
 This indicates that the effective strike zone is smaller in that situation.
@@ -62,8 +63,8 @@ My intiution was that the transverse velocity (the left-right and up-down veloci
 For example, I expected a pitch at the bottom of the zone to have a better chance of being called a ball if it is breaking sharply downward.
 I was not able to observe a clear effect like this in the data so I left it out of this model.
 
-## The final result
-Ultimately, the features I used were:
+## The features
+Ultimately, the features I used to estimate strike probability were:
 - Normalized and handedness-corrected x position when crossing the plate
     - Runs from -1.0 on the outside edge of the zone to 1.0 on the inside edge
 - Normalized z position when crossing the plate
