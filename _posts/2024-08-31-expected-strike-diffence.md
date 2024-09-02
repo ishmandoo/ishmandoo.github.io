@@ -759,4 +759,4 @@ Here's how the numbers come out for 2023
 </table>
 
 This correlates well with Fangraphs and Baseball Savant catcher framing statistics.
-![Correlation with other statistics](/assets/img/2024/08/corr.png){: .center width="60%"}
+![Correlation with other statistics](/assets/img/2024/08/corr.png){: .center width="95%"}
