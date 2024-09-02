@@ -9,7 +9,7 @@ comments: []
 
 In this post I'll build a simple catcher framing metric I'm calling Expected Strike Difference.
 The approach is similar to some other recent posts of mine like [this one](/baseball/2024/03/03/team-fielding.html).
-Using [pybaseball]((https://github.com/jldbc/pybaseball)) Statcast data I'll train a classifier to predict whether a pitch will be called a ball or a strike based on the location where it crosses the plate and the measured transverse velocities.
+Using [pybaseball]((https://github.com/jldbc/pybaseball)) Statcast data I'll train a classifier to predict whether a pitch will be called a ball or a strike based on the location where it crosses the plate, the count, handedness of the hitter.
 Then I'll go through every pitch caught by each catcher and count up the differences between the predicted strikes and called strikes.
 This difference theoretically represents the number of extra strikes stolen (or lost) compared to an average catcher.
 
@@ -59,7 +59,7 @@ Similarly, they are less likely to call a ball with three balls and less than tw
 
 ## Pitch movement
 
-My intiution was that the transverse velocity (the left-right and up-down velocity) of the pitch will have an influence on the umpire's call.
+My intuition was that the transverse velocity (the left-right and up-down velocity) of the pitch will have an influence on the umpire's call.
 For example, I expected a pitch at the bottom of the zone to have a better chance of being called a ball if it is breaking sharply downward.
 I was not able to observe a clear effect like this in the data so I left it out of this model.
 
