@@ -69,9 +69,9 @@ Ultimately, the features I used to estimate strike probability were:
     - Runs from -1.0 on the outside edge of the zone to 1.0 on the inside edge
 - Normalized z position when crossing the plate
     - Runs from -1.0 on the low edge of the zone to 1.0 on the high edge
-- Two strikes and less than three balls
+- Whether there are two strikes and less than three balls
     - Set to 1.0 if there are two strikes and less than three balls, 0.0 otherwise
-- Three balls and less than two strikes
+- Whether there are tree balls and less than two strikes
     - Set to 1.0 if there are three balls and less than two strikes, 0.0 otherwise
 
 Here's what the data processing code looks like if you're curious.
