@@ -128,8 +128,8 @@ Essentially I have three separate classifiers here: one for 0-2, 1-2, and 2-2 co
 ![Inside corner neighborhood](/assets/img/2024/08/neighborhood_cat.png){: .center width="60%"}
 
 # Results
-With this KNN method it's easy to evaluate catcher.
-For each catcher, look at the pitches they recieved.
+With this KNN method it's easy to evaluate a catcher.
+For each catcher, look at the pitches they received.
 For each pitch find the neighborhood pitches and calculate the fraction that were called strikes. 
 Add up these fractions to determine the number of expected strikes.
 Compare that sum to the total number of strike calls they got.
