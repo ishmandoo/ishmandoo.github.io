@@ -27,11 +27,9 @@ The unit here is half plate-widths since -1 to 1 is a full width.
 
 The color represents the probability of a pitch being called a strike based on location.
 The strikezone is a bit wider than the nominal 17 inches of the plate.
-In fact, a pitch at normalized coordinate 1.5 (that is, 0.5 plate half-widths inside to a righty) has a 10% chance of being called a strike.
 Most of this is due to the width of the ball itself (about 3 inches or or 0.17 plate widths).
-Part seems to be due to umpire judgement. 
 
-I ended up doing a bit more feature engineering.
+Next, here a few fun details I found and tried to account for.
 
 ## Batter handedness
 I noticed that the strikezone looks a bit different for left handed and right handed hitters.
@@ -44,7 +42,7 @@ I decided to correct for this by reversing the x direction of the strike zone fo
 
 These plots show the just the x coordinate of the strike zone for lefties and righties.
 In the left plot, the yellow band is offset to the negative-x side for lefties compared to righties.
-After correcting for handedness by reversing x for lefties, this offset is mostly gone on in the right plot.
+After correcting for handedness by reversing x for lefties, this offset is mostly gone in the right plot.
 
 ## Two strikes, three balls
 I also noticed that umpires are less likely to call a marginal pitch a strike when there are two strikes.
@@ -110,14 +108,14 @@ balls_strikes = (
 # K Nearest Neighbors
 I used a method called [K Nearest Neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)(KNN) to establish the expected strike probability for each pitch.
 For each pitch, I look up the 25 most similar pitches.
-The set of similar pitches is called the "neighborhood" and and (in this case) it's determined based on distance when plotted on a graph.
+The set of similar pitches is called the "neighborhood" and (in this case) it's determined based on distance when plotted on a graph.
 For example, the neighborhood might look like this for a pitch near the inside corner for a right handed hitter.
 
 ![Inside corner neighborhood](/assets/img/2024/08/neighborhood.png){: .center width="60%"}
 
 The expected strike probability is defined as the the fraction of pitches in the neighborhood that were called strikes.
 In the data I used, the neighborhoods are much smaller than the one depicted.
-There are so many pitches than the 25 nearest ones are close together.
+There are so many pitches that the 25 nearest ones are close together.
 
 Two of the features I used (two strikes less than three balls, three balls less than two strikes) have values that are either 0 or 1.
 These have an interesting effect on the neighborhood calculation.
@@ -128,7 +126,7 @@ Because of the relative scales involved, neighborhoods will almost always includ
 # Results
 With this KNN method it's easy to evaluate catcher.
 For each catcher, look at the pitches they recieved.
-For each pitch find the neighborhoot pitches and calculate the fraction that were called strikes. 
+For each pitch find the neighborhood pitches and calculate the fraction that were called strikes. 
 Add up these fractions to determine the number of expected strikes.
 Compare that sum to the total number of strike calls they got.
 
