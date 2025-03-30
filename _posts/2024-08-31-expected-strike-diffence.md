@@ -9,7 +9,7 @@ comments: []
 
 In this post I'll build a simple catcher framing metric I'm calling Expected Strike Difference.
 The approach is similar to some other recent posts of mine like [this one](/baseball/2024/03/03/team-fielding.html).
-Using [pybaseball]((https://github.com/jldbc/pybaseball)) Statcast data I'll train a classifier to predict whether a pitch will be called a ball or a strike based on the location where it crosses the plate and the measured transverse velocities.
+Using [pybaseball]((https://github.com/jldbc/pybaseball)) Statcast data I'll train a classifier to predict whether a pitch will be called a ball or a strike based on the location where it crosses the plate, the count, handedness of the hitter.
 Then I'll go through every pitch caught by each catcher and count up the differences between the predicted strikes and called strikes.
 This difference theoretically represents the number of extra strikes stolen (or lost) compared to an average catcher.
 
@@ -59,7 +59,7 @@ Similarly, they are less likely to call a ball with three balls and less than tw
 
 ## Pitch movement
 
-My intiution was that the transverse velocity (the left-right and up-down velocity) of the pitch will have an influence on the umpire's call.
+My intuition was that the transverse velocity (the left-right and up-down velocity) of the pitch will have an influence on the umpire's call.
 For example, I expected a pitch at the bottom of the zone to have a better chance of being called a ball if it is breaking sharply downward.
 I was not able to observe a clear effect like this in the data so I left it out of this model.
 
@@ -69,9 +69,9 @@ Ultimately, the features I used to estimate strike probability were:
     - Runs from -1.0 on the outside edge of the zone to 1.0 on the inside edge
 - Normalized z position when crossing the plate
     - Runs from -1.0 on the low edge of the zone to 1.0 on the high edge
-- Two strikes and less than three balls
+- Whether there are two strikes and less than three balls
     - Set to 1.0 if there are two strikes and less than three balls, 0.0 otherwise
-- Three balls and less than two strikes
+- Whether there are tree balls and less than two strikes
     - Set to 1.0 if there are three balls and less than two strikes, 0.0 otherwise
 
 Here's what the data processing code looks like if you're curious.
@@ -121,12 +121,15 @@ There are so many pitches that the 25 nearest ones are close together.
 Two of the features I used (two strikes less than three balls, three balls less than two strikes) have values that are either 0 or 1.
 These have an interesting effect on the neighborhood calculation.
 Because of the relative scales involved, neighborhoods will almost always include only pitches with the same value for these discrete features.
+This is okay though.
+
+Essentially I have three separate classifiers here: one for 0-2, 1-2, and 2-2 counts when umpires are more inclined to call a ball, one for 3-0 and 3-1 counts when umpires are more likely to call a strike, and one for all other counts.
 
 ![Inside corner neighborhood](/assets/img/2024/08/neighborhood_cat.png){: .center width="60%"}
 
 # Results
-With this KNN method it's easy to evaluate catcher.
-For each catcher, look at the pitches they recieved.
+With this KNN method it's easy to evaluate a catcher.
+For each catcher, look at the pitches they received.
 For each pitch find the neighborhood pitches and calculate the fraction that were called strikes. 
 Add up these fractions to determine the number of expected strikes.
 Compare that sum to the total number of strike calls they got.
