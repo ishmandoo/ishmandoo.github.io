@@ -8,8 +8,8 @@ comments: []
 ---
 
 I live in Greater Boston, but I've been a Yankees fan my whole life.
-The season is getting started and I have a new baby, so I've been listening to every episode of the best baseball podcast, [Talkin' Yanks](https://www.youtube.com/channel/UCzcaZfAmCJlCSoBOiNWx20Q).
-Hosts Jomboy and Jake spend a lot of time discussing, critiquing, and guessing the batting order.
+The season is getting started and I have a new baby, so I've been listening to every episode of my favorite baseball podcast, [Talkin' Yanks](https://www.youtube.com/channel/UCzcaZfAmCJlCSoBOiNWx20Q).
+Hosts Jomboy and Jake spend a lot of time discussing, critiquing, and guessing Yankees batting orders.
 It's a fun topic, but my intuition is that the batting order isn't that important. 
 This post is my attempt at estimating how important batting order is.
 
@@ -63,6 +63,7 @@ What happens if we remove Aaron Judge from this lineup.
 He's the best hitter here by a decent margin, so it should have a big effect.
 Here's what the run distribution looks like if you replace Judge with a second copy of leadoff hitter Gleyber Torres.
 
+![](/assets/img/2025/run_dist_no_judge.png){: .center}
 
 Pretty big effect.
 Replacing Judge with another Gleyber brings the 2024 Yankees from 5.4 to 4.7 runs per game.
