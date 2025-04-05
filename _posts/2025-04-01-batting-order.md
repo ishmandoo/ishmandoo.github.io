@@ -21,7 +21,7 @@ I used a _Monte Carlo_ approach to generate distributions of runs scored given d
 This is a fancy way of saying that I simulated a lot of baseball games with different lineups, and used the outcomes of those simluations as distributions of expected run production. 
 By comparing these distributions across different batting orders, I could evaluate which lineups are more effective.
 
-To implement the simulation, I built a simple model.
+To implement the simulation, I modeled the game in the simplest way I could.
 As you'll see, I think it does a decent job of capturing reality.
 I defined hitters as a set of static per-plate-appearance probabilities.
 The plate appearance outcomes I modeled are walk, single, double, triple, and home run.
@@ -50,16 +50,17 @@ The pitcher is of course an important factor, but my model essentially always as
 Similarly, factors like the defense, runners, lefty/righty splits, extra innings, and emotion, are not modeled.
 
 With that caveat, here is the simulated distribution of the runs scored in each game by the 2024 Yankees.
+I'll focus on the Ya
 
 ![](/assets/img/2025/run_dist_comp.png){: .center}
 
-I used 2024 data from Baseball Reference to define the plate appearance outcome probabilities for a linup of Gleyber Torres, Juan Soto, Aaron Judge, Austin Wells, Giancarlo Stanton, Jazz Chisolm Jr., Anthony Rizzo, Anthony Volpe, and Alex Verdugo.
+I used 2024 data from Baseball Reference to define the plate appearance outcome probabilities for a lineup of Gleyber Torres, Juan Soto, Aaron Judge, Austin Wells, Giancarlo Stanton, Jazz Chisolm Jr., Anthony Rizzo, Anthony Volpe, and Alex Verdugo.
 
 Alongside the simulation results, I plotted the actual per-game run distribution from the same year.
 The model lines well with the real data.
 
 Before messing with batting orders, a sanity check.
-What happens if we remove Aaron Judge from this lineup.
+What happens if we remove Aaron Judge from this lineup?
 He's the best hitter here by a decent margin, so it should have a big effect.
 Here's what the run distribution looks like if you replace Judge with a second copy of leadoff hitter Gleyber Torres.
 
@@ -68,12 +69,13 @@ Here's what the run distribution looks like if you replace Judge with a second c
 Pretty big effect.
 Replacing Judge with another Gleyber brings the 2024 Yankees from 5.4 to 4.7 runs per game.
 Incidentally, if you multiply this per-game difference by the number of games Judge played, subtract the total difference from the Yankees' 2024 total runs scored, and plug into a [Pythagorean win-loss](https://en.wikipedia.org/wiki/Pythagorean_expectation) formula, you get a value of about 10 Wins Above Gleyber or 11.7 Wins Above Replacement.
+This is pretty close to his 2024 fWAR of 11.2. 
 Nice to see different methods agree.
 
 # The results
 
 Now let's get to batting order. 
-Here's what happens if we do something pretty extreme and slide Judge from 3rd in the linup, where he typically hit in 2024, all the way down to 9th.
+Here's what happens if we do something pretty extreme and slide Judge from 3rd in the lineup, where he typically hit in 2024, all the way down to 9th.
 
 ![](/assets/img/2025/run_dist_judge_9.png){: .center}
 
