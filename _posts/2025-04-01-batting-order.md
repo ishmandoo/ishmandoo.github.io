@@ -113,7 +113,8 @@ So alternate lefties and righties, put the best hitters at the top, and stop wor
 
 Jake sucks (not really).
 
-# Update:
+# Update
+
 In response to [Reddit commenters u/HyperactiveBaldMonk and u/BatJewOfficial](https://www.reddit.com/r/Sabermetrics/comments/1jtva4c/comment/mlxjtxd/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button), here are similar results for the Bryce Harper and the 2024 Phillies.
 
 ![](/assets/img/2025/runs_vs_pos_harper.png){: .center}
